@@ -1,0 +1,6 @@
+{
+  "name": "ReaderON",
+  "description": "Bilingual educational tool for OCR text extraction, reading practice, and AI-powered pronunciation analysis.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": []
+}
