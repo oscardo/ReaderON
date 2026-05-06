@@ -134,7 +134,7 @@ export const COGNATES_DATA: Cognate[] = [
   { english: "Course", spanish: "Curso", pronunciation: "kɔːrs", intonation: "Falling", type: 'COGNATE' },
   { english: "Critical", spanish: "Crítico", pronunciation: "ˈkrɪtɪkl", intonation: "Falling", type: 'COGNATE' },
   { english: "Cycle", spanish: "Ciclo", pronunciation: "ˈsaɪkl", intonation: "Falling", type: 'COGNATE' },
-  { english: "Danger", spanish: "Danza (Danger no)", pronunciation: "ˈdeɪndʒər", intonation: "Falling", type: 'COGNATE', spanish: "Peligro (Not a direct cognate for Danza)" },
+  { english: "Danger", spanish: "Peligro (Not a direct cognate for Danza)", pronunciation: "ˈdeɪndʒər", intonation: "Falling", type: 'COGNATE' },
   { english: "Data", spanish: "Datos", pronunciation: "ˈdeɪtə", intonation: "Falling", type: 'COGNATE' },
   { english: "Decorate", spanish: "Decorar", pronunciation: "ˈdekəreɪt", intonation: "Falling", type: 'COGNATE' },
   { english: "Defend", spanish: "Defender", pronunciation: "dɪˈfend", intonation: "Falling", type: 'COGNATE' },

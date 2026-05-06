@@ -25,11 +25,12 @@ export interface PlayFile {
   ieltsFeedback?: string;
   ieltsScores?: IELTSDetailedScores;
   audioUrl?: string;
+  originalImageBase64?: string;
   updatedAt?: string;
   notes?: { word: string, def: string }[];
 }
 
-export type AppMode = 'HOME' | 'CAPTURE' | 'PRACTICE' | 'ANALYSIS' | 'HISTORY' | 'STUDY' | 'EBOOKS' | 'EBOOK_DETAIL' | 'PHONETICS' | 'COGNATES';
+export type AppMode = 'HOME' | 'CAPTURE' | 'PRACTICE' | 'ANALYSIS' | 'HISTORY' | 'STUDY' | 'EBOOKS' | 'EBOOK_DETAIL' | 'PHONETICS' | 'COGNATES' | 'SUAVE' | 'TRANSLATOR' | 'THOUSAND_WORDS' | 'THOUSAND_WORDS_2' | 'REGULAR_VERBS';
 
 export interface Cognate {
   english: string;
@@ -46,3 +47,22 @@ export interface AnalysisState {
   isAnalyzing: boolean;
   error?: string;
 }
+export interface WordPersistence {
+  words_id: string; // e.g., "tw1_1", "tw2_1001"
+  words: string;    // English
+  palabra: string;  // Spanish
+  definicion_ipa: string;
+  tipo_gramatical: string;
+  flags: number;    // 0 to 5
+  num_repeticiones: number;
+}
+
+export interface DictionaryEntry {
+  id_dictionary: string;
+  word: string;
+  word_lowercase: string;
+  list_of_abbreviations: string;
+  word_in_spanish: string;
+}
+
+// Version 0.0.1 feature 0.0.41

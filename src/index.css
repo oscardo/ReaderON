@@ -54,10 +54,22 @@
 :root.density-compact .gap-4 { gap: 0.5rem; }
 :root.density-compact .rounded-\[2rem\], :root.density-compact .rounded-\[2\.5rem\], :root.density-compact .rounded-\[3rem\] { border-radius: 1.25rem; }
 
-.play-text-red { color: #ffffff; background-color: #991b1b; font-weight: 700; border-radius: 4px; padding: 0 4px; } /* Darker red for better contrast */
-.play-text-amber-red { color: #ffffff; background-color: #9a3412; font-weight: 700; border-radius: 4px; padding: 0 4px; } /* White on dark orange */
-.play-text-yellow { color: #451a03; background-color: #facc15; font-weight: 700; border-radius: 4px; padding: 0 4px; } /* Dark brown on amber-yellow */
-.play-text-green { color: #064e3b; font-weight: 700; background-color: #dcfce7; border-radius: 4px; padding: 0 4px; } /* Dark green on light green */
+.play-text-high { 
+    color: #1e293b; /* Regular dark text for perfect pronunciation */
+    font-weight: 400; 
+} 
+.play-text-mid { 
+    color: #475569; /* Slate-600 */
+    font-weight: 400;
+} 
+.play-text-low { 
+    color: #ef4444; /* red-500 */
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: #fca5a5; /* red-300 */
+    font-weight: 500;
+} 
+
 @media print {
   header, 
   button, 

@@ -2,12 +2,15 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 type FontSize = 'small' | 'medium' | 'large';
 type Density = 'comfortable' | 'compact';
+type ProficiencyLevel = 'B1' | 'B2' | 'C1';
 
 interface Settings {
   fontSize: FontSize;
   speechRate: number;
   density: Density;
   reducedMotion: boolean;
+  proficiencyLevel: ProficiencyLevel;
+  gemmaModelPath: string;
 }
 
 interface SettingsContextType {
@@ -20,11 +23,14 @@ const SettingsContext = createContext<SettingsContextType | undefined>(undefined
 export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [settings, setSettings] = useState<Settings>(() => {
     const saved = localStorage.getItem('app-settings');
-    return saved ? JSON.parse(saved) : {
-      fontSize: 'medium',
-      speechRate: 1.0,
-      density: 'comfortable',
-      reducedMotion: false,
+    const parsed = saved ? JSON.parse(saved) : {};
+    return {
+      fontSize: parsed.fontSize || 'medium',
+      speechRate: parsed.speechRate || 1.0,
+      density: parsed.density || 'comfortable',
+      reducedMotion: parsed.reducedMotion || false,
+      proficiencyLevel: parsed.proficiencyLevel || 'B2',
+      gemmaModelPath: parsed.gemmaModelPath || '',
     };
   });
 

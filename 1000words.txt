@@ -1,0 +1,1000 @@
+the - el, la, los, las
+be - ser, estar
+to - a, hacia, para
+of - de
+and - y
+a / an - un, una
+in - en, dentro de
+that - que, ese, esa, aquel
+have - tener, haber
+I - yo
+it - lo, la, ello (pronombre para cosas/animales)
+for - para, por
+not - no
+on - en, sobre
+with - con
+he - él
+as - como, tan, mientras
+you - tú, usted, ustedes
+do - hacer
+at - en, a (lugar/tiempo)
+this - este, esta, esto
+but - pero, sino
+his - su (de él)
+by - por, mediante
+from - de, desde
+they - ellos, ellas
+we - nosotros, nosotras
+say - decir
+her - su (de ella), a ella
+she - ella
+or - o
+will - (auxiliar para futuro), voluntad
+my - mi, mis
+one - un, uno, una
+all - todo, todos
+would - (auxiliar para condicional)
+there - allí, allá, ahí
+their - su, sus (de ellos/ellas)
+what - qué, lo que
+so - así, tan, entonces
+up - arriba, hacia arriba
+out - fuera, afuera
+if - si (condicional)
+about - sobre, acerca de, más o menos
+who - quién, que
+get - obtener, conseguir, llegar
+which - cual, que
+go - ir
+me - me, a mí
+when - cuando, cuándo
+make - hacer, fabricar
+can - poder, lata
+like - gustar, como (similitud)
+time - tiempo, vez
+no - no
+just - justo, solo, acabar de
+him - le, lo, a él
+know - saber, conocer
+take - tomar, llevar
+people - gente, personas
+into - en, dentro de, hacia adentro
+year - año
+your - tu, su (de usted/ustedes)
+good - bueno, bien
+some - algún, algunos, algo de
+could - podría, pudo
+them - los, las, les, a ellos
+see - ver
+other - otro, otra
+than - que (para comparar)
+then - entonces, luego
+now - ahora
+look - mirar, parecer
+only - solo, solamente, único
+come - venir
+its - su, sus (de una cosa/animal)
+over - sobre, por encima de, terminado
+think - pensar, creer
+also - también
+back - atrás, de vuelta, espalda
+after - después, después de
+use - usar, uso
+two - dos
+how - cómo, cuán
+our - nuestro, nuestra
+work - trabajo, trabajar
+first - primero, primer
+well - bien, pozo
+way - camino, manera, forma
+even - incluso, hasta, par (número)
+new - nuevo
+want - querer
+because - porque (respuesta)
+any - cualquier, alguno, ningún
+these - estos, estas
+give - dar
+day - día
+most - la mayoría, el más (superlativo)
+us - nos, a nosotros
+here - aquí
+thing - cosa
+much - mucho
+many - muchos, muchas
+those - esos, aquellos
+tell - decir, contar
+great - gran, grande, genial
+child - niño, niña
+call - llamar, llamada
+before - antes, antes de
+man - hombre
+through - a través de
+long - largo, mucho tiempo
+down - abajo, hacia abajo
+where - donde, dónde
+should - debería
+state - estado, afirmar
+need - necesitar, necesidad
+feel - sentir
+become - llegar a ser, convertirse en
+between - entre (dos)
+high - alto
+really - realmente, muy
+something - algo
+family - familia
+own - propio, poseer
+leave - dejar, abandonar, salir
+put - poner
+old - viejo, antiguo
+while - mientras, un rato
+mean - significar, querer decir, malo/mezquino
+keep - mantener, guardar, continuar
+student - estudiante
+why - por qué
+let - dejar, permitir
+same - mismo, igual
+big - grande
+group - grupo
+begin - empezar, comenzar
+seem - parecer
+country - país, campo
+help - ayudar, ayuda
+talk - hablar, charla
+turn - girar, turno
+problem - problema
+every - cada, todos los
+start - empezar, inicio
+hand - mano
+might - podría, poder (probabilidad)
+show - mostrar, espectáculo
+part - parte
+against - contra, en contra de
+place - lugar, colocar
+such - tal, semejante
+again - otra vez, de nuevo
+few - pocos, unas pocas
+case - caso
+week - semana
+company - compañía, empresa
+system - sistema
+each - cada, cada uno
+right - correcto, derecho, derecha
+program - programa
+hear - oír
+question - pregunta, cuestionar
+during - durante
+play - jugar, tocar (instrumento), obra de teatro
+government - gobierno
+run - correr, administrar/dirigir
+small - pequeño
+number - número
+off - apagado, fuera de
+always - siempre
+move - mover, mudarse, movimiento
+point - punto, apuntar
+believe - creer
+hold - sostener, mantener, aguantar
+today - hoy
+bring - traer
+happen - suceder, pasar
+next - próximo, siguiente
+without - sin
+water - agua
+live - vivir, en vivo
+room - habitación, espacio
+mother - madre
+area - área, zona
+money - dinero
+story - historia, cuento
+fact - hecho, realidad
+month - mes
+lot - mucho, montón, lote
+study - estudiar, estudio
+book - libro, reservar
+eye - ojo
+job - trabajo, empleo
+word - palabra
+business - negocio, empresa
+issue - problema, asunto, emitir
+side - lado
+kind - tipo, clase, amable
+four - cuatro
+head - cabeza, dirigir
+far - lejos
+black - negro
+both - ambos, los dos
+little - poco, pequeño
+yes - sí
+since - desde, ya que
+around - alrededor, cerca de
+friend - amigo, amiga
+important - importante
+father - padre
+sit - sentarse
+away - lejos, fuera
+until - hasta
+power - poder, energía
+hour - hora
+game - juego, partido
+often - a menudo
+yet - aún, todavía, sin embargo
+line - línea, fila
+political - político
+end - fin, final, terminar
+among - entre (varios)
+ever - alguna vez, siempre
+stand - estar de pie, soportar
+bad - malo
+lose - perder
+however - sin embargo
+member - miembro
+pay - pagar
+law - ley
+meet - conocer, reunirse
+car - coche, carro
+city - ciudad
+almost - casi
+include - incluir
+continue - continuar
+set - poner, establecer, conjunto
+later - más tarde, después
+community - comunidad
+name - nombre
+five - cinco
+once - una vez
+white - blanco
+least - menos, mínimo
+president - presidente
+learn - aprender
+real - real, verdadero
+change - cambiar, cambio
+team - equipo
+minute - minuto
+best - mejor
+several - varios
+idea - idea
+kid - niño, bromear
+body - cuerpo
+information - información
+nothing - nada
+ago - hace (tiempo)
+lead - guiar, liderar, plomo
+social - social
+understand - entender
+whether - si (condicional de opción)
+watch - mirar, reloj
+together - juntos
+follow - seguir
+parent - padre o madre
+stop - parar, detener
+face - cara, enfrentar
+anything - cualquier cosa, nada
+create - crear
+public - público
+already - ya
+speak - hablar
+others - otros
+read - leer
+level - nivel
+allow - permitir
+add - añadir, sumar
+office - oficina
+spend - gastar, pasar (tiempo)
+door - puerta
+health - salud
+person - persona
+art - arte
+sure - seguro
+war - guerra
+history - historia
+party - fiesta, partido
+within - dentro de
+grow - crecer, cultivar
+result - resultado
+open - abierto, abrir
+morning - mañana
+walk - caminar, paseo
+reason - razón
+low - bajo
+win - ganar
+research - investigación, investigar
+girl - niña, chica
+guy - chico, tipo
+early - temprano
+food - comida
+moment - momento
+himself - él mismo
+air - aire
+teacher - profesor, profesora
+force - fuerza, forzar
+offer - ofrecer, oferta
+enough - suficiente
+education - educación
+across - a través de, al otro lado
+although - aunque
+remember - recordar
+foot - pie
+second - segundo
+boy - niño, chico
+maybe - tal vez, quizás
+toward - hacia
+able - capaz
+age - edad
+policy - política (regla, póliza)
+everything - todo
+love - amor, amar
+process - proceso
+music - música
+including - incluyendo
+consider - considerar
+appear - aparecer, parecer
+actually - en realidad, de hecho
+buy - comprar
+probably - probablemente
+human - humano
+wait - esperar
+serve - servir
+market - mercado
+die - morir
+send - enviar
+expect - esperar (que algo pase)
+home - hogar, casa
+sense - sentido
+build - construir
+stay - quedarse
+fall - caer, otoño
+oh - oh
+nation - nación
+plan - plan, planear
+cut - cortar
+college - universidad, facultad
+interest - interés
+death - muerte
+course - curso, plato
+someone - alguien
+experience - experiencia
+behind - detrás
+reach - alcanzar, llegar
+local - local
+kill - matar
+six - seis
+remain - permanecer, quedar
+effect - efecto
+yeah - sí (informal)
+suggest - sugerir
+class - clase
+control - control, controlar
+raise - levantar, criar, aumentar
+care - cuidado, importar
+perhaps - quizás
+late - tarde
+hard - duro, difícil
+field - campo
+else - más, otro
+pass - pasar, aprobar
+former - anterior, antiguo
+sell - vender
+major - principal, mayor
+sometimes - a veces
+require - requerir
+along - a lo largo de
+development - desarrollo
+themselves - ellos mismos
+report - informe, reportar
+role - papel, rol
+better - mejor
+economic - económico
+effort - esfuerzo
+decide - decidir
+rate - tasa, tarifa, calificar
+strong - fuerte
+possible - posible
+heart - corazón
+drug - droga, medicamento
+leader - líder
+light - luz, ligero
+voice - voz
+wife - esposa
+whole - entero, todo
+police - policía
+mind - mente, importar
+finally - finalmente
+pull - tirar, jalar
+return - volver, regresar
+free - libre, gratis
+military - militar
+price - precio
+less - menos
+according - según
+decision - decisión
+explain - explicar
+son - hijo
+hope - esperanza, esperar (desear)
+develop - desarrollar
+view - vista, ver
+relationship - relación
+carry - llevar, cargar
+town - pueblo, ciudad pequeña
+road - carretera, camino
+drive - conducir, manejar
+arm - brazo, armar
+true - verdadero
+federal - federal
+break - romper, descanso
+difference - diferencia
+thank - agradecer
+receive - recibir
+value - valor, valorar
+international - internacional
+building - edificio
+action - acción
+full - lleno, completo
+model - modelo
+join - unir, unirse
+season - temporada, estación
+society - sociedad
+tax - impuesto
+director - director
+position - posición
+player - jugador
+agree - estar de acuerdo
+especially - especialmente
+record - registro, grabar
+pick - recoger, elegir
+wear - llevar puesto, usar (ropa)
+paper - papel
+special - especial
+space - espacio
+ground - suelo, tierra
+form - forma, formar
+support - apoyar, soporte
+event - evento
+official - oficial
+whose - de quién, cuyo
+matter - materia, importar
+everyone - todos, cada uno
+center - centro
+couple - pareja, par
+site - sitio, lugar
+project - proyecto
+hit - golpear, éxito
+base - base, basar
+activity - actividad
+star - estrella
+table - mesa
+court - tribunal, cancha
+produce - producir
+eat - comer
+teach - enseñar
+oil - aceite, petróleo
+half - mitad, medio
+situation - situación
+easy - fácil
+cost - costo, costar
+industry - industria
+figure - figura, calcular
+street - calle
+image - imagen
+itself - sí mismo (cosa/animal)
+phone - teléfono
+either - o, cualquiera, tampoco
+data - datos
+cover - cubrir, portada
+quite - bastante
+picture - foto, cuadro, imagen
+clear - claro, despejar
+practice - práctica, practicar
+piece - pedazo, pieza
+land - tierra, aterrizar
+recent - reciente
+describe - describir
+product - producto
+doctor - doctor, médico
+wall - pared, muro
+patient - paciente
+worker - trabajador
+news - noticias
+test - prueba, examinar
+movie - película
+certain - cierto, seguro
+north - norte
+personal - personal
+simply - simplemente
+third - tercero
+technology - tecnología
+catch - atrapar, agarrar
+step - paso, escalón
+baby - bebé
+computer - computadora, ordenador
+type - tipo, escribir a máquina
+attention - atención
+draw - dibujar, atraer
+film - película, filmar
+tree - árbol
+source - fuente, origen
+red - rojo
+nearly - casi
+organization - organización
+choose - elegir, escoger
+cause - causa, causar
+hair - pelo, cabello
+century - siglo
+evidence - evidencia, prueba
+window - ventana
+difficult - difícil
+listen - escuchar
+soon - pronto
+culture - cultura
+billion - mil millones
+chance - oportunidad, posibilidad
+brother - hermano
+energy - energía
+period - período
+summer - verano
+realize - darse cuenta
+hundred - cien
+available - disponible
+plant - planta, plantar
+likely - probable, probablemente
+opportunity - oportunidad
+term - término, plazo
+short - corto, bajo
+letter - carta, letra
+condition - condición
+choice - elección, opción
+single - único, soltero
+rule - regla, gobernar
+daughter - hija
+administration - administración
+south - sur
+husband - esposo, marido
+floor - suelo, piso
+campaign - campaña
+material - material
+population - población
+economy - economía
+medical - médico (adjetivo)
+hospital - hospital
+church - iglesia
+close - cerrar, cerca
+thousand - mil
+risk - riesgo
+current - actual, corriente
+fire - fuego, despedir (de un trabajo)
+future - futuro
+wrong - equivocado, incorrecto, mal
+involve - involucrar, implicar
+defense - defensa
+anyone - alguien, cualquiera
+increase - aumentar, incremento
+security - seguridad
+bank - banco
+myself - yo mismo
+certainly - ciertamente, desde luego
+west - oeste
+sport - deporte
+board - tablero, pizarra, junta
+seek - buscar
+per - por (ej. por hora)
+subject - sujeto, tema, asignatura
+officer - oficial, agente
+private - privado
+rest - resto, descanso, descansar
+behavior - comportamiento
+deal - trato, acuerdo, lidiar
+performance - rendimiento, actuación
+fight - pelear, luchar, pelea
+throw - lanzar, tirar
+top - cima, parte superior, mejor
+quickly - rápidamente
+past - pasado
+goal - objetivo, meta, gol
+bed - cama
+order - orden, pedir, ordenar
+author - autor
+fill - llenar
+drop - dejar caer, caer, gota
+represent - representar
+focus - enfoque, enfocarse
+foreign - extranjero, exterior
+blood - sangre
+upon - sobre (formal)
+agency - agencia
+push - empujar
+nature - naturaleza
+color - color
+recently - recientemente
+store - tienda, almacenar
+reduce - reducir
+sound - sonido, sonar
+note - nota, notar
+fine - bien, fino, multa
+near - cerca, cerca de
+movement - movimiento
+enter - entrar
+share - compartir, acción (finanzas)
+common - común
+poor - pobre
+natural - natural
+race - raza, carrera
+concern - preocupación, incumbir
+series - serie
+significant - significativo
+similar - similar
+hot - caliente, caluroso
+language - idioma, lenguaje
+usually - usualmente, por lo general
+response - respuesta
+dead - muerto
+animal - animal
+factor - factor
+decade - década
+article - artículo
+shoot - disparar, grabar (video)
+east - este (punto cardinal)
+save - salvar, guardar, ahorrar
+seven - siete
+artist - artista
+scene - escena
+stock - acciones, inventario
+career - carrera (profesional)
+despite - a pesar de
+central - central
+eight - ocho
+thus - por lo tanto, así
+treatment - tratamiento
+beyond - más allá de
+happy - feliz
+protect - proteger
+approach - enfoque, acercamiento, acercarse
+lie - mentir, mentira, yacer
+size - tamaño, talla
+dog - perro
+fund - fondo, financiar
+serious - serio, grave
+occur - ocurrir
+media - medios (de comunicación)
+ready - listo, preparado
+sign - señal, letrero, firmar
+thought - pensamiento (también pasado de think)
+list - lista, listar
+individual - individual, individuo
+simple - simple, sencillo
+quality - calidad
+pressure - presión
+accept - aceptar
+answer - respuesta, responder
+resource - recurso
+identify - identificar
+left - izquierda, dejado (pasado de leave)
+meeting - reunión
+determine - determinar
+prepare - preparar
+disease - enfermedad
+whatever - lo que sea
+success - éxito
+argue - discutir, argumentar
+cup - taza, copa
+particularly - particularmente
+amount - cantidad
+ability - capacidad, habilidad
+staff - personal, equipo de trabajo
+recognize - reconocer
+indicate - indicar
+character - personaje, carácter
+growth - crecimiento
+loss - pérdida
+degree - grado, título universitario
+wonder - preguntarse, maravilla
+attack - ataque, atacar
+herself - ella misma
+region - región
+television - televisión
+box - caja
+TV - tele, televisión
+training - entrenamiento, formación
+pretty - bonito, bastante
+trade - comercio, comerciar
+election - elección
+everybody - todos, todo el mundo
+physical - físico
+lay - poner, colocar
+general - general
+feeling - sentimiento, sensación
+standard - estándar, norma
+bill - cuenta, factura, proyecto de ley
+message - mensaje
+fail - fallar, fracasar, suspender
+outside - fuera, afuera
+arrive - llegar
+analysis - análisis
+benefit - beneficio, beneficiar
+sex - sexo
+forward - hacia adelante
+lawyer - abogado
+present - presente, regalo, presentar
+section - sección
+environmental - ambiental
+glass - vaso, vidrio, cristal
+skill - habilidad, destreza
+sister - hermana
+PM - PM (después del mediodía)
+professor - profesor (universitario)
+operation - operación
+financial - financiero
+crime - crimen, delito
+stage - etapa, escenario
+ok - de acuerdo, bien
+compare - comparar
+authority - autoridad
+miss - perder (un bus/tren), extrañar, fallar
+design - diseño, diseñar
+sort - tipo, ordenar
+act - actuar, acto
+ten - diez
+knowledge - conocimiento
+gun - arma (de fuego), pistola
+station - estación
+blue - azul
+strategy - estrategia
+truth - verdad
+trouble - problema, lío, apuro
+claim - reclamar, afirmación
+relation - relación
+cold - frío, resfriado
+environment - medio ambiente
+institution - institución
+memory - memoria, recuerdo
+card - tarjeta, carta (juego)
+seat - asiento
+cell - célula, celda, celular
+establish - establecer
+nice - agradable, simpático
+trial - juicio, prueba
+expert - experto
+spring - primavera, resorte
+firm - firme, empresa
+democrat - demócrata
+radio - radio
+visit - visitar, visita
+management - gestión, administración
+avoid - evitar
+imagine - imaginar
+tonight - esta noche
+huge - enorme
+ball - pelota, balón
+finish - terminar, acabar
+yourself - tú mismo, a ti mismo
+theory - teoría
+impact - impacto
+respond - responder
+statement - declaración, afirmación
+maintain - mantener
+charge - cargo, cobrar, cargar
+popular - popular
+traditional - tradicional
+onto - sobre, hacia
+reveal - revelar
+direction - dirección
+weapon - arma
+employee - empleado
+cultural - cultural
+contain - contener
+dark - oscuro, oscuridad
+peace - paz
+pain - dolor
+apply - aplicar, solicitar
+measure - medida, medir
+wide - ancho, amplio
+shake - agitar, temblar
+fly - volar, mosca
+interview - entrevista, entrevistar
+manage - gestionar, lograr, arreglárselas
+chair - silla
+fish - pez, pescado, pescar
+particular - particular, específico
+camera - cámara
+structure - estructura
+politics - política (como ciencia o profesión)
+perform - realizar, actuar, ejecutar
+bit - poco, pedazo
+weight - peso
+suddenly - de repente
+discover - descubrir
+candidate - candidato
+production - producción
+treat - tratar, invitar
+trip - viaje
+evening - tarde (al final del día), noche
+affect - afectar
+inside - adentro, interior
+conference - conferencia
+unit - unidad
+style - estilo
+adult - adulto
+worry - preocupar, preocupación
+range - rango, alcance, variedad
+mention - mencionar
+deep - profundo
+edge - borde, filo
+specific - específico
+writer - escritor
+trouble - problema, dificultad
+necessary - necesario
+throughout - a lo largo de, por todo
+challenge - desafío, reto
+fear - miedo, temer
+shoulder - hombro
+institution - institución
+middle - medio, centro
+sea - mar
+dream - sueño, soñar
+bar - bar, barra
+beautiful - hermoso, bonito
+property - propiedad
+instead - en su lugar, en vez de
+improve - mejorar
+stuff - cosas (informal)
+detail - detalle
+method - método
+sign - señal, letrero, firmar
+somebody - alguien
+magazine - revista
+hotel - hotel
+soldier - soldado
+reflect - reflejar
+heavy - pesado
+sexual - sexual
+bag - bolsa, bolso
+heat - calor, calentar
+marriage - matrimonio
+tough - duro, difícil, resistente
+sing - cantar
+surface - superficie
+purpose - propósito
+exist - existir
+pattern - patrón, modelo
+whom - a quien, al que
+skin - piel
+agent - agente
+owner - dueño, propietario
+machine - máquina
+gas - gas, gasolina
+ahead - adelante, hacia adelante
+generation - generación
+commercial - comercial, anuncio
+address - dirección, dirigirse a
+cancer - cáncer
+item - artículo, objeto
+reality - realidad
+coach - entrenador
+yard - patio, yarda (medida)
+beat - golpear, latir, derrotar
+violence - violencia
+total - total
+tend - tender a, soler
+investment - inversión
+discussion - discusión, debate
+finger - dedo
+garden - jardín
+notice - notar, darse cuenta, aviso
+collection - colección
+modern - moderno
+task - tarea
+partner - socio, pareja
+positive - positivo
+civil - civil
+kitchen - cocina (habitación)
+consumer - consumidor
+shot - disparo, tiro, intento
+budget - presupuesto
+wish - deseo, desear
+painting - pintura, cuadro
+scientist - científico
+safe - seguro
+agreement - acuerdo
+capital - capital
+mouth - boca
+nor - ni
+victim - víctima
+newspaper - periódico
+threat - amenaza
+responsibility - responsabilidad
+smile - sonrisa, sonreír
+attorney - abogado
+score - puntuación, marcador, anotar
+account - cuenta
+interesting - interesante
+audience - audiencia, público
+rich - rico
+dinner - cena
+figure - figura, cifra, calcular
+vote - voto, votar
+western - occidental
+relate - relacionar, identificarse
+travel - viajar, viaje
+debate - debate, debatir
+prevent - prevenir, evitar
+citizen - ciudadano
+majority - mayoría
+none - ninguno, nada
+front - frente, delantero
+born - nacido (nacer)
+admit - admitir
+senior - mayor, de último año, senior
+assume - asumir, suponer
+wind - viento
+key - llave, clave
+professional - profesional
+mission - misión
+fast - rápido
+alone - solo
+customer - cliente
+suffer - sufrir
+speech - discurso, habla
+successful - exitoso
+option - opción
+participant - participante
+southern - sureño, del sur
+fresh - fresco
+eventually - eventualmente, al final
+forest - bosque
+video - video
+global - global, mundial
+senate - senado
+reform - reforma, reformar
+access - acceso, acceder
+restaurant - restaurante
+judge - juez, juzgar
+publish - publicar
+relation - relación
+release - liberar, lanzar (producto), estreno
+bird - pájaro, ave
+opinion - opinión
+credit - crédito
+critical - crítico, fundamental
+corner - esquina, rincón
+concerned - preocupado
+recall - recordar, retirar (producto)
+version - versión
+stare - mirar fijamente
+safety - seguridad (física)
+effective - efectivo, eficaz
+neighborhood - vecindario, barrio
+original - original
+troop - tropa
+income - ingreso (dinero), renta
+directly - directamente
+hurt - herir, doler, lastimar
+species - especie
+immediately - inmediatamente
+track - pista, vía, rastrear
+basic - básico
+strike - huelga, golpear, ataque
+sky - cielo
+freedom - libertad
+absolutely - absolutamente
+plane - avión, plano
+nobody - nadie
+achieve - lograr, alcanzar
+object - objeto, objetar
+attitude - actitud
+labor - trabajo, mano de obra, parto
+refer - referir, remitir
+concept - concepto
+client - cliente
+powerful - poderoso
+perfect - perfecto
+nine - nueve
+therefore - por lo tanto
+conduct - conducta, conducir (una investigación)
+announce - anunciar
+conversation - conversación
+examine - examinar
+touch - tocar, toque, contacto
+please - por favor, complacer
+attend - asistir, atender
+completely - completamente
+variety - variedad
+sleep - dormir
+beach - playa

@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { PHONETIC_DATA, PhonemeData, PhonemeExample } from '../constants/phoneticData';
 import { COMPLEX_WORDS, ComplexWord } from '../constants/complexWords';
+import { useSettings } from '../context/SettingsContext';
 
 interface PhoneticSectionProps {
   onBack: () => void;
@@ -22,11 +23,19 @@ export const PhoneticSection: React.FC<PhoneticSectionProps> = ({ onBack, speakT
   const [isRecording, setIsRecording] = useState(false);
   const [currentTab, setCurrentTab] = useState<MainTab>('CHART');
   
+  // Real STT
+  const recognitionRef = useRef<any>(null);
+  const transcriptRef = useRef('');
+  const recordingTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const { settings } = useSettings();
+
   // New States for Multi-word Test
   const [testWords, setTestWords] = useState<{word: string, symbol?: string, translation?: string, intonation?: string}[]>([]);
   const [currentWordIdx, setCurrentWordIdx] = useState(0);
   const [wordScores, setWordScores] = useState<number[]>([]);
   const [isTestComplete, setIsTestComplete] = useState(false);
+  const [recordingTime, setRecordingTime] = useState(0);
+  const recordingIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const [gameHistory, setGameHistory] = useState<{score: number, date: string, type: string}[]>(() => {
     const saved = localStorage.getItem('phonetic_history');
     return saved ? JSON.parse(saved) : [];
@@ -81,27 +90,108 @@ export const PhoneticSection: React.FC<PhoneticSectionProps> = ({ onBack, speakT
     setGameMode(true);
   };
 
-  const simulateRecord = () => {
-    if (isRecording) return;
-    setIsRecording(true);
-    setTimeout(() => {
-      setIsRecording(false);
-      const score = Math.floor(Math.random() * 21) + 80; // 80-100 for better feel
-      const newScores = [...wordScores, score];
-      setWordScores(newScores);
+  // Real STT implementation
+  const toggleRecording = () => {
+    if (isRecording) {
+      stopRecording();
+    } else {
+      startRecording();
+    }
+  };
 
-      if (currentWordIdx < testWords.length - 1) {
-        // More words to go? Wait a bit then move on
-        setTimeout(() => {
-            setCurrentWordIdx(prev => prev + 1);
-        }, 1200);
-      } else {
-        // Test complete
-        const total = newScores.reduce((a, b) => a + b, 0);
-        saveToHistory(total, selectedPhoneme?.symbol || 'Global');
-        setIsTestComplete(true);
+  const startRecording = () => {
+    try {
+      const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        alert("Speech Recognition is not supported in this browser.");
+        return;
       }
-    }, 1500);
+      
+      transcriptRef.current = '';
+      recognitionRef.current = new SpeechRecognition();
+      recognitionRef.current.continuous = false;
+      recognitionRef.current.interimResults = false;
+      recognitionRef.current.lang = 'en-US';
+
+      recognitionRef.current.onresult = (event: any) => {
+        let currentTranscript = '';
+        for (let i = event.resultIndex; i < event.results.length; ++i) {
+          if (event.results[i].isFinal) {
+            currentTranscript += event.results[i][0].transcript;
+          }
+        }
+        transcriptRef.current += currentTranscript;
+      };
+
+      recognitionRef.current.onend = () => {
+        analyzeSpeech();
+      };
+
+      recognitionRef.current.start();
+      setIsRecording(true);
+      setRecordingTime(0);
+      
+      const startTime = Date.now();
+      recordingIntervalRef.current = setInterval(() => {
+        const elapsed = Date.now() - startTime;
+        setRecordingTime(elapsed);
+        if (elapsed >= 5000) {
+          stopRecording();
+        }
+      }, 50);
+
+    } catch (error) {
+      console.error(error);
+      setIsRecording(false);
+    }
+  };
+
+  const stopRecording = () => {
+    if (recordingIntervalRef.current) {
+      clearInterval(recordingIntervalRef.current);
+      recordingIntervalRef.current = null;
+    }
+    if (recordingTimerRef.current) {
+      clearTimeout(recordingTimerRef.current);
+      recordingTimerRef.current = null;
+    }
+    if (recognitionRef.current && isRecording) {
+      recognitionRef.current.stop();
+      setIsRecording(false);
+    }
+  };
+
+  const analyzeSpeech = () => {
+    setIsRecording(false);
+    const spoken = transcriptRef.current.trim().toLowerCase();
+    const targetWord = currentWord?.word?.toLowerCase().replace(/[^a-z0-9]/g, '') || '';
+    
+    // Exact or partial match check
+    const recognizedArray = spoken.split(/\s+/).filter(Boolean);
+    const isMatch = targetWord && recognizedArray.includes(targetWord);
+
+    // Adjust scoring strictly based on proficiency level
+    let minScore = 85;
+    let maxRange = 15;
+    
+    if (settings.proficiencyLevel === 'C1') {
+      minScore = 92;
+      maxRange = 8;
+    } else if (settings.proficiencyLevel === 'B1') {
+      minScore = 70;
+      maxRange = 30;
+    }
+
+    const score = isMatch ? (Math.floor(Math.random() * maxRange) + minScore) : (Math.floor(Math.random() * 5) + 0);
+    const newScores = [...wordScores, score];
+
+    setWordScores(newScores);
+
+    // Removed auto-advance setTimeout to allow manual "Retry" or "Continue"
+    if (currentWordIdx >= testWords.length - 1) {
+      const total = newScores.reduce((a, b) => a + b, 0);
+      saveToHistory(total, selectedPhoneme?.symbol || 'Global');
+    }
   };
 
   const currentWord = testWords[currentWordIdx];
@@ -109,7 +199,7 @@ export const PhoneticSection: React.FC<PhoneticSectionProps> = ({ onBack, speakT
   const currentTotal = wordScores.reduce((a, b) => a + b, 0);
 
   return (
-    <div className="min-h-screen bg-slate-50 p-4 pb-20">
+    <div className="min-h-screen bg-slate-50 p-4 pb-20 flex flex-col items-center">
       <AnimatePresence mode="wait">
         {!selectedPhoneme && !gameMode ? (
           <motion.div
@@ -117,7 +207,7 @@ export const PhoneticSection: React.FC<PhoneticSectionProps> = ({ onBack, speakT
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="max-w-4xl mx-auto space-y-8"
+            className="w-full max-w-4xl mx-auto space-y-8"
           >
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">
               <div className="flex items-center gap-4">
@@ -155,18 +245,28 @@ export const PhoneticSection: React.FC<PhoneticSectionProps> = ({ onBack, speakT
                   <h2 className="text-xs font-black text-indigo-500 uppercase tracking-widest pl-2 flex items-center gap-2">
                     <CheckCircle2 size={14} /> Vowels & Diphthongs
                   </h2>
-                  <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-3">
+                  <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 sm:gap-3">
                     {vowels.concat(diphthongs).map((p) => (
-                      <motion.button
+                      <motion.div
                         key={p.id}
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={() => setSelectedPhoneme(p)}
-                        className="aspect-square bg-white border-2 border-slate-100 rounded-2xl flex flex-col items-center justify-center gap-1 shadow-sm hover:border-indigo-200 transition-all group"
+                        className="relative group"
                       >
-                        <span className="text-2xl font-black text-indigo-600 group-hover:scale-110 transition-transform tracking-tight">/{p.symbol}/</span>
-                        <span className="text-[10px] font-bold text-slate-400 uppercase leading-none">{p.type || 'vowel'}</span>
-                      </motion.button>
+                        <motion.button
+                          whileHover={{ scale: 1.05, y: -2 }}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={() => setSelectedPhoneme(p)}
+                          className="w-full aspect-square bg-white border-2 border-slate-100 rounded-2xl flex flex-col items-center justify-center gap-1 shadow-sm hover:border-indigo-200 transition-all"
+                        >
+                          <span className="text-xl sm:text-2xl font-black text-indigo-600 tracking-tight">/{p.symbol}/</span>
+                          <span className="text-[10px] font-bold text-slate-400 uppercase leading-none">{p.type || 'vowel'}</span>
+                        </motion.button>
+                        <button 
+                          onClick={(e) => { e.stopPropagation(); speakText(p.examples[0].word); }}
+                          className="absolute top-1 right-1 p-1.5 bg-indigo-50 text-indigo-600 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"
+                        >
+                          <Volume2 size={10} />
+                        </button>
+                      </motion.div>
                     ))}
                   </div>
                 </section>
@@ -175,18 +275,28 @@ export const PhoneticSection: React.FC<PhoneticSectionProps> = ({ onBack, speakT
                   <h2 className="text-xs font-black text-emerald-500 uppercase tracking-widest pl-2 flex items-center gap-2">
                     <CheckCircle2 size={14} /> Consonants
                   </h2>
-                  <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-3">
+                  <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 sm:gap-3">
                     {consonants.map((p) => (
-                      <motion.button
+                      <motion.div
                         key={p.id}
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={() => setSelectedPhoneme(p)}
-                        className="aspect-square bg-white border-2 border-slate-100 rounded-2xl flex flex-col items-center justify-center gap-1 shadow-sm hover:border-emerald-200 transition-all group"
+                        className="relative group"
                       >
-                        <span className="text-2xl font-black text-emerald-600 group-hover:scale-110 transition-transform tracking-tight">/{p.symbol}/</span>
-                        <span className="text-[10px] font-bold text-slate-400 uppercase leading-none">{p.type}</span>
-                      </motion.button>
+                        <motion.button
+                          whileHover={{ scale: 1.05, y: -2 }}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={() => setSelectedPhoneme(p)}
+                          className="w-full aspect-square bg-white border-2 border-slate-100 rounded-2xl flex flex-col items-center justify-center gap-1 shadow-sm hover:border-emerald-200 transition-all"
+                        >
+                          <span className="text-xl sm:text-2xl font-black text-emerald-600 tracking-tight">/{p.symbol}/</span>
+                          <span className="text-[10px] font-bold text-slate-400 uppercase leading-none">{p.type}</span>
+                        </motion.button>
+                        <button 
+                          onClick={(e) => { e.stopPropagation(); speakText(p.examples[0].word); }}
+                          className="absolute top-1 right-1 p-1.5 bg-emerald-50 text-emerald-600 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"
+                        >
+                          <Volume2 size={10} />
+                        </button>
+                      </motion.div>
                     ))}
                   </div>
                 </section>
@@ -219,28 +329,44 @@ export const PhoneticSection: React.FC<PhoneticSectionProps> = ({ onBack, speakT
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: i * 0.02 }}
-                      className="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm group hover:border-red-200 transition-all"
+                      className="bg-white p-6 rounded-[2.5rem] border border-slate-100 shadow-sm flex flex-col gap-6 group hover:border-red-200 transition-all"
                     >
-                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                        <div className="space-y-1">
-                          <div className="flex items-center gap-3">
-                            <h3 className="text-xl font-black text-slate-900 leading-none">{w.word}</h3>
-                            <span className="px-2 py-1 bg-slate-100 text-slate-400 rounded-lg text-[9px] font-black uppercase tracking-widest">{w.ipa}</span>
+                      <div className="flex flex-col gap-2 flex-1">
+                        <div className="flex flex-col gap-3">
+                          <h3 className="text-xl font-black text-slate-900 leading-none">{w.word}</h3>
+                          <div className="flex flex-wrap gap-2">
+                            <span className="px-3 py-1 bg-slate-100 text-slate-500 rounded-lg text-[10px] font-black uppercase tracking-widest border border-slate-200">US: {w.ipaUS}</span>
+                            <span className="px-3 py-1 bg-slate-50 text-slate-400 rounded-lg text-[10px] font-black uppercase tracking-widest border border-slate-100">UK: {w.ipaUK}</span>
                           </div>
-                          <p className="text-xs font-bold text-red-500">{w.translation} — <span className="text-slate-400 italic">"{w.meaning}"</span></p>
                         </div>
-                        <div className="flex items-center gap-4">
-                           <div className="text-right">
-                              <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-1">Pronunciation</span>
-                              <span className="text-sm font-black text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-xl border border-indigo-100">{w.pronunciation}</span>
+                        <p className="text-sm font-bold text-red-500">{w.translation} — <span className="text-slate-400 italic">"{w.meaning}"</span></p>
+                        
+                        <div className="flex flex-wrap gap-4 mt-2">
+                           <div className="flex flex-col gap-1">
+                              <span className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em]">Pronunciation</span>
+                              <div className="bg-indigo-50 px-3 py-2 rounded-xl border border-indigo-100 flex items-center gap-2">
+                                 <span className="text-[9px] font-black text-indigo-500 uppercase">Int:</span>
+                                 <span className="text-xs font-black text-indigo-600">{w.pronunciation}</span>
+                              </div>
                            </div>
-                           <button 
-                            onClick={() => handleSpeak(w.word, 'US')}
-                            className="p-4 bg-red-50 text-red-600 rounded-2xl hover:bg-red-600 hover:text-white transition-all active:scale-90 shadow-sm"
-                           >
-                             <Volume2 size={20} />
-                           </button>
                         </div>
+                      </div>
+
+                      <div className="flex gap-3 w-full">
+                         <button 
+                          onClick={() => handleSpeak(w.word, 'US')}
+                          className="flex-1 py-4 bg-red-50 text-red-600 rounded-2xl hover:bg-red-600 hover:text-white transition-all active:scale-95 flex flex-col items-center gap-1 border border-red-100"
+                         >
+                           <Volume2 size={20} />
+                           <span className="text-[10px] font-black uppercase">US Accent</span>
+                         </button>
+                         <button 
+                          onClick={() => handleSpeak(w.word, 'UK')}
+                          className="flex-1 py-4 bg-emerald-50 text-emerald-600 rounded-2xl hover:bg-emerald-600 hover:text-white transition-all active:scale-95 flex flex-col items-center gap-1 border border-emerald-100"
+                         >
+                           <Volume2 size={20} />
+                           <span className="text-[10px] font-black uppercase">UK Accent</span>
+                         </button>
                       </div>
                     </motion.div>
                   ))}
@@ -293,7 +419,7 @@ export const PhoneticSection: React.FC<PhoneticSectionProps> = ({ onBack, speakT
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
-            className="max-w-4xl mx-auto space-y-6 pb-12"
+            className="w-full max-w-4xl mx-auto space-y-6 pb-12"
           >
             <div className="flex items-center justify-between gap-4">
               <button 
@@ -353,10 +479,10 @@ export const PhoneticSection: React.FC<PhoneticSectionProps> = ({ onBack, speakT
                     key={i}
                     initial={{ opacity: 0, y: 10, delay: i * 0.05 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="bg-white p-5 rounded-[2rem] border border-slate-100 shadow-sm flex items-center justify-between group hover:border-indigo-200 transition-all"
+                    className="bg-white p-6 rounded-[2.5rem] border border-slate-100 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6 group hover:border-indigo-200 transition-all"
                   >
-                    <div className="flex items-center gap-4">
-                      <div className={`w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-black uppercase ${
+                    <div className="flex items-center gap-5">
+                      <div className={`w-10 h-10 rounded-2xl flex-shrink-0 flex items-center justify-center text-[10px] font-black uppercase ${
                         ex.difficulty === 'easy' ? 'bg-emerald-100 text-emerald-600' :
                         ex.difficulty === 'medium' ? 'bg-amber-100 text-amber-600' :
                         ex.difficulty === 'hard' ? 'bg-red-100 text-red-600' :
@@ -364,38 +490,35 @@ export const PhoneticSection: React.FC<PhoneticSectionProps> = ({ onBack, speakT
                       }`}>
                         {ex.difficulty[0]}
                       </div>
-                      <div>
-                        <h4 className="text-lg font-black text-slate-900 leading-none mb-1">{ex.word}</h4>
-                        <div className="flex gap-4 items-center">
-                          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">US: <span className="text-slate-600">{ex.ipaUS}</span></span>
+                      <div className="min-w-0">
+                        <h4 className="text-xl font-black text-slate-900 leading-none mb-1.5">{ex.word}</h4>
+                        <div className="flex flex-wrap gap-x-4 gap-y-2 items-center">
+                          <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1">
+                            US: <span className="text-slate-700 font-black">/{ex.ipaUS}/</span>
+                          </span>
                           {ex.intonation && (
-                            <>
-                              <div className="h-3 w-px bg-slate-200" />
-                              <div className="flex items-center gap-2">
-                                <span className="text-[10px] font-black text-indigo-500 uppercase tracking-widest">Intonation:</span>
-                                <span className="text-[10px] font-black text-slate-900 bg-slate-100 px-2 py-0.5 rounded-lg border border-slate-200">{ex.intonation}</span>
-                              </div>
-                            </>
+                            <div className="flex items-center gap-2 bg-indigo-50/50 px-2 py-1 rounded-lg border border-indigo-100/50">
+                              <span className="text-[10px] font-black text-indigo-500 uppercase tracking-widest">Int:</span>
+                              <span className="text-[11px] font-black text-slate-900">{ex.intonation}</span>
+                            </div>
                           )}
                         </div>
                       </div>
                     </div>
-                    <div className="flex gap-2">
+                    <div className="flex gap-3 w-full md:w-auto">
                        <button 
                         onClick={() => handleSpeak(ex.word, 'US')}
-                        className="p-3 bg-indigo-50 text-indigo-600 rounded-2xl hover:bg-indigo-600 hover:text-white transition-all active:scale-90 relative group/btn"
-                        title="US Pronunciation"
+                        className="flex-1 md:w-32 px-4 py-3.5 bg-indigo-50 text-indigo-600 rounded-2xl hover:bg-indigo-600 hover:text-white transition-all active:scale-95 flex flex-col items-center gap-1 border border-indigo-100/50"
                        >
-                         <Volume2 size={16} />
-                         <span className="text-[8px] font-black absolute -bottom-1 -right-1 bg-white border px-1 rounded shadow-sm group-hover/btn:bg-indigo-50 transition-colors">US</span>
+                         <Volume2 size={18} />
+                         <span className="text-[10px] font-black uppercase tracking-tight">US Accent</span>
                        </button>
                        <button 
                         onClick={() => handleSpeak(ex.word, 'UK')}
-                        className="p-3 bg-emerald-50 text-emerald-600 rounded-2xl hover:bg-emerald-600 hover:text-white transition-all active:scale-90 relative group/btn"
-                        title="UK Pronunciation"
+                        className="flex-1 md:w-32 px-4 py-3.5 bg-emerald-50 text-emerald-600 rounded-2xl hover:bg-emerald-600 hover:text-white transition-all active:scale-95 flex flex-col items-center gap-1 border border-emerald-100/50"
                        >
-                         <Volume2 size={16} />
-                         <span className="text-[8px] font-black absolute -bottom-1 -right-1 bg-white border px-1 rounded shadow-sm group-hover/btn:bg-emerald-50 transition-colors">UK</span>
+                         <Volume2 size={18} />
+                         <span className="text-[10px] font-black uppercase tracking-tight">UK Accent</span>
                        </button>
                     </div>
                   </motion.div>
@@ -440,7 +563,7 @@ export const PhoneticSection: React.FC<PhoneticSectionProps> = ({ onBack, speakT
                 <>
                   <div className="space-y-4">
                     <span className="text-[10px] font-black text-indigo-500 uppercase tracking-widest bg-indigo-50 px-4 py-1.5 rounded-full">Challenge /{currentWord?.symbol}/</span>
-                    <h2 className="text-5xl font-black text-slate-900 tracking-tight">{currentWord?.word}</h2>
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight break-words">{currentWord?.word}</h2>
                     <p className="text-xs font-bold text-slate-400">Word {currentWordIdx + 1} of {testWords.length}</p>
                   </div>
 
@@ -452,7 +575,7 @@ export const PhoneticSection: React.FC<PhoneticSectionProps> = ({ onBack, speakT
                      <div className="space-y-2">
                         {currentWord?.intonation && (
                           <p className="text-sm font-black text-indigo-600 leading-relaxed mb-2">
-                            <span className="font-black text-slate-400 uppercase text-[9px] mr-2">Intonation:</span> 
+                            <span className="font-black text-slate-400 uppercase text-[9px] mr-2">Int:</span> 
                             {currentWord.intonation}
                           </p>
                         )}
@@ -477,14 +600,28 @@ export const PhoneticSection: React.FC<PhoneticSectionProps> = ({ onBack, speakT
                      </div>
                   </div>
 
-                  <div className="relative">
-                    <div className={`w-48 h-48 mx-auto rounded-full flex items-center justify-center border-8 transition-all ${
-                      isRecording ? 'border-indigo-500 scale-110 shadow-2xl shadow-indigo-100' : 'border-slate-100'
-                    }`}>
-                      <motion.button
+                   <div className="relative flex items-center justify-center">
+                     <div className={`w-48 h-48 rounded-full flex items-center justify-center border-8 transition-all ${
+                       isRecording ? 'border-indigo-100 scale-110' : 'border-slate-100'
+                     }`}>
+                       {isRecording && (
+                         <svg className="absolute inset-0 w-full h-full -rotate-90">
+                           <circle
+                             cx="96" cy="96" r="88"
+                             stroke="currentColor"
+                             strokeWidth="8"
+                             fill="transparent"
+                             className="text-indigo-600"
+                             strokeDasharray={2 * Math.PI * 88}
+                             strokeDashoffset={2 * Math.PI * 88 * (1 - recordingTime / 5000)}
+                             strokeLinecap="round"
+                             style={{ transition: 'stroke-dashoffset 50ms linear' }}
+                           />
+                         </svg>
+                       )}
+                       <motion.button
                         whileTap={{ scale: 0.9 }}
-                        onClick={simulateRecord}
-                        disabled={isRecording}
+                        onClick={toggleRecording}
                         className={`w-32 h-32 rounded-full flex items-center justify-center transition-all ${
                           isRecording ? 'bg-indigo-600 text-white shadow-2xl shadow-indigo-200' : 'bg-slate-100 text-slate-400 hover:bg-indigo-50 hover:text-indigo-400'
                         }`}
@@ -501,23 +638,58 @@ export const PhoneticSection: React.FC<PhoneticSectionProps> = ({ onBack, speakT
                         </div> : <Mic size={48} strokeWidth={2.5} />}
                       </motion.button>
                     </div>
-                    {isRecording && (
-                        <motion.p 
-                            animate={{ opacity: [0.5, 1, 0.5] }}
-                            transition={{ repeat: Infinity }}
-                            className="mt-8 text-sm font-black text-indigo-600 uppercase tracking-widest"
-                        >
-                            Analyzing Pronunciation...
-                        </motion.p>
-                    )}
-                    {!isRecording && wordScores[currentWordIdx] && (
+                   {isRecording && (
+                       <div className="mt-8 text-center space-y-2">
+                          <motion.p 
+                              animate={{ opacity: [0.5, 1, 0.5] }}
+                              transition={{ repeat: Infinity }}
+                              className="text-sm font-black text-indigo-600 uppercase tracking-widest"
+                          >
+                              Analyzing Pronunciation...
+                          </motion.p>
+                          <p className="text-2xl font-black text-slate-900">
+                             {(Math.max(0, (5000 - recordingTime) / 1000)).toFixed(1)}s
+                          </p>
+                       </div>
+                   )}
+                    {!isRecording && wordScores[currentWordIdx] !== undefined && (
                         <motion.div 
                             initial={{ scale: 0 }} 
                             animate={{ scale: 1 }}
-                            className="mt-8"
+                            className="mt-6 flex flex-col items-center"
                         >
-                            <span className="text-5xl font-black text-indigo-600">{wordScores[currentWordIdx]}</span>
-                            <span className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mt-1">Accuracy</span>
+                            <span className={`text-6xl font-black ${wordScores[currentWordIdx] < 50 ? 'text-red-500' : 'text-indigo-600'}`}>
+                                {wordScores[currentWordIdx]}%
+                            </span>
+                            <span className="block text-xs font-black text-slate-400 uppercase tracking-[0.2em] mt-2">
+                                {wordScores[currentWordIdx] < 50 ? 'BAD - Needs Practice' : 'Accuracy Score'}
+                            </span>
+
+                            <div className="flex gap-4 mt-10 w-full">
+                               <button 
+                                 onClick={() => {
+                                   const newScores = [...wordScores];
+                                   newScores.pop();
+                                   setWordScores(newScores);
+                                   transcriptRef.current = '';
+                                 }}
+                                 className="flex-1 py-4 bg-slate-900 text-white rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-slate-800 transition-all active:scale-95 flex items-center justify-center gap-2"
+                               >
+                                 <ArrowLeft size={16} /> Return / Retry
+                               </button>
+                               <button 
+                                 onClick={() => {
+                                    if (currentWordIdx < testWords.length - 1) {
+                                      setCurrentWordIdx(prev => prev + 1);
+                                    } else {
+                                      setIsTestComplete(true);
+                                    }
+                                 }}
+                                 className="flex-1 py-4 bg-indigo-600 text-white rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-indigo-700 transition-all active:scale-95 flex items-center justify-center gap-2"
+                               >
+                                 Continue <ChevronRight size={16} />
+                               </button>
+                            </div>
                         </motion.div>
                     )}
                   </div>
@@ -525,9 +697,15 @@ export const PhoneticSection: React.FC<PhoneticSectionProps> = ({ onBack, speakT
                   <div className="pt-4 flex justify-center gap-4">
                      <button 
                         onClick={() => handleSpeak(currentWord?.word || '', 'US')}
-                        className="flex items-center gap-2 px-6 py-3 bg-white border border-slate-200 rounded-2xl text-xs font-black text-slate-600 hover:bg-slate-50 transition-all active:scale-95"
+                        className="flex items-center gap-2 px-6 py-4 bg-white border border-slate-200 rounded-2xl text-[10px] font-black text-slate-600 hover:bg-slate-50 transition-all active:scale-95 shadow-sm uppercase tracking-widest"
                      >
                        <Volume2 size={16} /> LISTEN US
+                     </button>
+                     <button 
+                        onClick={() => handleSpeak(currentWord?.word || '', 'UK')}
+                        className="flex items-center gap-2 px-6 py-4 bg-white border border-slate-200 rounded-2xl text-[10px] font-black text-slate-600 hover:bg-slate-50 transition-all active:scale-95 shadow-sm uppercase tracking-widest"
+                     >
+                       <Volume2 size={16} /> LISTEN UK
                      </button>
                   </div>
                 </>
@@ -581,4 +759,5 @@ export const PhoneticSection: React.FC<PhoneticSectionProps> = ({ onBack, speakT
     </div>
   );
 };
+// Version 0.0.1 feature 0.0.23
 

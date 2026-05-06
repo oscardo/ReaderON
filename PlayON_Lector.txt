@@ -1,0 +1,1291 @@
+rol: soy un ingeniero de sistemas quien le pidieron hacer un prompt para generar una app en android studio.
+Contexto: necesito que me generes un prompt para generar mediante una aplicacion que se llame: ReaderON esta será para grabar una voz, teniendo en cuenta la grabación, necesito que para Android Studio y el lenguaje de programación que sea Java, será una grabadora de sonido con un lector OCR del texto y un analizador sintactico:
+Lector OCR: si se desea tomar una fotografía, se va a extraer los textos, entonces lo primero seria tomar una fotografia, después se puede recortar esa imagen, y por último podria pasarsele por el OCR que haria translada del gráfico al texto, después de ese texto se podria guardar como (transcription_ddmmyyyy_hhmm.Play).
+después de esto se podria abrir la grabadora de audio.
+Grabadora de audio: donde tiene los controles básicos, (Adelante, Atrás, Play, Grabar, ir al inicio, ir al final,velocidad  -2x, -1.5x, -1, 0.5, 0.0x, 0.5, 1, 1.5, 1.75, 2.0, 2.5, 3.0x, pausar y terminar la grabación) y demás, que cuando le de grabar (vaya guardando cada rato, para que no se pierda la conversación en un archivo audio_ddmmyyyy_hhmm.mp3 o cualquier otra extensión que sea el sistema de ejecucion de audio).
+Analizador sintactico: después de esto podria retomar los dos archivos, después al terminar (permita almacenar la conversación) y la generación de un archivo con la transcripción. (transcription_ddmmyyyy_hhmm.Play), entonces haria traslapar los dos archivos, tanto el audio como lo escrito, 
+necesito que crees un tipo de archivo llamado (transcription_ddmmyyyy_hhmm.play) esto será un texto enriquecido por lo cual podria copiar, esto cada frase en inglés apareceria como un analizador de voz, por lo que deseo  
+que evalue cada frase y coloque de lo que se lee, la transcripción en tres colores
+entonces dicho de la siguiente manera: 
+0% al 30% frase: en color de fuente en rojo con resaltado en rojo
+31% al 54% frase: en color de fuente en rojo con resaltado en amarillo
+55% al 74$ frase: en color de fuente en amarillo 
+75% al 100% frase: en color de fuente verde 
+al final necesito que me parezca el % del total (un promedio de todas las palabras) seria el total.
+en conclusión podria leer el archivo con el texto enriquecido (transcription_ddmmyyyy_hhmm.play) con cada una de las frases donde cada palabra estaria con un cambio visible. 
+desafio: haz el software lo más fácil de usar, usa botones y con el label del nombre que aparezca cuando pase un segundo encima de un boton, con doble idioma, y con algun IA que salga gratis de analizar.
+notas: por ejemplo:
+lo primero tomo la foto, y después de eso podria salir en cada fotografia el recuadro: "Reading is essential for cognitive development, brain health, and emotional well-being, acting as a mental workout that improves focus, memory, and analytical skills. It reduces stress, enhances empathy, and expands knowledge while boosting vocabulary and communication skills, which contributes to academic and professional success". 
+empiezo a leer cualquier texto: "Reading is essential for cognitive development, brain health, and emotional well-being, acting as a mental workout that improves focus, memory, and analytical skills. It reduces stress, enhances empathy, and expands knowledge while boosting vocabulary and communication skills, which contributes to academic and professional success" entonces lo grabara con algún formato (.mp3) y después de esto tomas el audio, lo analizas teniendo en cuenta como lo lei, y después de eso, entonces evaluas frase por frase y teniendo en cuenta, crear un analizador sintactico que evalues frase por frase.
+al terminar podriamos tener haciendo un analizador sintactico o demás pasando por la IA gratuita y generar el tipo de archivo resumen_01042026_0900.Play teniendo en cuenta lo dicho, los datos de interes, lo más importante, los servicios, servidores, aplicaciones etc etc etc.
+pregunta: podrias generarme el prompt para la generacion en IA Google 
+
+Promtp generado
+Rol: Actúa como un Desarrollador Senior de Android especializado en Java, integraciones de IA y procesamiento de lenguaje natural.
+Tarea: Diseñar la arquitectura y proporcionar el código base para una aplicación en Android Studio (Java) llamada "ReaderON".
+Contexto de la App: ReaderON es una herramienta educativa bilingüe (Inglés/Español) que permite al usuario tomar una foto de un texto, extraerlo mediante OCR, leerlo en voz alta mientras se graba, y finalmente evaluar la precisión de su lectura comparando el audio con el texto original.
+
+Módulos y Requerimientos Técnicos:
+
+1. Módulo de OCR y Gestión de Archivos:
+Integrar la cámara para tomar una foto y permitir el recorte de la imagen.
+Usar Google ML Kit (Vision OCR) (que es gratuito y offline) para extraer el texto de la imagen recortada.
+Guardar este texto en almacenamiento local bajo la nomenclatura transcription_ddmmyyyy_hhmm.Play. (Nota: Trata la extensión .Play internamente como un archivo JSON o HTML para soportar texto enriquecido más adelante).
+
+2. Módulo de Grabadora de Audio:
+Interfaz con botones de iconos. Al mantener presionado un botón (usando TooltipCompat), debe mostrar su nombre según el idioma del sistema (Inglés/Español).
+Controles requeridos: Ir al inicio, Atrás, Play, Pausa, Grabar, Terminar grabación, Adelante, Ir al final.
+Control de velocidad de reproducción: 0.5x, 1.0x, 1.5x, 1.75x, 2.0x, 2.5x, 3.0x.
+Implementar autoguardado periódico durante la grabación para evitar pérdida de datos.
+Guardar el archivo final como audio_ddmmyyyy_hhmm.mp3.
+
+3. Módulo de Análisis Sintáctico y de Pronunciación (El Core):
+Al terminar la grabación, la app debe comparar el audio grabado con el texto original del OCR.
+Para esto, sugiere una API gratuita o un modelo local (como Vosk Speech Recognition para pasar el audio a texto offline) y un algoritmo de comparación de cadenas (como la distancia de Levenshtein) para evaluar la precisión de cada frase/palabra.
+Generar el texto enriquecido en el archivo .Play aplicando las siguientes reglas de estilo según el porcentaje de coincidencia de lo leído vs lo escrito:
+0% al 30%: Fuente roja, resaltado rojo (Considerar accesibilidad visual).
+31% al 54%: Fuente roja, resaltado amarillo.
+55% al 74%: Fuente amarilla.
+75% al 100%: Fuente verde.
+Mostrar al final del texto el porcentaje de precisión total (promedio general).
+
+4. Módulo de Resumen con IA:
+Integrar la API gratuita de Gemini (Google AI Studio).
+Enviar el texto del OCR a la API para generar un análisis que extraiga: datos de interés, lo más importante, entidades (servicios, servidores, aplicaciones).
+Guardar este análisis en un archivo llamado resumen_ddmmyyyy_hhmm.Play.
+Entregables que necesito de ti (IA):
+Estructura de dependencias de build.gradle (librerías OCR, Audio, Vosk, Gemini).
+Código para el flujo de la cámara y OCR.
+Código de la grabadora y el manejo de persistencia de archivos.
+Lógica en Java para la comparación de texto y asignación de colores (Span/HTML).
+Haz que el código priorice la facilidad de uso e incluya comentarios explicativos.
+
+El formato .Play no existe de forma nativa: Android no sabe cómo leer un archivo .play con colores, La solución técnica (que incluí en el prompt) es que tu app internamente guarde y procese este archivo como un HTML (usando HtmlCompat.fromHtml en Android) o como un JSON que guarde la palabra y su porcentaje, Al usuario se le mostrará como un archivo .Play, pero tu código lo tratará como HTML.
+Contraste de colores (UX/UI): Mencionas que de 0% a 30% la fuente debe ser roja con resaltado rojo. Esto hará que el texto sea invisible. Te sugiero usar fuente blanca con resaltado rojo para ese rango, o mantener la fuente negra y solo cambiar el color de fondo (resaltado).
+Velocidades negativas de audio: En tu lista de controles incluiste -2x, -1.5x, -1x. En procesamiento de audio, una velocidad negativa implica reproducir el audio en reversa, lo cual requiere algoritmos complejos (Audio DSP) y rara vez es útil para evaluar pronunciación. Es mejor mantener los controles de 0.5x a 3.0x o implementar botones de "Retroceder 10 segundos".
+"Cuando pase un segundo encima de un botón" (Hover): En dispositivos móviles táctiles no existe el "hover" (pasar el mouse por encima). La alternativa nativa y estándar en Android es el Long Press (mantener presionado). En el prompt lo traduje al uso de TooltipCompat, que es la práctica oficial de Android para mostrar labels al mantener presionado un ícono.
+El desafío del "Analizador Gratuito": * Para comparar la precisión de la pronunciación sin pagar, la mejor ruta es usar Vosk (una librería de IA offline que corre en el propio celular). Escuchará el mp3, lo pasará a texto, y luego tú en Java comparas el texto de Vosk con el texto del OCR.
+Para la parte del resumen (datos de interés, entidades, etc.), la API de Gemini ofrece una capa gratuita generosa para desarrolladores.
+Sincronización: Hacer el traslape exacto para que el audio suene al mismo tiempo que se ilumina la palabra (estilo karaoke) requiere guardar los timestamps (marcas de tiempo) de cada palabra. Vosk permite extraer timestamps por palabra, lo cual será clave para tu analizador sintáctico.
+TRATA DE USAR SOFTWARE LIBRE, OPEN SOURCE O DE LIBRE DISTRIBUCIÓN.
+
+fix 0.0.1
+trata de usar código con una base de datos abierta para almacenar cada uno de los archivos generados.
+trata de mejorar el diseño de la UX/UI debido a que esta aplicación se vea lo más moderna, pero fácil de usar.
+Add playback controls for the audio in the PRACTICE mode. Include buttons for play, pause, skip back, and skip forward. Ensure these controls are integrated with the existing recording state.
+Add functionality to control the audio playback speed in PRACTICE mode. Include options for 0.5x, 1.0x, 1.5x, 1.75x, 2.0x, 2.5x, and 3.0x. This should be accessible from the PRACTICE screen.
+Display a real-time timer during recording in PRACTICE mode. The timer should show the elapsed time in minutes and seconds. The timer should start when recording begins and stop when it ends.
+Enhance the visualization of the analyzed text in ANALYSIS mode. For each word, display its accuracy score (0-100) in a tooltip or a small label when the word is hovered or long-pressed.
+Allow the user to rename the transcribed file in PRACTICE mode before analysis. Provide an input field or a dialog to let the user set a custom name for the 'transcription_ddmmyyyy_hhmm.Play' file.
+
+fix 0.0.2
+-Add playback controls to the audio player in the ANALYSIS mode. Include buttons for play, pause, skip back 10 seconds, and skip forward 10 seconds. Ensure these controls are integrated with the existing audio playback state and display the current playback time and total duration.
+-Add a control for audio playback speed in the ANALYSIS mode. Allow users to select speeds from 0.5x to 3.0x in increments of 0.5x. This control should be easily accessible on the ANALYSIS screen.
+-Enhance the visualization of the analyzed text in ANALYSIS mode. For each word, display its accuracy score (0-100) in a tooltip or a small label that appears when the word is long-pressed. This will provide more granular feedback to the user.
+-Allow the user to rename the transcribed file in PRACTICE mode before analysis. Provide an input field or a dialog to let the user set a custom name for the 'transcription_ddmmyyyy_hhmm.Play' file. Update the file name in the history and analysis views
+-Enhance the visualization of the analyzed text in ANALYSIS mode. For each word, display its accuracy score (0-100) in a tooltip or a small label that appears when the word is long-pressed. This will provide more granular feedback to the user.
+-Add a 'Save Analysis' button in the ANALYSIS mode that allows the user to save the current analysis results (including transcription, accuracy, and summary) to local storage or a new entry in the history.
+
+fix 0.0.3
+-In the ANALYSIS mode, integrate word-level timing information into the displayed words. When a word is long-pressed, show its start and end timestamps. This requires updating the 'transcribeAndAnalyze' function to also return startTime and endTime for each word and updating the UI to display this information.
+-Review and adjust the color schemes for word accuracy visualization in ANALYSIS mode to ensure better contrast and accessibility, especially for colorblind users. For example, ensure the background colors for different accuracy ranges have sufficient contrast with the text color.
+-In the ANALYSIS mode, enable precise audio scrubbing. When the user drags the playback progress bar, allow them to scrub through the audio to the exact selected time. This involves updating the onClick handler for the progress bar to accurately set the audio element's current time.
+-Implement an auto-save feature in the ANALYSIS mode. Periodically save the current analysis state (transcription, accuracy, summary, etc.) to local storage, similar to how recording is auto-saved. This will prevent data loss if the user navigates away or the app crashes.
+-In the PRACTICE mode, enhance the text display by adding a subtle visual guide that highlights the word currently being spoken or the next word to be spoken. This can be achieved by synchronizing the visual highlighting with the audio playback.
+
+fix 0.0.4
+-Revisar y ajustar los esquemas de color para la visualización de precisión de palabras en el modo ANALYSIS, asegurando un mejor contraste y accesibilidad, especialmente para usuarios daltónicos. Por ejemplo, asegurar que los colores de fondo para diferentes rangos de precisión tengan suficiente contraste con el color del texto.
+-En el modo ANALYSIS, habilitar la reproducción exacta de audio. Cuando el usuario arrastre la barra de progreso de reproducción, permitirle navegar por el audio hasta el tiempo exacto seleccionado. Esto implica actualizar el manejador onClick para la barra de progreso y asegurar que se establezca el tiempo actual del audio con precisión.
+-Implementar una función de autoguardado en el modo ANALYSIS. Guardar periódicamente el estado actual del análisis (transcripción, precisión, resumen, etc.) en el almacenamiento local, similar a cómo se autoguarda la grabación. Esto evitará la pérdida de datos si el usuario navega fuera de la página o si la aplicación falla.
+-En el modo PRACTICE, mejorar la visualización del texto añadiendo una guía visual sutil que resalte la palabra que se está diciendo actualmente o la siguiente palabra a decir. Esto se puede lograr sincronizando el resaltado visual con la reproducción del audio.
+-Añadir un botón 'Guardar Análisis' en el modo ANALYSIS que permita al usuario guardar los resultados del análisis actual (incluyendo transcripción, precisión y resumen) en el almacenamiento local o como una nueva entrada en el historial.
+
+fix 0.0.5
+- evalua como si fueras una aplicación de analisis de IELTS (type)
+- cada frase cuando sale mal coloquele un audio audible de como seria correctamente para intentar cada frase.
+- Review and enhance the color contrast and font sizes across all modes (HOME, PRACTICE, ANALYSIS) to ensure better accessibility for users with visual impairments.
+-Implement more robust error handling and user feedback mechanisms for all asynchronous operations (OCR, transcription, analysis, file saving), providing clear messages to the user when errors occur.
+-Add filtering and sorting options to the history view on the HOME screen, allowing users to filter practices by date, accuracy, or name.
+
+fix 0.0.6
+-pero deja cada frase palabra por palabra para evaluar.
+-In the ANALYSIS mode, break down the IELTS feedback into specific scores for Lexical Resource, Grammatical Range and Accuracy, Pronunciation, and Fluency and Coherence. Display these scores prominently.
+-In the ANALYSIS mode, allow users to replay specific phrases or sentences that were flagged with low accuracy. When a user taps on a low-accuracy phrase, play back the original audio for that specific phrase and then play the correct pronunciation for that phrase.
+-In the ANALYSIS mode, identify words with scores below 75% and add them to a 'Vocabulary Builder' section. This section should allow users to review these words, their definitions, and practice them separately.
+-Review all color schemes and text contrast ratios across the app to ensure WCAG 2.1 AA compliance, paying special attention to the color-coded accuracy indicators in the ANALYSIS mode and any text used in modals.
+-In the HOME screen history view, add advanced filtering options. Allow users to filter practices by date range, accuracy percentage range, and by specific keywords in the practice name.
+
+fix 0.0.7
+-In the ANALYSIS mode, for each word with a score below 75%, provide an audio snippet of the correct pronunciation. This should be accessible by tapping or long-pressing the word.
+-When a word's accuracy score is below 75%, fetch and display its definition in the ANALYSIS mode. Show this definition alongside the word's score when the word is long-pressed.
+-In PRACTICE mode, synchronize the text display with the audio playback. As words are spoken, subtly highlight them in real-time to create a karaoke-like effect.
+-In ANALYSIS mode, allow users to replay entire phrases that have low accuracy scores (below 75%). This should play the original audio for the phrase and then the correct pronunciation.
+-Review all color schemes and text contrast ratios across the app, especially for the accuracy indicators in ANALYSIS mode and text within modals, to ensure WCAG 2.1 AA compliance.
+-frase por frase NO por toda el fragmento.
+
+fix 0.0.8
+-In the ANALYSIS mode, for each word with a score below 75%, add a button next to it. When this button is clicked, play an audio snippet of the correct pronunciation for that specific word. This requires integrating a text-to-speech (TTS) service for generating pronunciations.
+-In the ANALYSIS mode, when a word's accuracy score is below 75% and its definition is available, display the definition in a more accessible way. Instead of only showing it on long-press, consider a dedicated 'Word Details' modal that pops up when a low-accuracy word is tapped, showing the word, its score, definition, and pronunciation playback option.
+-In the ANALYSIS mode, when words with scores below 75% are added to the 'Vocabulary Builder', provide a way to manually add more words or definitions to this section. Allow users to add their own words and definitions for targeted practice, expanding the builder's utility.
+-In the ANALYSIS mode, provide more export options for the analysis results. In addition to the '.Play' file, allow users to export the transcription, accuracy scores, and IELTS feedback as a plain text file or a PDF document for easier sharing or offline review.
+-mejora la configuración de cada texto para que no se vea así como esta, ubicalo mejor como texto después de comenzar practica (botón), y en la zona después en el lienzo aparece desfasado el texto, tiene que aperecer el texto mejor identado y justificado.
+-In the ANALYSIS mode, for each word with a score below 75%, fetch and display its definition. Show this definition alongside the word's score when the word is long-pressed.
+-In the ANALYSIS mode, when a word with a score below 75% is long-pressed, provide an audio snippet of the correct pronunciation accessible by tapping or long-pressing the word.
+-In ANALYSIS mode, allow users to replay entire phrases that have low accuracy scores (below 75%). This should play the original audio for the phrase and then the correct pronunciation.
+-Review all color schemes and text contrast ratios across the app, especially for the accuracy indicators in ANALYSIS mode and text within modals, to ensure WCAG 2.1 AA compliance.
+-mejora la configuración de cada texto para que no se vea así como esta, ubicalo mejor como texto después de comenzar practica (botón), y en la zona después en el lienzo aparece desfasado el texto, tiene que aperecer el texto mejor identado y justificado.
+
+fix 0.0.9
+-In the ANALYSIS mode, for each word with a score below 75%, fetch and display its definition. Show this definition alongside the word's score when the word is long-pressed. The definition should be fetched from a dictionary API or a local lookup.
+-In the ANALYSIS mode, for each word with a score below 75%, add a button next to it. When this button is clicked, play an audio snippet of the correct pronunciation for that specific word. This requires integrating a text-to-speech (TTS) service for generating pronunciations.
+-In the PRACTICE mode, enhance the text display by adding a subtle visual guide that highlights the word currently being spoken or the next word to be spoken. This can be achieved by synchronizing the visual highlighting with the audio playback, creating a karaoke-like effect.
+-Review all color schemes and text contrast ratios across the app, especially for the accuracy indicators in ANALYSIS mode and text within modals, to ensure WCAG 2.1 AA compliance. Ensure sufficient contrast for users with visual impairments, including colorblind users.
+
+fix 0.0.10
+-unifica en un solo texto, por qué me aparecen  demasiados textos y además veo que hay lenguaje extraño (creo que es chino mandarin) retira eso.
+-In the ANALYSIS mode, for each word identified with a pronunciation score below 75%, display an individual button next to it. When this button is clicked, play a clear audio snippet of the correct pronunciation for that specific word. This functionality requires integrating a robust text-to-speech (TTS) service to generate these pronunciations on demand.
+-In the ANALYSIS mode, enhance the interaction for words with accuracy scores below 75%. When such a word is tapped, display a dedicated 'Word Details' modal. This modal should present the word itself, its accuracy score, its definition (if available), and an option to play back the correct pronunciation.
+-In the ANALYSIS mode, offer more comprehensive export options for the analysis results. Beyond the '.Play' file, enable users to export the transcription, detailed accuracy scores, and IELTS feedback as a plain text file (.txt) or a PDF document.
+-In the PRACTICE and ANALYSIS modes, improve the visual presentation of the transcribed text. Ensure the text is better indented and fully justified for improved readability and a more professional appearance, especially when displaying long passages.
+
+fix 0.0.11
+-In the ANALYSIS mode, review and adjust the color contrast for word accuracy indicators to ensure WCAG 2.1 AA compliance. Specifically, ensure sufficient contrast between text color and background colors for all accuracy ranges (0-30%, 31-54%, 55-74%, 75-100%).
+-In the ANALYSIS mode, when a word with a score below 75% is tapped, display its definition and pronunciation option in a dedicated 'Word Details' modal, rather than only on long-press.
+-In the ANALYSIS mode, enhance the 'Vocabulary Builder' by adding a button to manually add new words and their definitions, allowing users to expand their practice list.
+-In the PRACTICE and ANALYSIS modes, improve text readability by implementing full justification for the displayed transcribed text, ensuring better indentation and alignment.
+-fast the velocity (analizando pronunciacion con estandares IELTS)
+-elimina TODO RASTRO DEL SERVICIO DE GEMINI, estaba antes era mucho más rápido entonces retira la IA y todo rastro de gemini 
+
+fix 0.0.12
+-in the ANALYSIS mode, add a subtle visual guide that highlights the word currently being spoken or the next word to be spoken by synchronizing visual highlighting with the audio playback, creating a karaoke-like effect.
+-In the ANALYSIS mode, enable precise audio scrubbing. When the user drags the playback progress bar, allow them to scrub through the audio to the exact selected time. This involves updating the onClick handler for the progress bar to accurately set the audio element's current time.
+-Implement an auto-save feature in the ANALYSIS mode. Periodically save the current analysis state (transcription, accuracy, summary, etc.) to local storage, similar to how recording is auto-saved. This will prevent data loss if the user navigates away or the app crashes.
+-Review and adjust all color schemes and text contrast ratios across the app, especially for the accuracy indicators in ANALYSIS mode and text within modals, to ensure WCAG 2.1 AA compliance. Pay special attention to ensure sufficient contrast for users with visual impairments, including colorblind users.
+
+feature 0.0.1
+-Implement descriptive tooltips for all interactive elements (buttons, icons) that do not have clear labels, explaining their function when hovered or long-pressed.
+
+feature 0.0.2
+-implementa el nuevo boton como se ve en la imagen.
+- esta necesito que cada parte de de super categories y sub categories hazlo dependiendo cada ejemplo
+Super Categories: Adjetives: Adjectives in English are words that modify or describe nouns and pronouns, adding detail to appearance, size, condition, or personality. They usually appear before nouns ("a blue car") or after linking verbs like 'be' or 'seem' ("the car is blue"). Common examples include good, bad, big, small, happy, sad, hot, cold, new, and old. 
+y sub categories: 
+Descriptive (Appearance/Quality): (su descripcion en ingles y en español) Beautiful, ugly, clean, dirty, smart, stupid, kind, cruel, nice, lovely, brilliant, talented, honest, polite.
+Size and Shape: (su descripcion en ingles y en español)Big, small, tall, short, high, low, thick, thin, wide, narrow, huge, tiny, round, square, long.
+Condition and Emotion: (su descripcion en ingles y en español) Happy, sad, angry, hungry, tired, scared, excited, brave, calm, proud, nervous, friendly.
+Opinion/Evaluation: (su descripcion en ingles y en español) Good, bad, wonderful, terrible, interesting, boring, easy, difficult, useful, useless, correct, wrong.
+Physical/Sensory: (su descripcion en ingles y en español) Hot, cold, warm, cool, fast, slow, loud, quiet, soft, rough, smooth, bright, dark. 
+y por ejemplo aparezca en cada uno de las páginas Super Categories y otras Sub categories. 
+
+feature 0.0.3
+crea ahora estos datos, (Super categories): 
+SUPER CATEGORIES
+ADJECTIVES
+ADVERBS
+CLAUSES
+CONJUNCTIONS
+DETERMINERS
+DISCOURSE MARKERS
+FOCUS
+FUTURE
+MODALITY
+NEGATION
+NOUNS
+PASSIVES
+PAST
+PREPOSITIONS
+PRESENT
+PRONOUNS
+QUESTIONS
+REPORTED SPEECH
+VERBS
+VOCABULARY
+LEXICAL RESOURCE
+ADVANCED SYNTAX
+SPOKEN ENGLISH
+PHRASAL VERBS
+
+feature 0.0.4
+combinacion en español english:
+Super categories - subcategories
+ADJECTIVES	Combining
+	Comparatives
+	Modifying
+	Position
+	Superlatives
+ADVERBS	Adverb phrases – form
+	Adverbs and adverb phrases: types and meanings
+	Adverbs as modifiers
+	Position
+CLAUSES	Comparatives
+	Conditional
+	Coordinated
+	Imperatives
+	Interrogatives
+	Phrases/exclamations
+	Relative
+	Subordinated
+CONJUNCTIONS	Coordinating
+	Subordinating
+DETERMINERS	Articles
+7	Demonstratives
+	Possessives
+	Quantity
+DISCOURSE MARKERS	Discourse markers in writing
+FOCUS	Focus
+FUTURE	Future Continuous
+	Future expressions with be
+	Future in the past
+	Future perfect continuous
+	Future perfect simple
+	Future simple (with will and shall)
+	Future with be going to
+	Present continuous for future use
+	Present simple for future use
+MODALITY	Adjectives
+	Adverbs
+	Can
+	Could
+	Dare
+	Expressions with be
+	Have (got) to
+	May
+	Might
+	Must
+	Need
+	Ought
+	Shall
+	Should
+	Used to
+	Will
+	Would
+NEGATION	Negation
+NOUNS	Noun phrases
+	Noun phrases – grammatical functions
+	Plural
+	Types
+	Uncountable
+PASSIVES	Get and have
+	Passives: form
+PAST	Past continuous
+	Past perfect continuous
+	Past perfect simple
+	Past simple
+	Present perfect continuous
+	Present perfect simple
+PREPOSITIONS	Prepositions
+PRESENT	Present continuous
+	Present simple
+PRONOUNS	Demonstratives
+	Generic Use
+	Indefinite -thing, - one, -body etc
+	Possessive
+	Quantity
+	Reciprocal
+	Reflexive
+	Subject/object
+	Substitution, one, ones, none
+QUESTIONS	Alternatives
+	Tags
+	Wh-
+	Yes/no
+REPORTED SPEECH	Reported speech
+VERBS	Linking
+	Patterns that clauses
+	Patterns with to and –ing
+	Phrasal
+	Phrasal-prepositional
+	Prepositional
+	There is/are
+	Types
+VOCABULARY	Word Formation (Prefixes & Suffixes)
+	Word Families
+	Compound Words
+LEXICAL RESOURCE	Collocations
+	Idioms & Phrasal Verbs (Avanzados)
+	Register (Formal, Informal, Slang)
+ADVANCED SYNTAX	Inversion
+	Participle Clauses
+	Cleft Sentences
+SPOKEN ENGLISH	Connected Speech
+	Intonation
+	Word Stress
+
+feature 0.0.5
+ahora necesito que de estas fotografias saques un nuevo boton que se llame EBooks (Total.png)
+donde en todos va a encontrart Speaking, Grammar, Pronunciations, Writting, Reading
+orzanizalo de la mejor manera y hazlo de la manera más intuativa y fácil de usar.
+donde aparezca esta configuración:
+llamado Interchange y passagers donde aparecen en un resumen ejecutivo, bastante breve y bastante concido 
+cada parte de estos libros.
+las imagen de Interchange 1 serian A1 (1, 1-2)
+las imagen de Interchange 2 serian A2 (2-1, 2-2)
+las imagen de Interchange 3 serian B1 (3-1, 3-2)
+las imagen de Passager 1 serian B2 (passage1-1, passage1-2)
+las imagen de Passager 2 serian C1 (passage2-1, passage2-2)
+
+feature 0.0.5 and 0.0.6
+esta bien pero trata de mejorar el contenido de cada imagen, y trata que mejorar cada uno de los aspectos de cada uno de ellos.
+las imagen de Interchange 1 serian A1 (1, 1-2)
+las imagen de Interchange 2 serian A2 (2-1, 2-2)
+las imagen de Interchange 3 serian B1 (3-1, 3-2)
+las imagen de Passager 1 serian B2 (passage1-1, passage1-2)
+las imagen de Passager 2 serian C1 (passage2-1, passage2-2)
+
+feature 0.0.7
+ebook se necesita que hagas TODAS la descripción de cada uno de los items, TODAS, por ejemplo:
+Interchange 1
+ speaking 
+  Self-introductions, 
+  basic social exchanges, 
+  work/school discussions, 
+  shopping, 
+  likes/dislikes, 
+  daily routines, 
+  and past events.
+y así en cada uno de los temas y subtemas, en cada uno de los conm ejemplos SIMPLES pero bien concebidos.
+Interchange 1 serian A1 
+	Speaking
+		Self-introductions, 
+		basic social exchanges, 
+		work/school discussions, 
+		shopping, 
+		likes/dislikes, 
+		daily routines, 
+		and past events.
+	Grammar
+	Pronunciations
+	Writting
+	Reading
+Interchange 2 serian A2 
+	Speaking
+	Grammar
+	Pronunciations
+	Writting
+	Reading
+Interchange 3 serian B1 
+	Speaking
+	Grammar
+	Pronunciations
+	Writting
+	Reading
+Passager 1 serian B2 
+	Speaking
+	Grammar
+	Pronunciations
+	Writting
+	Reading
+Passager 2 serian C1 
+	Speaking
+	Grammar
+	Pronunciations
+	Writting
+	Reading
+	
+feature 0.0.8 AND fix fix 0.0.13
+pero yo deseo que cada descripcion aparezca en otra pantalla, y así en cada ejemplo 
+por ejemplo: 
+passager 2 (click)
+	grammar (click)
+		Cleft sentences:  (click)
+			pantalla de esta (Cleft sentences)
+			A cleft sentence is a complex sentence structure that splits a single idea into two clauses to emphasize a specific part of the sentence, such as the subject, object, or adverbial phrase. It converts a simple sentence into a main clause (often starting with "It is/was" or "What") and a relative clause to highlight new information. 
+			Key Characteristics and Examples:
+			"It-Clefts": Starts with It + be + emphasized part + that/who.
+			Normal: John stole the cookie.
+			Cleft: It was John who stole the cookie. (Emphasizes it was John, not someone else).
+			"What-Clefts" (Wh-Clefts): Starts with What + subject + verb + be + emphasized part.
+			Normal: I need a coffee.
+			Cleft: What I need is a coffee. (Emphasizes the need is coffee).
+			Purpose: To focus on new information or contrast information while connecting it to what is already understood by the listener.
+			Usage: Commonly used to emphasize time, place, or specific people.
+			Example: It was in the park that I lost my keys. 
+			Common Cleft Structures:
+				It + be + noun phrase + that/who: It was the manager that I spoke to.
+				What + clause + be + phrase: What I don't understand is why she left.
+				It + be + adverbial phrase + that: It was yesterday that they arrived.
+				
+			descripcion en español:
+			Una oración hendida es una estructura sintáctica compleja que divide una sola idea en dos cláusulas para enfatizar una parte específica de la oración, como el sujeto, el objeto o un complemento. Convierte una oración simple en una cláusula principal (que suele empezar con "It is/was" o "What") y una cláusula relativa para resaltar información nueva.
+
+			Características clave y ejemplos:
+			Oraciones cleft con "It": Comienzan con "It" + "be" + la parte enfatizada + "that/who".
+			Oración normal: John robó la galleta.
+			Oración cleft: Fue John quien robó la galleta. (Enfatiza que fue John, no otra persona).
+			Oraciones cleft con "What" (o "Wh-Clefts"): Comienzan con "What" + sujeto + verbo + "be" + la parte enfatizada.
+
+			Oración normal: Necesito un café.
+			Oración cleft: Lo que necesito es un café. (Enfatiza que la necesidad es el café).
+			Propósito: Centrarse en información nueva o contrastar información, conectándola con lo que el oyente ya comprende. Uso: Se utiliza comúnmente para enfatizar el tiempo, el lugar o personas específicas.
+			Ejemplo: Fue en el parque donde perdí mis llaves.
+			Estructuras comunes de oraciones hendidas:
+			It + be + sintagma nominal + that/who: Fue el gerente con quien hablé.
+			What + cláusula + be + sintagma: Lo que no entiendo es por qué se fue.
+			It + be + sintagma adverbial + that: Fue ayer cuando llegaron.
+
+Fix 0.0.16
+pero yo deseo que cada Y QUE HAGAS TODAS, TODAS LAS descripcion aparezca en otra pantalla, y así en cada ejemplo: 
+TODAS LAS DESCRIPCIOINES DE ESTE EJEMPLO: TODAS
+Interchange 1
+A1 - Beginner
+The foundation of English communication. Covers essential social interactions, work-life balance, and physical environments.
+	Speaking
+	Self-introductions: 'Hi, I'm Maria. Nice to meet you.' 	Show Details
+	Daily routines: 'I usually wake up at 6:30 and have coffee.' 	Show Details
+	Work and School: 'What do you do for a living?'
+	Shopping: 'How much does this jacket cost?'
+	Likes/Dislikes: 'I really love pop music but I hate jazz.'
+	Habits: 'I go to the gym three times a week.'
+	Past events: 'I saw a great movie last weekend.'
+	Grammar
+	Be-verb (am/is/are) for identity and location.
+	Wh-questions (What, Where, Who) in simple present.
+	Possessives: My, Your, His, Her.
+	Count/Non-count nouns (Coffee vs. Apples).
+	Simple Present vs. Present Continuous.
+	Simple Past: Regular and irregular verbs.
+	Pronunciation
+	Linked sounds: 'An orange' -> 'A-norange'.
+	Syllable stress: CO-lors, PHO-to, COM-pu-ter.
+	Sentence intonation: Rising for Yes/No questions.
+	Reduction of 'did you': 'Did-ja (did you) go?'
+	Writing
+	Filling out personal contact forms.
+	Writing a short biography about a classmate.
+	Sending text messages for invitations.
+	Writing a family update email.
+	Posting vacation photos with captions.
+	Reading
+	Scanning for names in short articles.
+	Identifying specific information in job ads.
+	Reading comparison price lists for tools.
+	Understanding daily schedules and flyers.
+Interchange 2
+A2 - Elementary
+Expands communication to past experiences, future plans, and logical connections in daily life.
+	Speaking
+	Childhood memories: 'I used to play hide and seek.'
+	Travel issues: 'My flight was delayed for two hours.'
+	Technology: 'How do you turn on this printer?'
+	Future Plans: 'I'm going to visit my aunt next month.'
+	Requests: 'Could you please pass the salt?'
+	Cultural festivals: 'We celebrate with fireworks.'
+	Grammar
+	Past Tense vs. Used To for past habits.
+	Quantity expressions: Too many, not enough.
+	Modals for necessity: Must, have to, need to.
+	Future with 'be going to' and 'will'.
+	Infinitives and gerunds for uses and purposes.
+	Relative clauses: 'The person who lives there...'
+	Pronunciation
+	Reduction of 'used to' to 'use-ta'.
+	Complex syllable stress patterns.
+	Unpronounced vowels in words like 'chocolate'.
+	Stress in two-part verbs (phrasal verbs).
+	Writing
+	Writing a detailed paragraph about childhood.
+	Posting informative messages on community boards.
+	Writing formal request emails.
+	Documenting step-by-step recipes.
+	Writing travel suggestions based on experience.
+	Reading
+	Reading biographies of famous celebrities.
+	Articles on innovative community inventions.
+	Understanding unique travel lodging (capsule hotels).
+	Scientific reports on how food impacts mood.
+Interchange 3
+B1 - Intermediate
+Developing fluency for complex social and professional situations, problem-solving, and personal perspectives.
+	Speaking
+	Personalities: 'He's the kind of person who is always late.'
+	Problem-solving: 'If I were you, I'd apologize.'
+	Inventions: 'The internet has changed how we live.'
+	Environmental issues: 'We should recycle more paper.'
+	Life Skills: 'Learning how to manage time is vital.'
+	Storytelling: 'It all started when I was at the park...'
+	Grammar
+	Relative pronouns as subjects and objects.
+	Gerund phrases as subjects and objects.
+	Indirect requests: 'Can you tell me if...?'
+	Past Continuous vs. Simple Past stories.
+	Passive Voice: 'The project was completed on time.'
+	Expectations: 'Be supposed to / Be expected to'.
+	Pronunciation
+	Stress in compound nouns: 'ICE cream' vs. 'HOT dog'.
+	Contrastive stress to clarify meaning.
+	Reduction of auxiliary verbs (I've/You're).
+	Intonation in complex choice questions.
+	Writing
+	Analytical descriptions of personality types.
+	Pamphlets for tourists describing local sights.
+	Critical reviews of online services.
+	Personal accounts of cultural shock experiences.
+	Professional career goal statements.
+	Reading
+	Articles explaining social network dynamics.
+	Career guidance articles for young adults.
+	Reports on cultural shock and adaptation.
+	Persuasive texts on environmental conservation.
+Passages 1
+B2 - Upper Intermediate
+Bridging the gap to advanced proficiency. Focuses on social trends, consumer culture, and sophisticated interactions.
+	Speaking
+	Friendship: 'What defines a true friend today?'
+	Superstitions: 'Do you believe in lucky charms?'
+	Consumer choices: 'Why do we buy things we don't need?'
+	Social trends: 'The rise of the digital nomad.'
+	Ethical dilemmas: 'What would you do if you found...?'
+	Grammar
+	Complex phrasal verbs for relationships.
+	Gerund vs. Infinitive: Subtle meaning changes.
+	Past modals for speculation: 'He must have left.'
+	Subject-Verb agreement with complex phrases.
+	Mixed passive voice for formal reports.
+	Pronunciation
+	Advanced sentence stress for emphasis.
+	Intonation patterns in debating and arguing.
+	Linguistic reductions in fast-paced professional speech.
+	Writing
+	Formal personal statements for applications.
+	Detailed persuasive essays with supporting evidence.
+	News summaries for business presentations.
+	Email responses to complex customer complaints.
+	Reading
+	Sociological studies on digital friendship.
+	Articles on ethics in the modern workplace.
+	Future technology predictions and impacts.
+	Complex narratives on cultural heritage.
+Passages 2
+C1 - Advanced
+Mastering the nuances of English for academic, professional, and complex social contexts at a high level.
+	Speaking
+	Professional Negotiations: 'We propose a flexible timeline.'
+	Show Details
+	Academic Debates: 'The evidence suggests a correlation.'
+	Show Details
+	Social Critiques: 'The media's role in public opinion.'
+	Complex Narratives: 'The historical context of the movement.'
+	Philosophical Discussions: 'The nature of artificial intelligence.'
+	Grammar
+	Inversion after negative adverbs: 'Never have I seen...' 	Show Details
+	Cleft sentences: 'It was the CEO who decided...' 	Show Details
+	Advanced conditional structures for hypothetical scenarios.	Show Details
+	Precise relative clause usage for clarity and nuance.
+	Subjunctive mood in formal recommendations.
+	Pronunciation
+	Liaison in connected speech at high speeds.
+	Show Details
+	Precision in word stress for academic terms.
+	Nuanced intonation for irony and sarcasm.
+	Writing
+	Academic research abstracts and methodologies.
+	Show Details
+	Professional analytical reports for stakeholders.
+	Complex literary and cultural critiques.
+	Policy recommendations and formal proposals.
+	Reading
+	Dense academic journals on technology and society.
+	Show Details
+	Literary analysis of contemporary globally-recognized texts.
+	Professional reports on global economic trends.
+	Complex policy documents and legal summaries.
+	
+feature 0.0.9
+-In the ANALYSIS mode, for each word with a score below 75%, provide an audio snippet of the correct pronunciation that can be played by tapping the word. Also, fetch and display the word's definition in a dedicated modal when tapped.
+-In the ANALYSIS mode, allow users to manually add words and their definitions to the 'Vocabulary Builder' section, expanding its utility for personalized practice.
+-Improve the visual design and usability of all buttons across the application, ensuring a modern, intuitive, and consistent user experience.
+
+feature 0.0.10
+ahora necesito un nuevo boton ue sea de pronunciación (Pronunciations & Entonations) 
+necesito que hagas lo mejor prosible donde aparezca la pronunciacion y entonación en inglés americano e inglés britanico donde cada grafema 
+tenga 10 ejemplos y su descripción de como se pronuncia con su correspondiente American and Britash:
+3: fáciles 
+3: intermedio
+3: dificil
+1: dificil pero que yo pueda recordar.
+por ejemplo: ɑː
+Easy Examples (Short, Common Words)
+Car /kɑːr/ (American), /kɑː/ (British)
+Park /pɑːrk/ (American), /pɑːk/ (British)
+Farm /fɑːrm/ (American), /fɑːm/ (British)
+
+Medium Examples (Two-Syllable or Common "A" Spelling)
+Father /ˈfɑːðər/ (American), /ˈfɑːðə/ (British)
+After /ˈæftər/ (American), /ˈɑːftə/ (British)
+Calm /kɑːlm/ (American), /kɑːm/ (British)
+
+Difficult Examples (Silent Letters or Unusual Spellings)
+Aunt /ænt/ (American), /ɑːnt/ (British)
+Guard /ɡɑːrd/ (American), /ɡɑːd/ (British) 
+Father /ˈfɑːðə/
+Large /lɑːdʒ/
+
+Quick Tips for /ɑː/ Pronunciation
+Mouth Position: Open your mouth wide (like a doctor checking your throat).
+Tongue: Keep the tongue low and at the back of the mouth.
+Lips: Keep lips relaxed and not rounded.
+Spelling: Commonly spelled with "ar", "a", or "al" (e.g., father, car, palm)
+
+in spanish:
+Posición de la boca: Abra bien la boca (como si un médico le estuviera revisando la garganta).
+Lengua: Mantenga la lengua baja y en la parte posterior de la boca.
+Labios: Mantenga los labios relajados y no redondeados.
+Ortografía: Se suele escribir con "ar", "a" o "al" (por ejemplo, padre, coche, palma).
+cada palabra tendria un llamado al sistema de TTS con la pronunciacion y la entonación en cada caso, además también un juego
+en cada grafema.
+
+además un juego que yo podria prácticar con todas los grafemas, donde este cualquier grafema, la entonación, la gráfica, la pronunciación, y pueda ponerme a prueba cada frase y la evalua de 0 a 100 segun como la pronuncie.
+
+feature 0.0.11
+-pero ahora necesito que TODAS, todas LOS grafemas o simbolos me aparezcan TODOS los simbolos.
+-tambien existan todos los vowels & diphtongos 
+-tambien existan todos los consonant
+-en el boton de Launch practical Challenges, tiene que aparece más información. (en cada grafema)
+-en el boton de Launch practical Challenges, tiene que aparece más información. (en todos los grafemas, simbolos) además podria llevar un porcetaje de cada pronunciacion en inglés que sea como el puntaje final por ejemplo:
+a:
+pronunciación
+el % sea de 0 a 100% y en 10 palabras a la azar (ramdom) determine cuanto seria el margen total por ejemplo
+porcentaje - fecha del test
+850 - 01/01/2026 2:45
+980 - 01/03/2026 12:45
+1000  - 01/04/2026 16:34
+
+feature 0.0.12
+-necesito que aparezcan los 10 frases segun cada grafema, simbolo donde esten 
+3 faciles
+3 medio
+3 dificiles
+1 muy dificil (algo para recordar)
+además que tambien necesito la entonación como ejemplo enm cada frase.
+
+feature 0.0.13
+primero revisa que todo el boton de Start Practice este corriendo correctamente (no me abre el botón como me aparecia antes)
+ahora necesito que aparecen los cognados, falsos cognados busca los 200 más usados de cognados y 200 falsos cognados 
+donde aparezca la pronunciacion en inglés, la entonación (en inglés), forma 
+cognados
+Chocolate (Español) - Chocolate (Inglés)
+Actor (Español) - Actor (Inglés)
+Importante (Español) - Important (Inglés)
+Elegante (Español) - Elegant (Inglés)
+Final (Español) - Final (Inglés) 
+falsos cognados
+Palabra en Inglés 	Parece decir	Significa en realidad
+Actually	Actualmente	De hecho / En realidad
+Library	Librería	Biblioteca
+Assist	Asistir (ir)	Ayudar
+Attend	Atender	Asistir (ir)
+Exit	Éxito	Salida
+Embarrassed	Embarazada	Avergonzado/a
+Fabric	Fábrica	Tela/Tejido
+Parents	Parientes	Padres (padre y madre)
+Notice	Noticia	Anuncio / Aviso
+Constant	Constante	Fijo/Seguido
+Carpeta (ES)	Carpet (EN)	Alfombra / Moqueta
+Actual (ES)	Actual (EN)	Real / Verdadero
+Molest	Molestar	Abusar/Acosar sexualmente
+
+seria otro juego 
+entonces sería 
+cognados - falsos cognados
+juegos de cognados - juegos falsos cognados
+test: juegar (cognados y falsos cognados).
+donde aparezca la pronunciacion, entonación y el sistema de TTS.
+
+feature 0.0.14
+esta muy bien pero no creo que hayan 400 palabras que sea (200 cognado y 200 falso cognado)
+
+feature 0.0.15
+necesito que evalues que setting más podrias agregar, lo único que NO deseo es que sea el cambio del tema a oscuro dejalo así como esta, podrias cambiar todos los cambios que hagan falta en toda la aplicación.
+por ejemplo: los cambios visuales, cambio de fuente y cambios del tamaño de la fuente y demás que veas que harian más fácil de usar todo el contexto de la aplicación.
+NO EL CAMBIO DE VISIBILIDAD A OSCURO, ESE CAMBIO NO ME GUSTA.
+
+feature 0.0.16
+lee todo lo escrito aquí y tienes que reparar muchas cosas, por ejemplo: 
+el lector de OCR no está funcionando correctamente ya que no me sale la opción de tomar la foto de una imagen, si no que me sale la galería directamente entonces no puedo tomar la foto, y además de eso cuando tomo la foto no me sale el botón de recortar, 
+ni el botón de siguiente.
+los gráficos no estan acorde al que tenia en la maquina, es un  componente web
+pero en el navegador de mi escritorio se ve correctamente, pero cuando lo empiezo
+a ver o a trabajar desde el celular NO me deja ver los gráficos de forma correcta,
+
+fix 0.0.16
+-el audio de pronunciación no se escucha por ejemplo del texto 
+-el audio de frases no se escucha
+-la lectura de la imagen no se puede ver cuando tomo la foto
+-NO tiene que abrir otro programa cuando tomo la foto debe ejecutarse allí en la aplicación
+el recuadro negro que aparece es porque no se ve en el celular NI tiene que abrir otro programa,
+por favor solucionalo.
+-NO existe el audio de la aplicación para que pueda ejecutarlo.
+-en el botón de analyze tiene que aparecer la imagen que se tomo, y ademàs 
+-en la analyzer NO esta siendo 100% real por qué me ofrece unos puntajes tan alto si la frase es cualquier cosa, por ejemplo: CUT y yo digoo Women y me 
+Evalua con un porcentaje alto, tenia que decirme que esta mal dicho o que no corresponde a lo que se esperaba
+recuerda que debo simular una prueba de IELTS de pronunciación.
+-el audio no funciona en ninguna parte de la aplicación.
+
+fix 0.0.17
+- en la analyzer esta viendose muy desarreglado los textos no se muestran correctamente, 
+tendría que salir un poco más corto y además de esto aparece que esta muy entrecortado,
+tiene que verse de la mejor manera posible sin interrupciones ni nada por el estilo. 
+-además en el lugar de seleccion esta abajo de los textos, podria subirlo arriba, 
+para empezar a leer debe verse la pantalla.
+entonces necesito que primero se organicen mejor los archivos de "AI reading guide"
+también "listen to full model"
+-el comando de grabación que esta abajo tiene que subir 
+-lo que dice tiene que aparecer más acotado y justificado por qué se ve bastante 
+largo, y tiene que verse ordenado.
+-en la digital library, aparece todos los datos de "Show Details" quitalo, por que en cada 
+fragmento de código aparece directamente, entonces quitelo.
+
+
+fix 0.0.18
+-mejora el analysis por qué se ve bastante feo, aparece un texto muy largo con una
+barra verde muy larga al lado, se ve muy desarreglado, intenta que se vea ordenado 
+y limpio, no quiero que me salga una cosa enrevesada.
+deseo que se vea de la mejor manera posible, limpio, ordenado, elegante.
+-en el botón de digital library, cuando entro me sale todos los detalles de cada texto,
+solo quiero que me salgan los títulos y que al abrir cada uno, me salga el detalle.
+-en el botón de practical challenges, cuando entro me sale la información de cada texto,
+pero no me salen los textos, solo la información, mejoralo.
+-aun no se evalua como se debe lo mismo de antes., en la opción de Phopnetics, 
+/a:/ 
+/æ:/ 
+/ɒ:/ 
+/ɔ:/ 
+/əʊ/ 
+/ə:/ 
+y demás simbolos, aparece en cualquier frase que pronuncio, lo evaluo mal y me indica un valor 
+superior al 70%, lo evalua mal, no es coherente.
+tiene que decirme que esta mal dicho o bad result analysis 
+y si esta bien, que esta bien dicho, no se si me entiende, 
+-en practical challenges, me sale toda la información pero no me salen los textos.
+
+fix 0.0.19
+en la opcion de start practice, al ejecutar el boton de grabación, aparece el siguiente error:
+"Error during rapíd analysis", esto aparece como error y no continua con la prueba
+recuerde que estoy creando una aplicación movil que se base en un simulador de 
+IELTS, pero este error NO me deja ejecutar esta prueba.
+
+fix 0.0.20
+-mejorar el cuadro de analysis, por qué se ve desfasado el texto. correr más pequeño y mejorar la justificación de cada texto.
+-en el vocabulary builder, parece que no funciona correctamente el audio, como se muestra en la segunda imagen no se escucha la pronunciación.
+-en phonetic master class, central el lienzo y en cada imagen no se ve bien tendria que colocar entonación con Int: (acotar)
+US: y UK: hacen falta mejorar lo escrito, no en el boton se ven bien.
+-en phonetic master class mejorar el trabajo, por ejemplo si sale mal tendria que colocar dos opciones, BAD y Return (volver para repetir la misma 
+la palabra del ejercicio), entonces parar cuando sale bien o mal tiene que dos opciones volver o regresar (return) o continuar
+
+fix 0.0.21
+-en phonetic, necesito que cuadres mejor los distintos gráficos, si ves en la primera imagen estan correctamente ubicados 
+las marcas de pronunciacion tanto en inglés americano como en britanico, pero en la imagen siguiente 
+aparece con problemas de visualización se ve US: /y los simbolos de pronunciacion/ , 
+se alcanza a notar que aparece la frase Int: pero se ve muy sobremontada o recortada,
+además se ve US accent y UK Accent muy sobre el cuadro, tienes que mejorar ese aspecto, para que se vea 
+bien en todas las partes donde aparece en la parte de phonetics.
+-además en la primera imagen esta bien centrado el cuadro de texto sin tener que moverme horizontalmenmte, en la segunda imagen
+tengo que moverme horizontalmente para poder ver el cuadro de texto, NO debe existir ningun cambio en esta parte debe 
+ser y aparezcan todos los cuadros de forma ordenada, correcta y legible, SIN tener que moverme de manera horizontalmente
+
+
+fix 0.0.22
+-en el juego de phonetics, cuando sale bad esta bien, pero cuando esta bien tiene que aparecer 
+tambien return / retry Y continue para continuar, siempre  desde 0% hasta 100% 
+además tiene que aparecer los dos acentos: Listen US y Listen UK.
+-en la parte de complex words, primero debe revisar los puntos anteriores para que no tenga que moverme
+de manera horizontal, solo vertical, además tambien aplicale lo anterior dicho en el fix 0.0.21
+en cada uno de los datos, 
+estos datos todos en inglés!
+nombre de la acción
+pronunciación: (A veces me sale un texto encima del titulo)
+US: /simbolos/
+UK: /simbolos/
+Int: /simbolos/
+US Accent 
+UK Accent 
+
+fix 0.0.23
+-repara este error, en el juego de phonetics cuando le doy en este botón tendria que esperar de 5 segundos O tambien si vuelvo a oprimirlo
+tendria que evaluar si lo hice antes del tiempo establecido.
+-en el cuadro de setting podrias apareceme con que nivel deseo que se evaluen
+Inicial B1 (nivel bajo de requerimientos del idioma)
+intermedio B2 (nivel intermedio de requerimientos del idioma)
+Avanzado C1 (nivel alto de requerimientos del idioma)
+y segun estas caracteristicas, aplica el nivel que quiero que trabaje para esta practica y que aparezca en todas las pártes de la aplicación.
+
+fix 0.0.24
+-en el juego de phonetics, en el botón que espera a oprimirlo para darle cada frase debe evaluar si lo hice antes del tiempo establecido
+pero el tiene que aproximarse a los 5 segundos o 4 segundos para empezar a pronunciar la frase, o debe pausar para la evaluación 
+si o si, sea bad (malo) o bueno con un porcentaje de 0% a 100% en cada ejercicio.
+tiene que funcionar como para iniciar una prueba de IELTS, entonces DEBE funcionar si o si.
+sea 5 segundos o sea que lo pare antes de ese tiempo, tiene la misma función.
+
+feature 0.0.17
+mira necesito que implementes una nueva categoria llamada Suave (SUjeto, Auxiliar, VErbo), esta tendrá 
+la definición siguiente:
+primero deseo que hagas la creacion de la nueva categoria. llamada SUAVE (SUjeto, Auxiliar, VErbo)
+los 12 tiempos verbales más comunes, basate en el documento que te adjunto @tiempos verbales.docx
+con una explicación de cada una de ellas, de la manera que yo pueda comprenderlas, usando SUAVE
+además haz 30 preguntas (10 fáciles, 10 intermedias y 10 difíciles) por cada uno de los 12 tiempos verbales, en español y deja para escribir 
+la respuesta de una manera agradable, seria y de una manera divertida.
+por ejemplo: 
+Yo como queso todos los dias.
+y la respuesta que debo colocar sería: I eat cheese every day.
+entiende, de esa manera debe ser cada ejercicio.
+si esta bien dame 10 puntos, si me falta algun punto evaluala dependiendo de tu lógica Y si fallo, dame 0 puntos.
+a modo de juego de cada frase con su puntaje y "BAD" O "GOOD" por cada frase.
+como esta en la imagen:
+1. BAD (0-69%) - Penalización: 0 puntos
+2. RETURN (70-79%) - Penalización: 5 puntos
+3. GOOD (80-89%) - Penalización: 7 puntos
+4. EXCELLENT (90-100%) - Bonificación: +10 puntos
+bad: si esta mal el ejercicio
+return: si esta bien el ejercicio pero se puede mejorar
+good: si esta bien el ejercicio
+excellent: si esta perfecto el ejercicio
+-debes crear un botón para que pueda salir de esta practica y volver al inicio de la aplicación.
+-ademmás de  un gran  juego donde quede como EL JUEGO PERFECTO PARA APRENDER INGLES,
+con todas las caracteristicas que debe tener, pero que funcione correctamente y de la mejor manera posible,
+con una buena experiencia de usuario, PERO retomando el total de preguntas podris generar 
+10, 15 o 20 preguntas que queden totalmente aleatorias.
+-esto tambien se puede configurar desde setting o desde la nueva categoria SUAVE.
+
+feature 0.0.18
+-necesito que coloques su es un feature o un fix en la parte inferior para controlar el código
+la version actual es 0.0.1 feature 0.0.18
+pero estoy desarrollando tanto feature como fix con control pesonal,
+-No me gusto esta nueva categoria suave, necesito que la rehagas desde 0, ya que no me gusto.
+-tiene que leer de este archivo: https://docs.google.com/document/d/1AmMAJj2ByocszHsymQBGYr58DDfATCpDzUNlIkIBDQQ/edit?usp=sharing
+donde aparece que significa SUAVE y cada uno de los 12 tiempos verbales mas comunes.
+-debes crear un botón para que pueda salir de esta practica y volver al inicio de la aplicación.
+-ademmás de  un gran  juego donde quede como EL JUEGO PERFECTO PARA APRENDER INGLES,
+con todas las caracteristicas que debe tener, pero que funcione correctamente y de la mejor manera posible,
+con una buena experiencia de usuario, PERO retomando el total de preguntas podris generar 
+10, 15 o 20 preguntas que queden totalmente aleatorias.
+-esto tambien se puede configurar desde setting o desde la nueva categoria SUAVE.
+-además de esto al terminar llama al sistema que renombra el archivo y colocale ReaderOn.apk en la carpeta raiz del proyecto.
+
+feature 0.0.19
+-tienes que acomodar los titulos de cada desarrollo en la parte inferior, 
+Version 0.0.1 feature 0.0.19 
+donde cada desarrollo sea (fix o feature cambie)
+-además NO me gusto el diseño en negro o oscuro de esta nueva parte de desarrollo,
+además quiero que me implementes una nueva forma de trabajar donde pueda aprender de 
+los errores que cometo.
+-tienes que buscar ejemplos más al español y su posible conversión al inglés, por ejemplo 
+existe un en Pasado Simple: Mi amigo dormir bien ayer?
+que sería eso, Mi amigo durmio bien ayer
+que la respuesta correcta sería: Mi amigo durmió bien ayer
+y su respúesta en inglés es: My friend slept well yesterday
+entonces en  espáñol y en inglés mejoralo todo.
+SUAVE MASTER PRO, que es eso? por qué pro? no me gusta esa definición. 
+-las: fix_backticks.cjs, fix.cjs y generate_suave_data.cjs por qué fueron creados en la 
+raiz, re-organizalo todo para que quede bien, no que quede en la carpeta raiz.
+
+
+feature 0.0.20
+-tienes que acomodar los titulos de cada desarrollo en la parte inferior, 
+Version 0.0.1 feature 0.0.20
+-tengo una aplicacion de android (ReaderON), 
+pero necesito que consuma una IA que tengo local Google AI Edge Gallery y poseo IA Chat con gemma-4-e2b-it, 
+podria generar una interaccion en la aplicacion de android (ReaderOn), podria programarlo.
+donde llames a esto Gemma, entonces crealo como un recurso para las multiples funciones de la aplicacion, 
+crea una modelo creacional llamado singleton para el consumo de gemma, y que sea eficiente 
+y que se pueda usar en multiples funciones de la aplicacion, y que sea seguro y robusto.
+yo tengo un archivo llamado :
+dependencies {
+    // Reemplaza con la versión más reciente disponible
+    implementation("com.google.mediapipe:tasks-genai:0.10.14")
+}
+
+o similar para llamar a IA Chat de manera local:
+
+import android.content.Context
+import com.google.mediapipe.tasks.genai.llminference.LlmInference
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+
+class GemmaInferenceManager(private val context: Context) {
+
+    private var llmInference: LlmInference? = null
+
+    suspend fun initLlm(modelPath: String) {
+        withContext(Dispatchers.IO) {
+            try {
+                val options = LlmInference.LlmInferenceOptions.builder()
+                    .setModelPath(modelPath)
+                    .setMaxTokens(1024) // Ajusta según la longitud de resúmenes que necesites
+                    .setTemperature(0.7f)
+                    .build()
+                
+                llmInference = LlmInference.createFromOptions(context, options)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+    // Método para interactuar con la IA
+    suspend fun generateResponse(prompt: String): String? {
+        return withContext(Dispatchers.IO) {
+            llmInference?.generateResponse(prompt)
+        }
+    }
+    
+    fun close() {
+        llmInference?.close()
+    }
+}
+
+feature 0.0.21
+-tienes que acomodar los titulos de cada desarrollo en la parte inferior, 
+Version 0.0.1 feature 0.0.21
+-ya implementado la gemma, entonces usalo en cada ejemplo y en cada ejercicio del juego SUAVE,
+ademas de esto, mejora el diseño de la aplicacion para que sea mas agradable y moderno,
+y que funcione de manera mas fluida.
+-ademas cuando se esta usando la IA, debe aparecer un indicador de carga para que el usuario 
+sepa que se esta procesando la solicitud, por lo cual podria demorarse un par de segundos.
+
+feature 0.0.22
+-aun no funciona la IA en la aplicacion, lei los loggs y veo que 
+que aun no anda funcionando. necesito que se conecte de la mejor manera posible, 
+necesito que uses la documentacion oficial de gemma, y que lo implementes de la mejor manera posible,
+recuerda que tengo una aplicacion llamada Edge Gallery en mi celular, (Google AI edge gallery)
+y tengo una Gemma-4-E2B-it 
+- [IMPLEMENTED] Migrated to LiteRT-LM (com.google.ai.edge.litertlm:0.10.2) for Gemma 4 E2B-it support.
+- [IMPLEMENTED] Updated GemmaInferenceManager to use Engine and Conversation APIs.
+- [IMPLEMENTED] Enabled GPU backend with fallback to CPU.
+- [IMPLEMENTED] Added libOpenCL.so and storage permissions to AndroidManifest.
+- [IMPLEMENTED] Updated version to 0.0.22.
+- [FIXED] APK build issues with Kotlin 2.2.20.
+
+feature 0.0.23
+-aun no funciona la IA en la aplicacion, lei los loggs y veo que 
+que aun no anda funcionando. necesito que se conecte de la mejor manera posible, 
+necesito que uses la documentacion oficial de gemma, y que lo implementes de la mejor manera posible,
+recuerda que tengo una aplicacion llamada Edge Gallery en mi celular, (Google AI edge gallery)
+y tengo una Gemma-4-E2B-it 
+- [IMPLEMENTED] Simplified GemmaInferenceManager with better logging (Logcat TAG: "GemmaInference").
+- [IMPLEMENTED] Defaulted to CPU backend for maximum stability and compatibility.
+- [IMPLEMENTED] Added file readability and existence checks with detailed error reporting to UI.
+- [IMPLEMENTED] Updated gemmaService and App.tsx to display native error messages in alerts.
+- [IMPLEMENTED] Updated version to 0.0.23.
+- [FIXED] Kotlin version bumped to 2.2.21 to ensure build success with LiteRT-LM.
+-trata de ponerlo todo más fácil y más rápido por qué utilizas 50 Mb en modelo.
+- [OPTIMIZED] Using LiteRT-LM which is more efficient for on-device inference compared to full GenAI tasks.
+
+feature 0.0.26
+-poseo un samsung galaxy A54, por lo que tengo una app llamada Edge AI Gallery, y dentro de ella tengo una ia llamada Gemma 4 E2B IT, y esta funciona muy bien, 
+tengo una Gemma, Gemma-4-E2B-it necesito que mediante código Java, puedas ejecutarla 
+con la aplicacion ReaderON, es decir, cuando la persona use el traductor, o cuando 
+quiera traducir textos, imágenes, etc, la aplicación ReaderON pueda llamar a Gemma 
+y que esta le brinde la traducción en base a lo que la persona quiere.
+- [IMPLEMENTED] Simplified GemmaInferenceManager with better logging (Logcat TAG: "GemmaInference").
+- [IMPLEMENTED] Defaulted to CPU backend for maximum stability and compatibility.
+- [IMPLEMENTED] Added file readability and existence checks with detailed error reporting to UI.
+- [IMPLEMENTED] Updated gemmaService and App.tsx to display native error messages in alerts.
+- [IMPLEMENTED] Updated version to 0.0.23.
+- [FIXED] Kotlin version bumped to 2.2.21 to ensure build success with LiteRT-LM.
+-trata de ponerlo todo más fácil y más rápido por qué utilizas 50 Mb en modelo.
+- [OPTIMIZED] Using LiteRT-LM which is more efficient for on-device inference compared to full GenAI tasks.
+-nececsito que modifique todo el archivo llamado @suaveData.ts y @generate_suave_data.cjs
+NO deseo que aparezca quemadas todas las respuestas sino los ejemplos, por ejemplo:
+Simple Past: 4 formas
+Afirmativo: S + V-ed 
+Negativo: S + Did not + Verb 
+Interrogativo: Did + S + Verb 
+Negativo-Interrogativo: Did not + S + Verb
+y desde ahi empiece a generar con la Gemma, las respuestas.
+-necesito que crees un instalador en la ruta antes dada: @ReaderON.apk en la carpeta raiz.
+
+feature 0.0.27
+-necesito que crees otra caracteristica, que se llame 1000 principals words 
+donde estaran los 1000 palabras en inglés, con su traduccion al español y con su definicion de cada palabra,
+entonces: @1000words.txt 
+lo que yo quiero es que empieces en inglés y la respuesta aparezca en español,
+palabra en inglés, el tipo de gramatica (conjuncion, articulo, preposicion, etc) 
+pronunciacion (fonética de América ) y si le doy 
+click seria sonoro la pronunciacion como aparece en inglés americano.
+Y ABAJO de esto la definicion de la palabra y su significado en español.
+- [IMPLEMENTED] Created scripts/parse_1000_words.cjs to process the raw word list.
+- [IMPLEMENTED] Created ThousandWordsSection.tsx with search and detailed word view.
+- [IMPLEMENTED] Integrated dynamic Gemma AI enrichment for definitions, phonetics, and grammar types.
+- [IMPLEMENTED] Added American English TTS pronunciation on click.
+- [IMPLEMENTED] Updated App.tsx with new bento card and rendering logic.
+- [IMPLEMENTED] Version 0.0.1 feature 0.0.27 ready.
+-generame el APK en la ruta principal.
+
+
+feature 0.0.28
+-En la 100 Principales words. necesito que me aparezcan el recuadro donde aparece la 
+información en la misma orden, por qué debo bajar para ver la información lo cual sería molesto.
+-además de esto necesito que me aparezca el numeral 1 (0 a 100), 2 (101 a 200), etc 
+-y cuando presione el numeral  se corre hasta llegar a las 1000 palabras más comunes.
+-generame el APK en la ruta principal.
+- [IMPLEMENTED] Added horizontal range selector (1-100, 101-200...) for quick navigation.
+- [IMPLEMENTED] Optimized Detail Modal layout: centered design, compact fields, and critical info visible without scrolling.
+- [IMPLEMENTED] Improved search logic to work independently of pagination.
+- [IMPLEMENTED] Version 0.0.1 feature 0.0.28 ready.
+- [APK] Generated ReaderOn.apk in root directory.
+
+fix 0.0.28-fix
+soluciona lo del 1000 words,. por qué aunque ya no tengo que bajar tanto pero
+de todas maneras se mueve, por ejemplo: presiono el elemento y automaticamente tengo que ver
+la plantilla, y no que tengo que bajar para ver la plantilla.
+por ejemplo si bajo hasta la numero 50 NO tenga que bajar o subir demasiado sino ver aqui 
+la imagen de la plantilla.
+- [FIXED] Modal position: Changed from absolute to fixed centered position. Now it appears instantly in the center of the screen regardless of scroll position.
+- [CLEANED] Removed "N/A" placeholders for Grammar and Phonetics. If missing, they simply don't show up.
+- [FIXED] Conditional UI: Hidden "Definición IA" section if Gemma is not initialized or fails to provide a definition.
+- [APK] Generated ReaderOn.apk in root directory.
+
+fix 0.0.29
+necesito que me soluciones lo de la Gemma, necesito que implementes la mejor opción
+recuerda yo tengo un samsung A54.
+recuerda yo tengo la aplicación: google AI edge Gallery
+recuerda que yo tengo una Gemma 4 E2B-it
+recuerda que yo tengo LiteRT y su información en la memoria de mi celular.
+necesito que implementes todo esto en la aplicación ReaderON.
+- [IMPLEMENTED] Rebuilt GemmaInferenceManager.kt to fully utilize LiteRT (MediaPipe GenAI) with A54 specific optimizations.
+- [OPTIMIZED] Explicit support for .bin, .task, and .tflite files from Edge AI Gallery.
+- [FIXED] Automatic backend selection for Exynos 1380 (GPU/OpenCL) for faster inference.
+- [FIXED] Improved error reporting for model initialization and memory issues.
+- [APK] Generated ReaderOn.apk in root directory.
+
+fix 0.0.30
+-mira en la categoria de 1000 palabras en la definicion, cuando abro una palabra y me aparece la definición, 
+necesito que hagas un carrosel siendo hacia a la izquiera -1 y hacia adelante +1
+entonces si abro una palabra,. si es la primera (1) regresa al listado de apertura, pero si le doy a la
+derecha (2) me abre la siguiente definicion, y asi sucesivamente.
+si llego a la ultima (100) se cierra si llego y vuelve a mostrar el panel principal de las palabras,
+entonces izquierda (-1) DEFINICIÓN derecha (+1).
+-además de esto, necesito que aparezca la definición, el botón de audio (TTS)
+y la pronunciación (Simbolo IPA) y todo en base a lo que te pido.  
+- [IMPLEMENTED] Carousel navigation in 1000 Words detail modal.
+- [FIXED] Left arrow (-1) and Right arrow (+1) functionality.
+- [FIXED] Boundary logic: Closing the modal at the beginning or end of the list.
+- [APK] Generated ReaderOn.apk in root directory.
+
+fix 0.0.31
+-en la parte de "1000 palabras mas comunes" cuando abro la plantilla, cuando oprimo bien sea a la izquierda o a la derecha
+si marco mal, se cierra el pop up, por lo que si deseo tengo que buscar la palabra y volver a 
+empezar, necesito que lo soluciones.
+-lo otro, elimina el botón de cerrar del mismo pop up y cambialo con una banderita que ponga 
+yo en advertencia cuando pronuncio mal un termino, dicha banderita o flags estaria con un número que yo he cometido el mismo error.
+si, es una la banderita o flags estaria en verde-amarillerento, si es 2 veces se pone en amarillo, y si llega a ser 3 
+o más veces tendria que ser rojo.
+y tienes que haccer un apartado especial para ir a buscar esas palabras que le he puesto una flags para replicarlo y repetirlo
+otra vez, del mismo modo en el carrusel, pero en este pop up pueda en vez de la banderita o flag poner en 0 nuevamente el contador de 
+esta palabras, si y solo si, ya quedo conforme con quitarla de nuevo que quede en ceros (0) 
+-lo otro en este pop up de las 1000 palabras, deberia estar la pronunciación de esta palabra con el simbolo IPA
+-además podrias modificar ver mejor el cuadro de pronunciación se ve muy cortado. 
+-arriba y abajo que sea para salir del cuadro o pop up, pero en la parte principal se siga viendo 
+como esta.
+-además si cada palabra es un verbo, sustantivo, etc, deberia aparecer en esa categoria, por ejemplo:
+verbo, sustantivo, adjetivo, adverbio, pronombre, articulo, conjuncion, preposicion, etc en español.
+-y en ingles tambien deberia aparecer.
+-haz para las 1000 palabras, y además recuerda que ahora tmabien debes repetir las que aparecen al menos 
+una vez para recordar.
+- [IMPLEMENTED] Word Mistake Tracking (Flags) with persistence in IndexedDB.
+- [IMPLEMENTED] Color-coded flag logic: 1=Lime, 2=Amber, 3+=Red.
+- [IMPLEMENTED] "Flagged Words" view mode to practice words with previous mistakes.
+- [FIXED] Carousel Modal: Added explicit background click-to-close areas (top/bottom) and prevented accidental closing.
+- [FIXED] UI: Improved Pronounce button and IPA display (no more cut-offs).
+- [ADDED] Bilingual Grammar Labels (e.g., Verb / Verbo, Noun / Sustantivo).
+- [APK] Generated ReaderOn.apk in root directory.
+
+
+fix 0.0.32
+-mira en el pop up, se ve que implicito eso de sale del cuadro o pop up, retiralo de ahi
+además en la parte de flags, no me cambia la opción necesito que cuando oprimá allí me cambie de 
+colores (0 blanco (asi como esta), 1 verde claro, 2 amarillo, +3 rojo), de 0 hasta 5
+-además no existe el codigo IPA o el marco de fonetica internacional, necesito que lo investigues 
+y lo implementes allí, además falta la explicacion si es un verbo, sustantivo, etc, etc.
+- [FIXED] Cleaned Modal UI: Removed explicit "Sale del cuadro" labels while maintaining background-to-close functionality.
+- [IMPLEMENTED] Advanced Flag Logic: Words now cycle from 0 to 5 mistakes.
+- [FIXED] Flag Colors: 0=White/Default, 1=Emerald, 2=Amber, 3+=Red.
+- [OPTIMIZED] IPA & Grammar: Updated Gemma AI prompt to provide accurate American English IPA symbols and detailed grammar categories.
+- [APK] Generated ReaderOn.apk in root directory.
+
+fix 0.0.33
+-sigue apáreciendo /../ esto NO es de código de la IA, esto es de cada frase, palabra 
+que debe aparecer en la fonética, el cuadro y la explicación de la palabra. 
+-además NO funciona, la zona de las banderitas, NO funciona, hazla que aparezca cada vez que 
+yo oprima la bandera el contador empiece a sumarse.
+-yo quiero que cada palabra que yo oprima o seleccione, tenga la oprción de oprimir una 
+banderita, y esa banderita empieza a sumar, del 1 al 5.
+- [FIXED] Flag Button Interaction: Added `stopPropagation` to prevent accidental modal closing when clicking the flag.
+- [FIXED] IPA Display: Improved state handling and regex to ensure phonetic symbols appear reliably once Gemma responds.
+- [OPTIMIZED] Flag Logic: Counter now increments correctly from 1 to 5 as requested.
+- [APK] Generated ReaderOn.apk in root directory.
+
+fix 0.0.34
+-[fix]reacomodalo por qué mira como se ve, cuando abro una palabra y me aparece esto si espacio para darle 
+continuar o seguir respondiendo, me queda muy pegado a la derecha, tiene que seguir el mismo 
+ancho y alto.
+-[fix] aun no me ejecuta el contador de banderas o flags, no lo activa para poderlo activar
+- [FIXED] Layout Centering: Redesigned modal structure to ensure it remains perfectly centered with arrows.
+- [FIXED] Flag Counter: Switched to standard button events and optimistic updates to guarantee the counter increments on click.
+- [APK] Generated ReaderOn.apk in root directory.
+
+
+fix 0.0.35
+-[Fixed] mira la imagen, la izquierda (-1) o la derecha (+1) si sale de la zona 
+no minimiza ni cierra el cuadro de opciones, si le doy en la zona de arriba
+o la zona de abajo SI se cierra el pop up.
+la parte de la bandera ahora SI esta bien, dejalo así como está.
+-[Implemented] Refined Carousel Logic:
+  - Arrows now only advance/go back one word.
+  - Closing the modal now requires clicking explicitly on the top or bottom background.
+- [FIXED] Flag Counter: Added safeguards to prevent the counter from being reset accidentally by arrow clicks.
+la zona esta perfecta, NO midifiques el tamaño ni nada, lo único seria minimnizar el tamaño de la fuente
+si se necesita, pero dejalo así como se ve.
+- [FIXED] /../ seria la definición en ingles de IPA/AFI entonces colocalo ahi todas
+palabras que aparecen, tienes que revisar por internet NO por la IA interna ya que 
+no conecta esta operacion.
+- [FIXED] definicion IA: buscalas por internet, los terminos verbos, sustantivos, adjetivos, y etc, 
+tambien buscalos en ingles. 
+- [FIXED] Definicion IA: Ahora utiliza Google Search para obtener definiciones precisas en lugar de Gemini.
+- [FIXED] dejalo así como esta, la pronuncuación y las banderitas (flags) y también dejalo 
+así como esta.
+- [FIXED] Explicit Modal Closure: Modal now only closes by clicking the top or bottom visual bars.
+- [IMPLEMENTED] Web Dictionary Integration: Replaced local Gemma with Free Dictionary API for precise IPA and English definitions.
+- [APK] Generated ReaderOn.apk in root directory.
+
+fix 0.0.36
+[FIXED] trata de implementar: https://github.com/google-ai-edge/litert  con kotlin y
+con gemma4 en el mismo lenguaje que lo tienes hecho.
+- [FIXED] APK Updated: Integrated Local Gemma 4 for offline analysis.
+- [INFO] Feature Parity: ReaderON now matches LITERT's core functionality (AI Analysis).
+- [APK] Generated ReaderOn.apk in root directory.
+
+fix 0.0.37
+-[FIXED] podrias revisar esta clase de literatura sobre esto de IA 
+ https://github.com/google-ai-edge/LiteRT-LM AND https://ai.google.dev/edge/litert-lm/android?hl=es-419
+ -en setting (podrias colocar la ubiocacion que TU CREES) donde podria estar en mi celular Samsung A54 
+ para yo colocarlo  de forma local pq NO la puedo ver, entonces de paso revisalo bien.
+ - [INFO] LiteRT-LM Deployment: Application now supports the new LiteRT-LM (formerly MediaPipe GenAI) standard for local LLM inference.
+- [FIXED] Device Compatibility: Updated Settings UI to recommend `/storage/emulated/0/Download/` for easy model access on Samsung A54.
+- [FIXED] Settings UI: Cleaned up settings, removed legacy toggles, and rebranded to LiteRT-LM (Gemma 2B).
+- [APK] Generated ReaderOn.apk in root directory.
+
+feature 0.0.38
+-[FIXED] tienes que sacar un backup de la base de datos primero que todo.
+-[FEATURE]ahora necesito que me aparezca otra caracteristica, esta se llamara 1001 to 2000 words
+seria igual a la de 1000 words pero esta seria para las palabras del 1001 al 2000
+tendria que revisar el archivo de @1000words.txt y revisar si existe o no existe:
+@1001-2000words.txt ubicado en el archivo raiz de esta archivo.
+entonces YO requiero que hagas una nueva caracteristica que sea 1001 to 2000 words
+seria igual a la de 1000 words pero esta seria para las palabras del 1001 al 2000.
+la cual se ubicaria donde dice thousand words, y apareceria una nueva opci.
+MIRA ESTO:
+palabra en inglés;Palabra en español;(definición de IPA/AFI);Tipo gramatical (sustantivo, verbos, etc etc)
+para que te ayude en los nuevos 1001-2000 words.
+lo mismo que esta hecho de 1000 words pero con estas nuevas 1000 palabras pero esta categoría
+nueva. y en la pantalla principal de inicio, en vez de decir Mil (1001-2000) palabras
+tambien tendria que decir lo mismo en ingles, es decir, "Thousand Words (1001-2000)"
+- [FIXED] Database Backup & Restore: Implemented full export/import of IndexedDB data (Practices & Flags) via Settings Modal to ensure data safety.
+- [FEATURE] Thousand Words (1001-2000): Integrated 1000 new advanced words from @1001-2000word.txt.
+- [FEATURE] Native IPA & Grammar: The new 1001-2000 module displays phonetic symbols and grammatical types (Noun, Verb, etc.) directly from the source file.
+- [UI] Enhanced Home Screen: Added "Thousand Words (1001-2000)" bento card and refactored ThousandWordsSection for multi-list support.
+- [APK] Generated ReaderOn.apk in root directory.
+
+Fix 0.0.39
+- [APK] re-Generated ReaderOn.apk in root directory. regenerated another time 
+- [MAINTENANCE] Version bump and final build validation for the Thousand Words expansion.
+
+fix 0.0.40
+- [FIXED] Code Architecture Refactor: Split the massive App.tsx (~2500 lines) into modular components (HomeDashboard, AnalysisSection, CaptureSection, StudyDashboard, EBookReader, and SettingsModal) for better maintainability.
+- [FIXED] 3 Critical Bugs: Corrected type mismatches (accuracy vs score), restored the Practice/Recording workflow, and re-integrated the Capacitor Camera.
+- [FEATURE] Parity 1001-2000 Words: Ensured the new vocabulary module matches the original 1000-word module in usability (carousel, flags, IPA enrichment, and 100-word range navigation).
+- [APK] re-Generated ReaderOn.apk in root directory. regenerated another time.
+
+feature 0.0.41
+-[fixed] tener una base de datos o una persistencia de datos de todos los procesos que se han hecho o realizado, cada vez que yo oprime un botoncito que diria: 
+persistencia de datos o historial de procesos.
+por ejemplo en 1000 words, debe existir una tabla llamada del mismo modo y cuando yo seleccione una palabra con una banderita, 
+entoncesque vaya a la tabla de 1000 words y marque el número de gravedad de 0 a 5 (siendo 0 no se debe repetir y más a 1 (1-5) si tiene que aparecer en la zona de repetir) 
+además otra donde se tiene el número de valores (de las veces en que se ha colocado).
+hacer lo mismo en Thousand Words (1001-2000) words, con su tabla respectiva, donde tendria los valores
+tabls en la base de datos:
+words_id, words, palabra, definicion_ipa, tipo_gramatical, flags, num_repeticiones
+-[fixed] en la nueva carpeta llamada Sources: existe un archivo llamado 
+spanishenglishen00macduoft.pdf analizalo TODO y despues de esto bajalo a un txt en la misma carpeta:
+spanishenglishen00macduoft.txt donde cada frase esta en inglés y en español.
+-[feature] cra una nueva categoria llamada dictionary que tomaria todo el archivo generado llamado
+spanishenglishen00macduoft.txt donde cada frase esta en inglés y en español, entonces deberia darme dos opciones 
+la primera buscar en ingles, cualquier palabra 
+y la segunda sería directamente el buscar letra por letra, empezando por la A y terminando por la Z.
+con todas las palabras que empieza con esa letra, y al oprimir cualquier letra.
+además de esto, seria en base de datos, la tabla se tiene que llamar 
+dictionary, y tendria que almacenar todo lo que esta en el txt generado.
+id_dictionary, word, list of abbrevations, word_in_spanish.
+- [APK] re-Generated ReaderOn.apk in root directory. regenerated another time.
+
+feature 0.0.42
+[fixed] No se vela primera opción, se llama OCR & AI Analysis in seconds, tenes que haccerlo nuevamente 
+[fixed] cuando le de en la flecha de retornar d android, que lo haga NO se cierre, debido a esto muchas veces lo he cerrado
+[fixed] e study center tienes que volver a generar la orden de leer con TTS inglés americano
+-[fixed] en ebook resume cuando aparece en blanco (va directamente a buscar la IA o Gemma)aparece en blanco, eso sería un error
+debido a esto tiene que aoparecer algo ahí que indique "Con existe la integración con IA Gemma" y dejearme continiuar
+-[fixed] en phonetics Master, NO tiene audio recuerda que allí estan todas las voces según el inglés americano y britanico.
+-[fixed] tienes que implementar de nuevo el sistema de audio de cognate (TTS)
+-[feature] debes hacer un backup de toda la base de datos.
+-[fixed] en la parte de setting tienes que activar la parte de export backup y restore backup
+-[fixed] ne la parte de SUAVE recuerda que debe aparecer el mismo mensaje que no existe la implementacion de la Gemma o IA
+entonces debe aparecer una franja de información indicando esto y abajo de esto debe aparecer "Analyze without AI (Local)" para 
+[FIxed] en la parte de diccionary (diccionario) recuerda que existen dos tipos de archivos 
+la tabla de la base de datos y el archivo dictionary.json para que sea más veloz 
+- [APK] Generated ReaderOn.apk in root directory.
+
+fix 0.0.43
+-[fixed] mejorar la UI de la primera opción de ORC & Analysis por qué no se ve bien
+-[fixed] tienes que hacer que la base de datos sea local, y que pueda ser backup
+-[fixed] hacer un backup y restore de la base de datos
+-[fixed] en la parte de settings tienes que implementar la parte de export backup y restore backup
+-[fixed] cuando le de a android la opcion de para atrás y yo este situado en cualqiier ruta sim ser la raiz del la 
+aplicacion, entonces lo q hace es retroceder Y si ya esta en la raiz del la aplicacion entonce si cerrarla. 
+PREGUNTAR si desea salirse de la aplicación o no.
+-[fixed] en la parte de phonetic master, en el sistema de sonido, recuerdo que deben estar disponibles 
+todas las opciones de sonidos que tiene esa aplicación, por qué en estos momentos no se encuentran.
+- [APK] Generated ReaderOn.apk in root directory.
+
+feature 0.0.44
+-[feature] crear una nueva ccategoria en la zona principal de la aplicación, de mismo modo de persistencia, almacenamiento
+y estructura de 1000 words y demás, pero ahora esta nueva caracteristicas se llamara:
+Regular Verbs, y contará con 600 de los verbos en inglés, más usados
+los verbos estan en esta distribución:
+Accept;/əkˈsɛpt/;Accepted;Accepted;Accept the invitation;Aceptar;
+Achieve;/əˈtʃiːv/;Achieved;Achieved;Achieve your goal;Lograr;
+Acknowledge;/əkˈnɑːlɪdʒ/;Acknowledged;Acknowledged;Acknowledge the mistake;Reconocer;
+Acquire;/əˈkwaɪər/;Acquired;Acquired;Acquire new skills;Adquirir;
+.....
+......
+Wreck;/rɛk/;Wrecked;Wrecked;Wreck the car;Destrozar;
+Yawn;/jɔːn/;Yawned;Yawned;Yawn loudly;Bostezar;
+Yell;/jɛl/;Yelled;Yelled;Yell for help;Gritar;
+de esta manera 
+verbo en infinittivo;/pronunciacion/;verbo en pasado;verbo en participio pasado;ejemplo;verbo en español.
+Tiene que tener la misma estructura de 1000 words, es decir, en la pantalla principal de inicio, en vez de decir 
+Mil (1000 words) palabras, tambien tendria que decir lo mismo en ingles, es decir, "Thousand Words (1001-2000)"
+ademas de esto, en la nueva seccion de Regular Verbs, debe aparecer 
+Regular Verbs (1-600) palabras.
+deseo que hagas la tabla de base de datos de manera que 
+regular_verbs_id, verb_infinitive, verb_pronunciation, verb_past, verb_past_participle, verb_example, verb_spanish.
+- [APK] Generated ReaderOn.apk in root directory.
+-[fix] en setting haz que el criterio de crear backup aparezca cuando se va a almacenar como aparece en la otra opcion 
+restore backup entonces necesito que abras el archivo y lo dejes guardar segun lo que sea en archivo .fix_backticks
+
+
+feature 0.0.45
+[backup] tienes que hacer un backup de la base de datos e recrear otro backup desde la aplicación, 
+el archivo será ddmmyyyyhhmm.bkp, ademas quiero que el archivo se guarde en la carpeta root de la aplicación.
+además debes implementar la opción de crear un backup y un restore que FUNCIONE.
+la opción de setting, existe backup y restore, parece que funciona restore pero NO 
+el backup no existe y no se donde guardarlo.
+tienes que hacerlo de tal manera que el backup se guarde en la carpeta root de la aplicación.
+y el restore 
+
+feature 0.0.46
+[backup] en setting: restore backup, no existe la funcionalidad porque NO se encuentra el archivo.
+debes implementar que cuando abra la aplicación por primera vez, 
+entonces automaticamente se cree un backup de la base de datos, 
+entonces en crear el backup (*.bkp) y la ruta de donde se guarde.
+y cuando abre restore backup abre de nuevo donde sea que lo guarde el backup.
+- [APK] Generated ReaderOn.apk in root directory.
