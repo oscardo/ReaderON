@@ -29,16 +29,24 @@ import { PhoneticSection } from './components/PhoneticSection';
 import { CognateSection } from './components/CognateSection';
 import { SuaveSection } from './components/SuaveSection';
 import { TranslatorSection } from './components/TranslatorSection';
+import SpecialC1Section from './components/SpecialC1Section';
+import C1WordsSection from './components/C1WordsSection';
+import { C1_WORDS } from './constants/c1Words';
 import ThousandWordsSection from './components/ThousandWordsSection';
 import RegularVerbsSection from './components/RegularVerbsSection';
 import { REGULAR_VERBS } from './constants/regularVerbs';
+import { IRREGULAR_VERBS } from './constants/irregularVerbs';
+import { IDIOMS_EXPRESSIONS } from './constants/idiomsExpressions';
 import { SettingsModal } from './components/SettingsModal';
 import { HomeDashboard } from './components/HomeDashboard';
 import { StudyDashboard } from './components/StudyDashboard';
 import { AnalysisSection } from './components/AnalysisSection';
 import { CaptureSection } from './components/CaptureSection';
 import { PracticeSection } from './components/PracticeSection';
-import { DictionarySection } from './components/DictionarySection';
+import IdiomsExpressionsSection from './components/IdiomsExpressionsSection';
+import IrregularVerbsSection from './components/IrregularVerbsSection';
+import SlangSection from './components/SlangSection';
+import { SLANGS } from './constants/slangs';
 import { EBookReader } from './components/EBookReader';
 import confetti from 'canvas-confetti';
 
@@ -138,6 +146,11 @@ export default function App() {
         else if (mode === 'ANALYSIS') setMode('HOME');
         else if (mode === 'CAPTURE') setMode('HOME');
         else if (mode === 'REGULAR_VERBS') setMode('HOME');
+        else if (mode === 'IRREGULAR_VERBS') setMode('HOME');
+        else if (mode === 'IDIOMS') setMode('HOME');
+        else if (mode === 'C1_ESSENCIAL') setMode('HOME');
+        else if (mode === 'C1_WORDS') setMode('HOME');
+        else if (mode === 'SLANG') setMode('HOME');
         else setMode('HOME');
       } else {
         // If at home, ask to exit
@@ -469,10 +482,27 @@ export default function App() {
             {mode === 'COGNATES' && <CognateSection onBack={() => setMode('HOME')} speakText={speakWord} />}
             {mode === 'SUAVE' && <SuaveSection onBack={() => setMode('HOME')} />}
             {mode === 'TRANSLATOR' && <TranslatorSection onBack={() => setMode('HOME')} />}
-            {mode === 'THOUSAND_WORDS' && <ThousandWordsSection words={THOUSAND_WORDS} title="Thousand Words (1-1000)" storeName="thousand_words_1" onBack={() => setMode('HOME')} />}
-            {mode === 'THOUSAND_WORDS_2' && <ThousandWordsSection words={THOUSAND_WORDS_2} title="Thousand Words (1001-2000)" storeName="thousand_words_2" onBack={() => setMode('HOME')} />}
-            {mode === 'REGULAR_VERBS' && <RegularVerbsSection verbs={REGULAR_VERBS} onBack={() => setMode('HOME')} />}
-            {mode === 'DICTIONARY' && <DictionarySection onBack={() => setMode('HOME')} />}
+            {mode === 'THOUSAND_WORDS' && <ThousandWordsSection words={THOUSAND_WORDS} title="THOUSAND WORDS ESSENCIAL" storeName="thousand_words_1" onBack={() => setMode('HOME')} />}
+            {mode === 'THOUSAND_WORDS_2' && <ThousandWordsSection words={THOUSAND_WORDS_2} title="THOUSAND WORDS ADVANCED" storeName="thousand_words_2" onBack={() => setMode('HOME')} />}
+            {mode === 'REGULAR_VERBS' && <RegularVerbsSection verbs={REGULAR_VERBS} onBack={() => setMode('HOME')} speakText={speakWord} />}
+            {mode === 'IRREGULAR_VERBS' && <IrregularVerbsSection verbs={IRREGULAR_VERBS} onBack={() => setMode('HOME')} speakText={speakWord} />}
+            {mode === 'IDIOMS' && <IdiomsExpressionsSection idioms={IDIOMS_EXPRESSIONS} onBack={() => setMode('HOME')} speakText={speakWord} />}
+            {mode === 'C1_ESSENCIAL' && (
+                <SpecialC1Section onBack={() => setMode('HOME')} speakText={speakWord} />
+            )}
+            {mode === 'C1_WORDS' && (
+                <C1WordsSection 
+                  words={C1_WORDS} 
+                  onBack={() => setMode('HOME')} 
+                  speakText={speakWord} 
+                />
+            )}
+            {mode === 'SLANG' && (
+                <SlangSection 
+                  onBack={() => setMode('HOME')} 
+                  speakText={speakWord} 
+                />
+            )}
             {mode === 'EBOOKS' && <EBookReader onBack={() => setMode('HOME')} />}
           </AnimatePresence>
         </main>

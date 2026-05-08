@@ -12,7 +12,8 @@ import {
   Type, 
   BookOpen, 
   Zap,
-  Book
+  Book,
+  Languages
 } from 'lucide-react';
 import { AppMode, PlayFile } from '../types';
 
@@ -182,31 +183,47 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* 1000 Words Entry Card */}
+          {/* Irregular Verbs Entry Card */}
           <motion.div 
             whileHover={{ y: -4 }}
-            onClick={() => setMode('THOUSAND_WORDS')}
+            onClick={() => setMode('IRREGULAR_VERBS')}
             className="bento-card p-8 relative overflow-hidden group cursor-pointer border-rose-100/50 border-b-4 border-b-rose-500 shadow-xl shadow-rose-100/20"
           >
             <div className="relative z-10 flex flex-col items-start gap-4">
-              <div className="bg-rose-50 text-rose-600 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest">Essential 1-1000</div>
-              <h2 className="text-2xl font-black text-slate-900 leading-tight">Thousand Words <br/>(1-1000)</h2>
-              <p className="text-slate-400 max-w-xs text-xs font-medium leading-relaxed mb-2">Master the most common English words.</p>
+              <div className="bg-rose-50 text-rose-600 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest">Mastery</div>
+              <h2 className="text-2xl font-black text-slate-900 leading-tight">IRREGULAR VERBS</h2>
+              <p className="text-slate-400 max-w-xs text-xs font-medium leading-relaxed mb-2">Infinitive, Past & Participle forms.</p>
               <div className="inline-flex items-center gap-2 text-rose-600 font-black text-xs uppercase tracking-widest group-hover:translate-x-1 transition-transform">
+                Learn Verbs <ArrowRight size={14} strokeWidth={3} />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* 1000 Words ESSENCIAL Entry Card */}
+          <motion.div 
+            whileHover={{ y: -4 }}
+            onClick={() => setMode('THOUSAND_WORDS')}
+            className="bento-card p-8 relative overflow-hidden group cursor-pointer border-indigo-100/50 border-b-4 border-b-indigo-500 shadow-xl shadow-indigo-100/20"
+          >
+            <div className="relative z-10 flex flex-col items-start gap-4">
+              <div className="bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest">Fundamental</div>
+              <h2 className="text-2xl font-black text-slate-900 leading-tight">THOUSAND WORDS <br/>ESSENCIAL</h2>
+              <p className="text-slate-400 max-w-xs text-xs font-medium leading-relaxed mb-2">Most used 1000 English words.</p>
+              <div className="inline-flex items-center gap-2 text-indigo-600 font-black text-xs uppercase tracking-widest group-hover:translate-x-1 transition-transform">
                 Start Learning <ArrowRight size={14} strokeWidth={3} />
               </div>
             </div>
           </motion.div>
 
-          {/* 1001-2000 Words Entry Card */}
+          {/* 1000 Words ADVANCED Entry Card */}
           <motion.div 
             whileHover={{ y: -4 }}
             onClick={() => setMode('THOUSAND_WORDS_2')}
             className="bento-card p-8 relative overflow-hidden group cursor-pointer border-orange-100/50 border-b-4 border-b-orange-500 shadow-xl shadow-orange-100/20"
           >
             <div className="relative z-10 flex flex-col items-start gap-4">
-              <div className="bg-orange-50 text-orange-600 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest">Advanced 1001-2000</div>
-              <h2 className="text-2xl font-black text-slate-900 leading-tight">Thousand Words <br/>(1001-2000)</h2>
+              <div className="bg-orange-50 text-orange-600 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest">Next Level</div>
+              <h2 className="text-2xl font-black text-slate-900 leading-tight">THOUSAND WORDS <br/>ADVANCED</h2>
               <p className="text-slate-400 max-w-xs text-xs font-medium leading-relaxed mb-2">Next 1000 words with IPA and Grammar.</p>
               <div className="inline-flex items-center gap-2 text-orange-600 font-black text-xs uppercase tracking-widest group-hover:translate-x-1 transition-transform">
                 Continue Learning <ArrowRight size={14} strokeWidth={3} />
@@ -218,14 +235,90 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
           <motion.div 
             whileHover={{ y: -4 }}
             onClick={() => setMode('REGULAR_VERBS')}
-            className="bento-card p-8 relative overflow-hidden group cursor-pointer border-indigo-100/50 border-b-4 border-b-indigo-500 shadow-xl shadow-indigo-100/20"
+            className="bento-card p-8 relative overflow-hidden group cursor-pointer border-emerald-100/50 border-b-4 border-b-emerald-500 shadow-xl shadow-emerald-100/20"
           >
             <div className="relative z-10 flex flex-col items-start gap-4">
-              <div className="bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest">Verbs 1-600</div>
-              <h2 className="text-2xl font-black text-slate-900 leading-tight">Regular Verbs <br/>(1-600)</h2>
+              <div className="bg-emerald-50 text-emerald-600 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest">Vocabulary</div>
+              <h2 className="text-2xl font-black text-slate-900 leading-tight">REGULAR VERBS</h2>
               <p className="text-slate-400 max-w-xs text-xs font-medium leading-relaxed mb-2">Conjugations, examples and pronunciation.</p>
-              <div className="inline-flex items-center gap-2 text-indigo-600 font-black text-xs uppercase tracking-widest group-hover:translate-x-1 transition-transform">
+              <div className="inline-flex items-center gap-2 text-emerald-600 font-black text-xs uppercase tracking-widest group-hover:translate-x-1 transition-transform">
                 Master Verbs <ArrowRight size={14} strokeWidth={3} />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Idioms Entry Card */}
+          <motion.div 
+            whileHover={{ y: -4 }}
+            onClick={() => setMode('IDIOMS')}
+            className="bento-card p-8 relative overflow-hidden group cursor-pointer border-purple-100/50 border-b-4 border-b-purple-500 shadow-xl shadow-purple-100/20"
+          >
+            <div className="relative z-10 flex flex-col items-start gap-4">
+              <div className="bg-purple-50 text-purple-600 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest">Phrases</div>
+              <h2 className="text-2xl font-black text-slate-900 leading-tight">IDIOMS & <br/>Expression</h2>
+              <p className="text-slate-400 max-w-xs text-xs font-medium leading-relaxed mb-2">Modismos y expresiones en inglés.</p>
+              <div className="inline-flex items-center gap-2 text-purple-600 font-black text-xs uppercase tracking-widest group-hover:translate-x-1 transition-transform">
+                Learn Idioms <ArrowRight size={14} strokeWidth={3} />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* C1 Essencial Entry Card */}
+          <motion.div 
+            whileHover={{ y: -6, scale: 1.01 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => setMode('C1_ESSENCIAL')}
+            className="bento-card p-6 sm:p-8 relative overflow-hidden group cursor-pointer border-indigo-100/50 border-b-4 border-b-indigo-600 bg-gradient-to-br from-white to-indigo-50/30 shadow-xl shadow-indigo-100/20"
+          >
+            <div className="absolute top-0 right-0 p-4">
+               <Sparkles size={20} className="text-indigo-400 opacity-20 group-hover:opacity-100 group-hover:scale-110 transition-all" />
+            </div>
+            <div className="relative z-10 flex flex-col items-start gap-4">
+              <div className="bg-indigo-600 text-white px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest shadow-md shadow-indigo-100">Premium C1</div>
+              <h2 className="text-2xl font-black text-slate-900 leading-tight">C1 <br/>ESSENCIAL</h2>
+              <p className="text-slate-400 max-w-[200px] text-[11px] font-medium leading-relaxed mb-2">Prefix, Suffix, Roots & Collocations.</p>
+              <div className="inline-flex items-center gap-2 text-indigo-600 font-black text-[10px] uppercase tracking-widest group-hover:translate-x-1 transition-transform">
+                Master C1 Level <ArrowRight size={14} strokeWidth={3} />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* C1 Words Entry Card */}
+          <motion.div 
+            whileHover={{ y: -6, scale: 1.01 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => setMode('C1_WORDS')}
+            className="bento-card p-6 sm:p-8 relative overflow-hidden group cursor-pointer border-emerald-100/50 border-b-4 border-b-emerald-600 bg-gradient-to-br from-white to-emerald-50/30 shadow-xl shadow-emerald-100/20"
+          >
+            <div className="absolute top-0 right-0 p-4">
+               <Languages size={20} className="text-emerald-400 opacity-20 group-hover:opacity-100 group-hover:scale-110 transition-all" />
+            </div>
+            <div className="relative z-10 flex flex-col items-start gap-4">
+              <div className="bg-emerald-600 text-white px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest shadow-md shadow-emerald-100">Vocabulary</div>
+              <h2 className="text-2xl font-black text-slate-900 leading-tight">C1 <br/>WORDS</h2>
+              <p className="text-slate-400 max-w-[200px] text-[11px] font-medium leading-relaxed mb-2">500+ Advanced words from roots & families.</p>
+              <div className="inline-flex items-center gap-2 text-emerald-600 font-black text-[10px] uppercase tracking-widest group-hover:translate-x-1 transition-transform">
+                Open Lexicon <ArrowRight size={14} strokeWidth={3} />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Slang Entry Card */}
+          <motion.div 
+            whileHover={{ y: -6, scale: 1.01 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => setMode('SLANG')}
+            className="bento-card p-6 sm:p-8 relative overflow-hidden group cursor-pointer border-indigo-100/50 border-b-4 border-b-indigo-500 bg-gradient-to-br from-white to-indigo-50/30 shadow-xl shadow-indigo-100/20"
+          >
+            <div className="absolute top-0 right-0 p-4">
+               <Zap size={20} className="text-indigo-400 opacity-20 group-hover:opacity-100 group-hover:scale-110 transition-all" />
+            </div>
+            <div className="relative z-10 flex flex-col items-start gap-4">
+              <div className="bg-indigo-600 text-white px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest shadow-md shadow-indigo-100">Informal</div>
+              <h2 className="text-2xl font-black text-slate-900 leading-tight">SLANG <br/>CENTER</h2>
+              <p className="text-slate-400 max-w-[200px] text-[11px] font-medium leading-relaxed mb-2">Street smart English & informal expressions.</p>
+              <div className="inline-flex items-center gap-2 text-indigo-600 font-black text-[10px] uppercase tracking-widest group-hover:translate-x-1 transition-transform">
+                Explore Slang <ArrowRight size={14} strokeWidth={3} />
               </div>
             </div>
           </motion.div>
@@ -260,22 +353,6 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
               <p className="text-slate-400 max-w-xs text-xs font-medium leading-relaxed mb-2">Refine your soft English sounds & connectors.</p>
               <div className="inline-flex items-center gap-2 text-amber-600 font-black text-xs uppercase tracking-widest group-hover:translate-x-1 transition-transform">
                 Practice Now <ArrowRight size={14} strokeWidth={3} />
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Dictionary Entry Card */}
-          <motion.div 
-            whileHover={{ y: -4 }}
-            onClick={() => setMode('DICTIONARY')}
-            className="bento-card p-8 relative overflow-hidden group cursor-pointer border-indigo-100/50 border-r-4 border-r-indigo-500 shadow-lg shadow-indigo-100/20"
-          >
-            <div className="relative z-10 flex flex-col items-start gap-4">
-              <div className="bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest">Reference</div>
-              <h2 className="text-2xl font-black text-slate-900 leading-tight">Dictionary</h2>
-              <p className="text-slate-400 max-w-xs text-xs font-medium leading-relaxed mb-2">17,000+ words from classical sources.</p>
-              <div className="inline-flex items-center gap-2 text-indigo-600 font-black text-xs uppercase tracking-widest group-hover:translate-x-1 transition-transform">
-                Browse Words <ArrowRight size={14} strokeWidth={3} />
               </div>
             </div>
           </motion.div>

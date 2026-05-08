@@ -14,9 +14,11 @@ import {
   Download,
   Database,
   Upload,
-  ArrowRight
+  ArrowRight,
+  Trash2,
+  FolderOpen
 } from 'lucide-react';
-import { exportDatabase, importDatabase, exportDatabaseNative, getBackupList, restoreFromBackup } from '../services/dbService';
+import { exportDatabase, importDatabase, exportDatabaseNative, getBackupList, restoreFromBackup, deleteBackup, getBackupDirectory } from '../services/dbService';
 import { gemmaService } from '../services/gemmaService';
 
 interface SettingsModalProps {
@@ -44,6 +46,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
 }) => {
   const [backups, setBackups] = useState<any[]>([]);
   const [showBackupList, setShowBackupList] = useState(false);
+  const [backupPath, setBackupPath] = useState<string>('');
 
   useEffect(() => {
     if (show) {
@@ -54,6 +57,33 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
   const loadBackups = async () => {
     const list = await getBackupList();
     setBackups(list);
+    try {
+      const path = await getBackupDirectory();
+      setBackupPath(path);
+    } catch (e) {
+      console.error("Failed to get backup path", e);
+    }
+  };
+
+  const handleCreateBackup = async () => {
+    try {
+      await exportDatabaseNative();
+      alert("Backup created successfully in Documents folder!");
+      loadBackups();
+    } catch (e) {
+      alert("Failed to create backup: " + e);
+    }
+  };
+
+  const handleDeleteBackup = async (fileName: string) => {
+    if (confirm(`Are you sure you want to delete ${fileName}?`)) {
+      try {
+        await deleteBackup(fileName);
+        loadBackups();
+      } catch (e) {
+        alert("Failed to delete backup: " + e);
+      }
+    }
   };
 
   const handleNativeRestore = async (fileName: string) => {
@@ -92,7 +122,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 </div>
                 <div className="flex flex-col">
                   <h3 className="text-xl font-black text-slate-900 tracking-tight">App Settings</h3>
-                  <div className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">Version 0.0.46</div>
+                  <div className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">Version 0.0.50 (v0.0.2)</div>
                 </div>
               </div>
               <button
@@ -138,33 +168,22 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 </h4>
                 <div className="grid grid-cols-1 gap-3">
                   <button 
-                    onClick={async () => {
-                      try {
-                        const uri = await exportDatabaseNative();
-                        alert(`Backup generated successfully!\n\nFile: ${uri.split('/').pop()}\n\nSaved in your Documents folder.`);
-                      } catch (e) {
-                        alert("Error creating backup: " + e);
-                        // Fallback to browser download if native fails
-                        const data = await exportDatabase();
-                        const blob = new Blob([data], { type: 'application/octet-stream' });
-                        const url = URL.createObjectURL(blob);
-                        const a = document.createElement('a');
-                        a.href = url;
-                        a.download = `backup_${new Date().getTime()}.bkp`;
-                        a.click();
-                      }
-                    }}
-                    className="w-full p-4 bg-indigo-50 text-indigo-600 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-indigo-600 hover:text-white transition-all flex items-center justify-center gap-3 border border-indigo-100"
+                    onClick={handleCreateBackup}
+                    className="w-full p-4 bg-indigo-600 text-white rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-indigo-700 transition-all flex items-center justify-center gap-3 border border-indigo-500 shadow-lg shadow-indigo-100 active:scale-95"
                   >
-                    <Download size={16} /> Create Backup (.bkp)
+                    <Download size={16} /> Generate New Backup (.bkp)
                   </button>
                   
                   <div className="space-y-3">
                     <button 
                       onClick={() => setShowBackupList(!showBackupList)}
-                      className="w-full p-4 bg-emerald-50 text-emerald-600 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-emerald-600 hover:text-white transition-all flex items-center justify-center gap-3 border border-emerald-100 cursor-pointer"
+                      className={`w-full p-4 rounded-2xl font-black text-xs uppercase tracking-widest transition-all flex items-center justify-center gap-3 border cursor-pointer ${
+                        showBackupList 
+                          ? 'bg-slate-800 border-slate-700 text-white' 
+                          : 'bg-emerald-50 border-emerald-100 text-emerald-600 hover:bg-emerald-100'
+                      }`}
                     >
-                      <Upload size={16} /> {showBackupList ? "Hide Backups" : "Restore from Backup List"}
+                      <Database size={16} /> {showBackupList ? "Close Backup Manager" : "Manage Saved Backups"}
                     </button>
 
                     <AnimatePresence>
@@ -173,28 +192,57 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: 'auto', opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
-                          className="overflow-hidden space-y-2 bg-slate-50 rounded-2xl p-4 border border-slate-100"
+                          className="overflow-hidden space-y-3 bg-slate-50 rounded-[2rem] p-6 border border-slate-100 shadow-inner"
                         >
-                          <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-2 px-1">Available Backups (Documents folder)</p>
-                          {backups.length === 0 ? (
-                            <p className="text-[10px] text-slate-400 italic p-4 text-center">No backups found.</p>
-                          ) : (
-                            backups.map((b, idx) => (
-                              <button
-                                key={idx}
-                                onClick={() => handleNativeRestore(b.name)}
-                                className="w-full text-left p-4 bg-white hover:bg-emerald-50 rounded-xl border border-slate-100 transition-all group flex items-center justify-between"
-                              >
-                                <div className="flex items-center gap-3">
-                                  <Database size={14} className="text-emerald-500" />
-                                  <span className="text-xs font-bold text-slate-700">{b.name}</span>
+                          <div className="flex flex-col gap-1 mb-4">
+                            <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-1 flex items-center gap-2">
+                              <FolderOpen size={12} /> Backup Location:
+                            </p>
+                            <p className="text-[8px] font-bold text-slate-400 break-all bg-white p-2 rounded-lg border border-slate-100 truncate opacity-60">
+                              {backupPath || 'Documents Folder'}
+                            </p>
+                          </div>
+
+                          <div className="space-y-2">
+                            {backups.length === 0 ? (
+                              <div className="flex flex-col items-center justify-center py-10 gap-3 opacity-30">
+                                <Database size={40} />
+                                <p className="text-[10px] font-black uppercase tracking-widest">No local backups found</p>
+                              </div>
+                            ) : (
+                              backups.map((b, idx) => (
+                                <div key={idx} className="flex items-stretch gap-2">
+                                  <button
+                                    onClick={() => handleNativeRestore(b.name)}
+                                    className="flex-1 text-left p-4 bg-white hover:bg-emerald-50 rounded-2xl border border-slate-100 transition-all group flex items-center justify-between shadow-sm active:scale-[0.98] overflow-hidden"
+                                  >
+                                    <div className="flex items-center gap-3 min-w-0">
+                                      <div className="w-8 h-8 rounded-xl bg-emerald-50 flex-shrink-0 flex items-center justify-center text-emerald-600 group-hover:bg-emerald-100">
+                                        <Database size={14} />
+                                      </div>
+                                      <div className="flex flex-col min-w-0">
+                                        <span className="text-xs font-bold text-slate-700 truncate">{b.name}</span>
+                                        <span className="text-[8px] font-black text-slate-300 uppercase tracking-widest">System Backup</span>
+                                      </div>
+                                    </div>
+                                    <div className="flex items-center gap-3 flex-shrink-0 ml-2">
+                                      <span className="text-[8px] font-black text-emerald-500 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all hidden sm:block">Restore</span>
+                                      <ArrowRight size={14} className="text-slate-300 group-hover:text-emerald-500 group-hover:translate-x-1 transition-all" />
+                                    </div>
+                                  </button>
+                                  <button
+                                    onClick={() => handleDeleteBackup(b.name)}
+                                    className="w-14 bg-white hover:bg-rose-50 text-slate-300 hover:text-rose-500 rounded-2xl border border-slate-100 transition-all active:scale-90 flex items-center justify-center flex-shrink-0 shadow-sm"
+                                    title="Delete backup"
+                                  >
+                                    <Trash2 size={18} />
+                                  </button>
                                 </div>
-                                <ArrowRight size={14} className="text-slate-300 group-hover:text-emerald-500 group-hover:translate-x-1 transition-all" />
-                              </button>
-                            ))
-                          )}
+                              ))
+                            )}
+                          </div>
                           
-                          <div className="pt-2 border-t border-slate-200 mt-2">
+                          <div className="pt-4 border-t border-slate-200 mt-4">
                              <input 
                               type="file" 
                               id="restore-db-manual" 
@@ -207,7 +255,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                                     const reader = new FileReader();
                                     reader.onload = async (ev) => {
                                       try {
-                                        const data = JSON.parse(ev.target?.result as string);
+                                        const data = typeof ev.target?.result === 'string' ? ev.target.result : '';
                                         await importDatabase(data);
                                         alert("Database restored successfully! The app will reload.");
                                         window.location.reload();
@@ -222,9 +270,9 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                             />
                             <label 
                               htmlFor="restore-db-manual"
-                              className="block text-center text-[9px] font-black text-indigo-500 uppercase tracking-widest hover:underline cursor-pointer py-2"
+                              className="block text-center p-3 bg-slate-900 text-white rounded-xl text-[9px] font-black uppercase tracking-widest hover:bg-slate-800 cursor-pointer shadow-lg active:scale-95 transition-all"
                             >
-                              Load external .json/.bkp manually
+                              Import External File Manually
                             </label>
                           </div>
                         </motion.div>
@@ -232,9 +280,9 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                     </AnimatePresence>
                   </div>
                 </div>
-                 <p className="text-[10px] text-slate-400 font-medium leading-relaxed italic">
-                  * Backup includes all practice sessions, dictionary flags, and regular verbs progress. 
-                  Stored in your device's <strong>Documents</strong> folder as <strong>ddmmyyyyhhmm.bkp</strong>.
+                 <p className="text-[10px] text-slate-400 font-medium leading-relaxed italic px-2">
+                  * Backups are stored safely in your device's <strong>Documents</strong> folder. 
+                  Deleting them here will permanently remove them from storage.
                 </p>
               </div>
 
@@ -381,9 +429,9 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 
                 <div className="flex flex-col items-center gap-2 py-4">
                   <p className="text-center text-[10px] text-slate-300 font-black uppercase tracking-[0.4em]">Reader<span className="text-indigo-400">ON</span> • Premium Edition</p>
-                  <p className="text-[8px] text-slate-400 font-bold uppercase tracking-widest bg-slate-50 px-3 py-1 rounded-full border border-slate-100">Version 0.0.46: Auto-Backup & Native Restore List</p>
+                  <p className="text-[8px] text-slate-400 font-bold uppercase tracking-widest bg-slate-50 px-3 py-1 rounded-full border border-slate-100">Version 0.0.50: UX Redesign & Irregulars</p>
                   <div className="flex gap-4 opacity-30 mt-2">
-                    <div className="text-[7px] font-black uppercase tracking-[0.2em]">Build 20260506</div>
+                    <div className="text-[7px] font-black uppercase tracking-[0.2em]">Build 20260506-F</div>
                     <div className="text-[7px] font-black uppercase tracking-[0.2em]">© 2026 ReaderON AI</div>
                   </div>
                 </div>

@@ -1,0 +1,87 @@
+Prefijos (Prefixes)
+Se colocan al principio de la raíz y, por lo general, cambian el significado de la palabra (crean opuestos, indican tiempo, cantidad o ubicación).
+1. Prefijos de Negación y Oposición
+un-,"No, lo opuesto",unpredictable,Impredecible
+"in-, im-, ir-, il-","No, negativo",implausible,Inverosímil / Implausible
+dis-,"Falta de, opuesto",discontinue,Interrumpir / Suspender
+mis-,"Mal, incorrectamente",misinterpret,Malinterpretar
+anti-,Contra,antisocial,Antisocial
+de-,"Revertir, quitar",devalue,Devaluar
+non-,"No, ausencia de",nonexistent,Inexistente
+
+2. Prefijos de Tiempo, Grado y Ubicación
+re-,"De nuevo, repetición",reiterate,Reiterar
+pre-,Antes de,prerequisite,Prerrequisito
+post-,Después de,postpone,Posponer
+over-,"En exceso, demasiado",overestimate,Sobreestimar
+under-,"Insuficiente, por debajo",undermine,Socavar
+out-,"Superar, más que",outperform,Superar (en rendimiento)
+sub-,Debajo de,subsequent,Subsiguiente
+
+============================================================
+
+Sufijos (Suffixes)
+Se colocan al final de la raíz. Rara vez cambian el significado central, pero cambian la categoría gramatical (transforman un verbo en sustantivo, un sustantivo en adjetivo, etc.).
+1. Sufijos para crear Sustantivos (Nouns)
+Transforman verbos o adjetivos en cosas, conceptos o personas.
+-ment,Acción o proceso,assessment,Evaluación
+"-tion, -sion",Estado o acción,implementation,Implementación
+-ness,Estado o cualidad,awareness,Conciencia / Conocimiento
+"-ity, -ty",Condición o cualidad,feasibility,Factibilidad
+"-ance, -ence","Acción, estado o cualidad",compliance,Cumplimiento
+"-er, -or",Persona que realiza la acción,facilitator,Facilitador
+-ist,Persona que practica algo,pragmatist,Pragmático (persona)
+
+2. Sufijos para crear Adjetivos (Adjectives)
+Transforman sustantivos o verbos en características o cualidades.
+"-able, -ible","Capaz de ser, posible",plausible,Verosímil
+-ful,"Lleno de, que tiene",insightful,Perspicaz
+-less,"Sin, que carece de",flawless,Impecable / Sin defectos
+"-ous, -ious",Posee la cualidad de,meticulous,Meticuloso
+-ive,Que tiene la naturaleza de,cohesive,Cohesivo
+"-ic, -ical",Relacionado con,empirical,Empírico
+
+3. Sufijos para crear Verbos y Adverbios
+Transforman adjetivos o sustantivos en acciones, o adjetivos en adverbios de modo.
+"-ize, -ise","Causar que sea, convertirse",scrutinize,Escrutar / Examinar
+-en,Hacerse o volverse,strengthen,Fortalecer
+-ify,Hacer o causar,clarify,Aclarar
+-ly,"Adverbio de modo (""-mente"")",inadvertently,Inadvertidamente
+
+============================================================
+
+1. Las Raíces (Word Roots)
+Ya sabes cómo modificar el inicio (prefijo) y el final (sufijo) de una palabra, pero necesitas conocer el corazón de la misma. El vocabulario avanzado en inglés (nivel C1/C2) proviene casi en un 60% del latín y el griego. Si te aprendes unas cuantas raíces clave, el significado de cientos de palabras complejas se volverá obvio para ti.
+
+Aquí tienes algunas de las raíces más útiles en exámenes de nivel avanzado:
+Raíz (Root),Significado base,Ejemplos nivel C1,Traducción deductiva
+-spect-,"Mirar, observar","retrospective, perspective","Retrospectiva (mirar atrás), Perspectiva"
+-dict-,"Decir, hablar","contradict, predictable","Contradecir (decir en contra), Predecible"
+-ject-,"Lanzar, arrojar","conjecture, trajectory","Conjetura (idea lanzada), Trayectoria"
+-tract-,"Tirar, arrastrar","protracted, extract","Prolongado (tirado en el tiempo), Extraer"
+-bene- / -mal-,Bien / Mal,"beneficial, malicious","Beneficioso, Malicioso"
+-chron-,Tiempo,"chronological, anachronism","Cronológico, Anacronismo (fuera de tiempo)"
+
+============================================================
+
+2. Colocaciones (Collocations)
+Este es el factor que más evalúan en la sección de Speaking y Writing del Linguaskill para darte un C1. Una "colocación" es la forma en que las palabras se agrupan de manera natural en inglés.
+No basta con saber qué significa una palabra avanzada; debes saber con qué verbo, adjetivo o preposición "le gusta" ir acompañada. En español decimos "lluvia fuerte", pero en inglés no dicen "strong rain", dicen "heavy rain".
+Aquí tienes ejemplos de colocaciones típicas de nivel C1:
+Palabra C1,Colocación natural (Combinación),Traducción,Lo que NO debes decir
+Mitigate (Mitigar),To mitigate the impact/risk,Mitigar el impacto / el riesgo,Reduce the impact (Es muy básico)
+Utterly (Completamente),Utterly ridiculous / exhausted,Completamente ridículo / exhausto,Very ridiculous (Suena poco natural)
+Foster (Fomentar),To foster a relationship/growth,Fomentar una relación / crecimiento,Make a relationship grow (Suena literal)
+Conceive (Concebir),Cannot conceive of (something),No poder concebir (algo),Cannot imagine about (Gramática incorrecta)
+Detrimental (Perjudicial),To have a detrimental effect on,Tener un efecto perjudicial en,Have a bad effect in (Básico y error de preposición)
+
+============================================================
+
+3. Familias de Palabras (Word Families)
+El último paso es aplicar lo que acabas de aprender. Cuando encuentres una palabra nueva en tu lista de C1, no la anotes sola. Anota su familia completa usando los sufijos que te di antes. En el examen, a menudo te darán una frase con un espacio en blanco y tendrás que saber qué versión de la palabra encaja gramaticalmente.
+Verbo: to sustain (sostener/mantener)
+Sustantivo: sustainability (sostenibilidad)
+Adjetivo: sustainable (sostenible)
+Adverbio: sustainably (sosteniblemente)
+
+

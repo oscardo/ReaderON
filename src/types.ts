@@ -30,7 +30,7 @@ export interface PlayFile {
   notes?: { word: string, def: string }[];
 }
 
-export type AppMode = 'HOME' | 'CAPTURE' | 'PRACTICE' | 'ANALYSIS' | 'HISTORY' | 'STUDY' | 'EBOOKS' | 'EBOOK_DETAIL' | 'PHONETICS' | 'COGNATES' | 'SUAVE' | 'TRANSLATOR' | 'THOUSAND_WORDS' | 'THOUSAND_WORDS_2' | 'REGULAR_VERBS';
+export type AppMode = 'HOME' | 'CAPTURE' | 'PRACTICE' | 'ANALYSIS' | 'HISTORY' | 'STUDY' | 'EBOOKS' | 'EBOOK_DETAIL' | 'PHONETICS' | 'COGNATES' | 'SUAVE' | 'TRANSLATOR' | 'THOUSAND_WORDS' | 'THOUSAND_WORDS_2' | 'REGULAR_VERBS' | 'IRREGULAR_VERBS' | 'IDIOMS' | 'C1_ESSENCIAL' | 'C1_WORDS' | 'SLANG';
 
 export interface Cognate {
   english: string;

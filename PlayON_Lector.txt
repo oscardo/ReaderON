@@ -1289,3 +1289,244 @@ entonces automaticamente se cree un backup de la base de datos,
 entonces en crear el backup (*.bkp) y la ruta de donde se guarde.
 y cuando abre restore backup abre de nuevo donde sea que lo guarde el backup.
 - [APK] Generated ReaderOn.apk in root directory.
+
+feature 0.0.47
+[backup] en setting: restore backup, no existe la funcionalidad porque NO se encuentra el archivo.
+debes implementar que cuando abra la aplicación por primera vez, 
+entonces automaticamente se cree un backup de la base de datos, 
+entonces en crear el backup (*.bkp) y la ruta de donde se guarde.
+y cuando abre restore backup abre de nuevo donde sea que lo guarde el backup.
+- [feature] crear ahora la nueva caracteristica llamada Idioms and Expressions (1-100)
+debes implementarlo con la misma estructura de 1000 words, y regular verbs
+la estructura de la base de datos es 
+idioms_expressions_id, idiom_expression_in_english, idiom_expression_in_spanish
+- [APK] Generated ReaderOn.apk in root directory.
+
+feature 0.0.48
+- [feature] crear ahora la nueva caracteristica llamada Idioms and Expressions (1-100)
+debes implementarlo con la misma estructura de 1000 words, y regular verbs
+la estructura de la base de datos es 
+idioms_expressions_id, idiom_expression_in_english, idiom_expression_in_spanish
+ahora hazla funcionar con el sistema de TTS.
+
+feature 0.0.49
+- [feature] crear ahora la nueva caracteristica llamada Irregulars, agrupandolos de 100 en 100
+debes implementarlo con la misma estructura de 1000 words, y regular verbs
+la estructura de la base de datos es :
+Verbo en infinitivo ; /IPA/ ;Verbo en pasado ;  /IPA/ ;Verbo en participio pasado ; /IPA/ ; Verbo en español.
+Arise ; /əˈraɪz/ ; Arose ; /əˈroʊz/ ; Arisen ; /əˈrɪzən/ ; Surgir / Levantarse
+Be ; /biː/ ; Was / Were ; /wɒz/ /wɜːr/ ; Been ; /bɪn/ ; Ser / Estar
+Bear ; /bɛər/ ; Bore ; /bɔːr/ ; Borne ; /bɔːrn/ ; Soportar / Tolerar
+ahora hazla funcionar con el sistema de TTS, quie oprima un boton y me salgan las tres pronunciaciones en 
+Verbo en infinitivo,Verbo en pasado, Verbo en participio pasado
+lo mismo que la categoria 1000 words y la categoria 100 words.
+ahora las categorias que deben estar disponibles son:
+1000 words 
+...
+Irregulars 
+...
+Idioms and Expressions 
+[backup] en setting: restore backup, no existe la funcionalidad porque NO se encuentra el archivo.
+debes implementar que cuando abra la aplicación por primera vez, 
+entonces automaticamente se cree un backup de la base de datos, 
+entonces en crear el backup (*.bkp) y la ruta de donde se guarde.
+y cuando abre restore backup abre de nuevo donde sea que lo guarde el backup.
+- [APK] Generated ReaderOn.apk in root directory.
+
+feature 0.0.50 (version 0.0.2)
+- [BACKUP] CREA UN NUEVO BACKUP DE LA BASE DE DATOS.
+-[feature] crear ahora la nueva caracteristica llamada Irregulars, agrupandolos de 100 en 100
+debes implementarlo con la misma estructura de 1000 words, y regular verbs
+la estructura de la base de datos es :
+Verbo en infinitivo ; /IPA/ ;Verbo en pasado ;  /IPA/ ;Verbo en participio pasado ; /IPA/ ; Verbo en español.
+Arise ; /əˈraɪz/ ; Arose ; /əˈroʊz/ ; Arisen ; /əˈrɪzən/ ; Surgir / Levantarse
+Be ; /biː/ ; Was / Were ; /wɒz/ /wɜːr/ ; Been ; /bɪn/ ; Ser / Estar
+Bear ; /bɛər/ ; Bore ; /bɔːr/ ; Borne ; /bɔːrn/ ; Soportar / Tolerar
+ahora hazla funcionar con el sistema de TTS, quie oprima un boton y me salgan las tres pronunciaciones en 
+Verbo en infinitivo,Verbo en pasado, Verbo en participio pasado.
+TODOS los verbos irregulares.
+-[FEATURE]
+TIENES QUE RETIRAR ESO DE IRREGULAR VERBS (1 - 100 ) y deja solo IRREGULAR VERBS.
+TIENES QUE RETIRAR ESO DE thounsand words (1 - 1000) y deja solo THOUSAND WORDS ESSENCIAL.
+TIENES QUE RETIRAR ESO DE thounsand words (1001 - 2000) y deja solo THOUSAND WORDS ADVANCED.
+TIENES QUE RETIRAR ESO DE REGULAR VERBS (1 - 600) y deja solo REGULAR VERBS.
+TIENES QUE RETIRAR ESO DE iDIOMS & Exp. (1 - 100) y deja solo IDIOMS & Expression.
+NECESITAS RETIRAR TODO LO QUE APARECE DE DICTIONARY, RETIRALO INCLUSO DE BASE DE DATOS.
+re-organiza de la página principal el orden de cada caracteristicas, cambio de UX/UI de 
+en estas 
+-[FIX] 
+EN TODAS ESTAS QUE TIENEN (IMPLEMENTADAS O NO (CREARLAS ENTONCES)) LAS BANDERITAS O flags, 
+se deben re-orderar en cada uno de ellos de a 100, organizado dinamicamente en la zona de la bandera o flags
+IRREGULAR VERBS.
+THOUSAND WORDS ESSENCIAL.
+THOUSAND WORDS ADVANCED.
+REGULAR VERBS.
+IDIOMS & Expression.
+
+IRREGULAR VERBS.
+xxxxx
+...
+Irregulars 
+...
+Idioms and Expressions 
+
+fix 0.0.51 
+[fix] debes mejorar Irregular Verbs,. allí se encuentran 200 verbos irregulares y solo aparecen los
+100 primeros, entonces deseo que hagas todos además de esto al otro lado de (botón: listen all) 
+tiene que aparecer la banderita o flags en cada uno de los verbos y que funcione correctamente.
+[fix] Mejorar la forma de Irregular verbs Verbos irregulares (1-100), y el buscador NO se necesita 
+un buscador y más si tiene buscar un botón que NO se alcanza a ver, RETIRALO.
+MEJOR colocalo alli los que se aparecen los señalados por banderatiras o flags 
+como se usa en  Thounsand Words Essencial y Thounsand words Advanced.
+[fix] en idioms & Expression, haz lo mismo que en  Thounsand Words Essencial y Thounsand words Advanced.
+e igual a Regular Verbs.
+[fix] permita la creación, eliminación, o consultar la ruta de los backup en settings. de forma gráfica,
+pero que sea funcional y segura para el usuario en el settings.
+- [APK] Generated ReaderOn.apk in root directory.
+
+feature 0.0.52
+nueva caracteristica: C1 Essencial
+[fix] en setting veo muy cortado el eliminar el tipo de archivo .bkp, 
+podria aparecer todo completo, el tipo de archivo Y el eliminar boton.
+[juego|feature] quiero que piensen en una juego que sea lo más sencillo posible para 
+entender los que esta escrito en en @speciac1.txt que esta en la ruta raiz este archivo
+allí encontrara temas como Prefix, Suffix, Root, Colocaciones y Familiares 
+entonces necesito un juego que sea agradable, sencillo pero que me pueda retar.
+- [APK] Generated ReaderOn.apk in root directory.
+
+feature 0.0.53
+[fix] mejorar la visibilidad y tener en cuenta los espacios del juego y de la nueva opción
+llamada C1 essencial. No se ve bien en el celular y mejora el juego que sea más interactivo.
+mejora el juego que sea más fácil de entender.
+[feature] nueva caracteristicas llamada C1 Words que contenga todo lo relacionado a 
+C1 Words , debes buscar información y crear la lista de palabras C1 Word de forma progresiva 
+de 100 en 100
+del este archivo: @specialWordC1.txt y coloca cada uno en una nueva linea.
+al igual que los demás, atencion al botón de flags. y que funcione correctamente.
+haz lo mism que en las demás.
+- [APK] Generated ReaderOn.apk in root directory.
+
+feature 0.0.54
+[GUÍA DE DESARROLLO Y RECOMENDACIONES]
+A continuación se detallan las recomendaciones técnicas, advertencias y pasos para escalar ReaderON:
+1. ARQUITECTURA Y ESCALABILIDAD
+- Estructura Modular: Mantén cada sección (C1, Thousand Words, etc.) como un componente independiente en `src/components`. 
+Esto evita que `App.tsx` se vuelva inmanejable.
+- Tipado Estricto: Siempre define las interfaces en `src/types.ts`. 
+Esto previene errores al manejar datos persistentes de IndexedDB.
+2. PERSISTENCIA DE DATOS (IndexedDB)
+- Advertencia: IndexedDB es asíncrono. 
+Asegúrate de manejar los estados de "cargando" (loading) 
+para evitar que la UI intente renderizar datos inexistentes.
+- Migraciones: Si añades un nuevo store en `dbService.ts`,
+ incrementa la constante `VERSION`. De lo contrario, los usuarios no verán la nueva tabla.
+- Backups: La función `exportDatabaseNative` es vital. 
+Recomienda a los usuarios exportar antes de actualizaciones mayores.
+3. RENDIMIENTO Y MEMORIA
+- Listas Largas: Para listas de más de 500 elementos 
+(como C1 Words), 
+usa siempre paginación o "Virtual Scrolling". 
+Renderizar 1000 nodos de una vez 
+ralentizará dispositivos de gama baja.
+- TTS (Text-to-Speech): Llama siempre a `TextToSpeech.stop()` 
+antes de iniciar una nueva locución para evitar superposición de audio 
+o bloqueos en Android.
+4. DISEÑO (UX/UI)
+- Estilo Bento: Mantén la estética de tarjetas redondeadas (`rounded-[2rem]`) y sombras suaves. Usa gradientes (`bg-gradient-to-br`) para las funciones "Premium".
+- Accesibilidad: Los botones deben tener un tamaño mínimo de 44x44px para ser cómodos en móviles.
+5. CÓMO CREAR UNA NUEVA CARACTERÍSTICA (PASO A PASO)
+Si deseas añadir una nueva sección (ej. "Phrasal Verbs"):
+Paso 1: Define el tipo en `src/types.ts` (ej. `| 'PHRASAL_VERBS'`).
+Paso 2: Crea el archivo de datos en `src/constants/phrasalVerbs.ts`.
+Paso 3: Crea un nuevo ObjectStore en `src/services/dbService.ts` dentro de `getDB()` para guardar el progreso/flags.
+Paso 4: Crea el componente UI (ej. `PhrasalVerbsSection.tsx`) tomando como base `C1WordsSection.tsx`.
+Paso 5: Regístralo en `App.tsx` dentro del `switch(mode)` y añade el botón de acceso en `HomeDashboard.tsx`.
+6. ADVERTENCIAS DE COMPILACIÓN (APK)
+- Capacitor Sync: Siempre corre `npx cap sync android` después de un 
+`npm run build`. Si no, los cambios de código no se verán en el celular.
+- Versión de Java: Asegúrate de usar Java 17 o 
+superior para evitar errores de Gradle.
+[FIN DE RECOMENDACIONES v0.0.54]
+
+fix 0.0.55
+[fix] en Irregular Verbs, mejora la bandera y el númeral 1 y 2 se ve muy entrecortado
+[fix] en Irregular Verbs, no entiendo esos botones de mal cada palabra,. mejor colocale 
+un boton de una bandera (flags) donde quede de 1 a 5 y cada vez que oprime y el botón de reiniciar cada frase..
+[fix] en idioms & Expressions, tambien mejorar, tiene que aparecer la bandera o flags y el botón de reiniciar cada frase.
+[fix] en C1 Essencial en la opción de collocations, tiene que aparece en blanco No enm negro.
+[fix] en C1 words deseo que se parezca a la de thousand words esecial, con todo y zona que aparece con un panel
+que la zona superior e inferior tiene que desaparecer y la izquierda (-1) y la derecha (+1)
+si es el primero regresa al menú de los datos y si llega a la número 100 a la derecha vuelve a ver el menú de palabras.
+también la zona de banderita o (flags) no aparece y deberia existir, además de esto también el lado de reiniciar el conteo 
+cuando se coloque las banderitas.
+- [APK] Generated ReaderOn.apk in root directory.
+
+feature 0.0.56
+-[feature] crea una nueva categoria llamada Slang, que contenga todo lo relacionado a Slang de forma progresiva 
+por grupos de 100 en 100 del este archivo: @slangs.txt y coloca cada uno en una nueva linea.
+debe parecers a l thounsand words essencial.
+[feature] en slang, mejorar la bandera o flags y el botón de reiniciar cada frase.
+[feature] izquierda (-1) y derecha (+1)  como en Slangs.   
+[juego] en slang, quiero que crees un juego que sea agradable, sencillo pero que me pueda retar. 
+-[APK] Generated ReaderOn.apk in root directory.
+
+feature 0.0.57
+[Fixed] en todos aquellos que hagan uso de banderas o flags, necesito que hagas una 
+unificación de todos los botones de flags, de forma visual y funcional.
+ademas deseo que se reemplace todos los botones de reset por una sola que diga Reset.
+que tenga una funcion de reinicio para todo o para cada palabra dependiendo de 
+la necesidad.
+[imagen 1] quiero que se vea como esta esto.
+[imagen 2] a la izquierda (-1) y la derecha (+1) para poder navegar entre las palabras y sin quitar el pop up en la zonas cercanas a panel 
+[imagen 3] sale el flags y reiniciar en toda palabra o frase. 
+[imagen 4] aqui se ven todas las que sean catalogdas como con flags o bandera tendria un espacio especial ver aqui [imagen 5]
+[imagen 5] vea como se e una palabra catalogada con flags.
+[feature] manejar dinamicamente todas las que catalñogen con bandera o flags en grupos 100 e 100 y número como me maneja en la de thousand words essencial como ejemplo báse de esto.
+aplicable a estas caracteristicas: 
+Irregular Verbs
+Thousand Words essencial
+Thousand Words Advanced
+Regular Verbs
+C1 Essential
+C1 Words
+Idioms & Expressions
+Slang center
+-[APK] Generated ReaderOn.apk in root directory.
+
+feature 0.0.58
+[fix] dimensionar el tamaño del texto en los celulares, ya que en el mio se ve muy grande, no me deja ver 
+la parte inferior. de los diferentes botones de las secciones.
+[fix] Idioms & Expressions reparalo por qué aun no se ven los Idioms @idioms.txt 
+-[APK] Generated ReaderOn.apk in root directory.
+
+Fix 0.0.59
+[fix] en la caracteristica de Irregular verbs, No sé ve, pr favor reparalo que se vean la información.
+Irregular Verbs es asi.
+-[APK] Generated ReaderOn.apk in root directory. 
+
+fix 0.0.60 
+[fixed] In this app make at Irregular Verbs (category), that three form in TTS
+form base in english, past simple, past participle in TTS.
+[fixed] in regular verbs (category) make sound about base form of word and past simple and past participle in TTS.
+[fixed] in slang (category) not is operative flags and reset button, please repair it. Also, make the same functionality that 
+the other categories. 
+[fixed] c1 words (category) not is operative flags and reset button, please repair it. Also, make the same functionality that 
+the other categories. 
+-[APK] Generated ReaderOn.apk in root directory. 
+
+fix 0.0.60 
+[fixed] In this app make at Irregular Verbs (category), that three form in TTS
+form base in english, past simple, past participle in TTS.
+[fixed] in regular verbs (category) make sound about base form of word and past simple and past participle in TTS.
+[fixed] in slang (category) not is operative flags and reset button, please repair it. Also, make the same functionality that 
+the other categories. 
+[fixed] c1 words (category) not is operative flags and reset button, please repair it. Also, make the same functionality that 
+the other categories. 
+[fixed] review all part and implement TTS where it is necessary.
+-[APK] made or Generated ReaderOn.apk in root directory. 
+
+fix 0.0.61
+[fixed] in regular verbs (category) not sound TTS or not implements it, make it.
+I need all words the regular verbs sound in base form, past simple and past participle in TTS.
+-[APK] made or Generated ReaderOn.apk in root directory. 
+
