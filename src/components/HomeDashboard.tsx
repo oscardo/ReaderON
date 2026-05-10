@@ -13,7 +13,8 @@ import {
   BookOpen, 
   Zap,
   Book,
-  Languages
+  Languages,
+  Activity
 } from 'lucide-react';
 import { AppMode, PlayFile } from '../types';
 
@@ -319,6 +320,33 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
               <p className="text-slate-400 max-w-[200px] text-[11px] font-medium leading-relaxed mb-2">Street smart English & informal expressions.</p>
               <div className="inline-flex items-center gap-2 text-indigo-600 font-black text-[10px] uppercase tracking-widest group-hover:translate-x-1 transition-transform">
                 Explore Slang <ArrowRight size={14} strokeWidth={3} />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="flex items-center gap-4 px-6 pt-4 pb-2">
+          <div className="h-px flex-1 bg-slate-200"></div>
+          <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Phrasal Verbs Collection</span>
+          <div className="h-px flex-1 bg-slate-200"></div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-6">
+          {/* Phrasal Verbs General Entry Card */}
+          <motion.div 
+            whileHover={{ y: -4 }}
+            onClick={() => setMode('PHRASAL_VERBS_MENU')}
+            className="bento-card p-8 relative overflow-hidden group cursor-pointer border-pink-100/50 border-b-4 border-b-pink-500 shadow-xl shadow-pink-100/20 col-span-1 md:col-span-2 lg:col-span-3 bg-gradient-to-br from-white to-pink-50/30"
+          >
+            <div className="absolute top-0 right-0 p-4">
+               <Activity size={24} className="text-pink-400 opacity-20 group-hover:opacity-100 group-hover:scale-110 transition-all" />
+            </div>
+            <div className="relative z-10 flex flex-col items-start gap-4">
+              <div className="bg-pink-50 text-pink-600 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest">Mastery</div>
+              <h2 className="text-2xl font-black text-slate-900 leading-tight">PHRASAL VERBS</h2>
+              <p className="text-slate-400 max-w-sm text-xs font-medium leading-relaxed mb-2">Master combinations like Get, Up, Out & Off. Interactive and fun.</p>
+              <div className="inline-flex items-center gap-2 text-pink-600 font-black text-xs uppercase tracking-widest group-hover:translate-x-1 transition-transform">
+                Open Collection <ArrowRight size={14} strokeWidth={3} />
               </div>
             </div>
           </motion.div>

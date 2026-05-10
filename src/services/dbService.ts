@@ -4,7 +4,7 @@ import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 
 const DB_NAME = 'ReaderON_DB';
 const STORE_NAME = 'practices';
-const VERSION = 8;
+const VERSION = 12;
 
 let dbPromise: Promise<IDBPDatabase> | null = null;
 
@@ -42,6 +42,27 @@ function getDB() {
         }
         if (!db.objectStoreNames.contains('slangs')) {
           db.createObjectStore('slangs', { keyPath: 'id' });
+        }
+        if (!db.objectStoreNames.contains('phrasal_verbs')) {
+          db.createObjectStore('phrasal_verbs', { keyPath: 'id' });
+        }
+        if (!db.objectStoreNames.contains('phrasal_verbs_up_out')) {
+          db.createObjectStore('phrasal_verbs_up_out', { keyPath: 'id' });
+        }
+        if (!db.objectStoreNames.contains('phrasal_verbs_off')) {
+          db.createObjectStore('phrasal_verbs_off', { keyPath: 'id' });
+        }
+        if (!db.objectStoreNames.contains('phrasal_verbs_on')) {
+          db.createObjectStore('phrasal_verbs_on', { keyPath: 'id' });
+        }
+        if (!db.objectStoreNames.contains('phrasal_verbs_in')) {
+          db.createObjectStore('phrasal_verbs_in', { keyPath: 'id' });
+        }
+        if (!db.objectStoreNames.contains('phrasal_verbs_back')) {
+          db.createObjectStore('phrasal_verbs_back', { keyPath: 'id' });
+        }
+        if (!db.objectStoreNames.contains('phrasal_verbs_through')) {
+          db.createObjectStore('phrasal_verbs_through', { keyPath: 'id' });
         }
       },
     });
@@ -102,7 +123,8 @@ export async function clearFlagsInRange(start: number, end: number): Promise<voi
   const store = tx.objectStore('word_flags');
   const allKeys = await store.getAllKeys();
   for (const key of allKeys) {
-    if (typeof key === 'number' && key >= start && key <= end) {
+    const numKey = Number(key);
+    if (!isNaN(numKey) && numKey >= start && numKey <= end) {
       await store.delete(key);
     }
   }
@@ -260,6 +282,150 @@ export async function clearAllSlangPersistence(): Promise<void> {
   await db.clear('slangs');
 }
 
+// PERSISTENCE FOR PHRASAL VERBS
+export async function getPhrasalVerbRating(id: number): Promise<number> {
+  const db = await getDB();
+  const data = await db.get('phrasal_verbs', id);
+  return data?.rating || 0;
+}
+
+export async function updatePhrasalVerbRating(id: number, rating: number): Promise<void> {
+  const db = await getDB();
+  const existing = await db.get('phrasal_verbs', id) || { id };
+  await db.put('phrasal_verbs', { ...existing, rating });
+}
+
+export async function getPhrasalVerbRepetitions(id: number): Promise<number> {
+  const db = await getDB();
+  const data = await db.get('phrasal_verbs', id);
+  return data?.repetitions || 0;
+}
+
+export async function incrementPhrasalVerbRepetition(id: number): Promise<void> {
+  const db = await getDB();
+  const existing = await db.get('phrasal_verbs', id) || { id };
+  const repetitions = (existing.repetitions || 0) + 1;
+  await db.put('phrasal_verbs', { ...existing, repetitions });
+}
+
+export async function getAllPhrasalVerbPersistence(): Promise<any[]> {
+  const db = await getDB();
+  return db.getAll('phrasal_verbs');
+}
+
+export async function clearAllPhrasalVerbPersistence(): Promise<void> {
+  const db = await getDB();
+  await db.clear('phrasal_verbs');
+}
+
+// PERSISTENCE FOR PHRASAL VERBS UP/OUT
+export async function getPhrasalVerbUpOutRepetitions(id: number): Promise<number> {
+  const db = await getDB();
+  const data = await db.get('phrasal_verbs_up_out', id);
+  return data?.repetitions || 0;
+}
+
+export async function incrementPhrasalVerbUpOutRepetition(id: number): Promise<void> {
+  const db = await getDB();
+  const existing = await db.get('phrasal_verbs_up_out', id) || { id };
+  const repetitions = (existing.repetitions || 0) + 1;
+  await db.put('phrasal_verbs_up_out', { ...existing, repetitions });
+}
+
+export async function clearAllPhrasalVerbUpOutPersistence(): Promise<void> {
+  const db = await getDB();
+  await db.clear('phrasal_verbs_up_out');
+}
+
+// PERSISTENCE FOR PHRASAL VERBS OFF
+export async function getPhrasalVerbOffRepetitions(id: number): Promise<number> {
+  const db = await getDB();
+  const entry = await db.get('phrasal_verbs_off', id);
+  return entry ? entry.count : 0;
+}
+
+export async function incrementPhrasalVerbOffRepetition(id: number): Promise<void> {
+  const db = await getDB();
+  const current = await getPhrasalVerbOffRepetitions(id);
+  await db.put('phrasal_verbs_off', { id, count: current + 1 });
+}
+
+export async function clearAllPhrasalVerbOffPersistence(): Promise<void> {
+  const db = await getDB();
+  await db.clear('phrasal_verbs_off');
+}
+
+export async function getPhrasalVerbOnRepetitions(id: number): Promise<number> {
+  const db = await getDB();
+  const entry = await db.get('phrasal_verbs_on', id);
+  return entry ? entry.count : 0;
+}
+
+export async function incrementPhrasalVerbOnRepetition(id: number): Promise<void> {
+  const db = await getDB();
+  const current = await getPhrasalVerbOnRepetitions(id);
+  await db.put('phrasal_verbs_on', { id, count: current + 1 });
+}
+
+export async function clearAllPhrasalVerbOnPersistence(): Promise<void> {
+  const db = await getDB();
+  await db.clear('phrasal_verbs_on');
+}
+
+// PERSISTENCE FOR PHRASAL VERBS IN
+export async function getPhrasalVerbInRepetitions(id: number): Promise<number> {
+  const db = await getDB();
+  const entry = await db.get('phrasal_verbs_in', id);
+  return entry ? entry.count : 0;
+}
+
+export async function incrementPhrasalVerbInRepetition(id: number): Promise<void> {
+  const db = await getDB();
+  const current = await getPhrasalVerbInRepetitions(id);
+  await db.put('phrasal_verbs_in', { id, count: current + 1 });
+}
+
+export async function clearAllPhrasalVerbInPersistence(): Promise<void> {
+  const db = await getDB();
+  await db.clear('phrasal_verbs_in');
+}
+
+// PERSISTENCE FOR PHRASAL VERBS BACK
+export async function getPhrasalVerbBackRepetitions(id: number): Promise<number> {
+  const db = await getDB();
+  const entry = await db.get('phrasal_verbs_back', id);
+  return entry ? entry.count : 0;
+}
+
+export async function incrementPhrasalVerbBackRepetition(id: number): Promise<void> {
+  const db = await getDB();
+  const current = await getPhrasalVerbBackRepetitions(id);
+  await db.put('phrasal_verbs_back', { id, count: current + 1 });
+}
+
+export async function clearAllPhrasalVerbBackPersistence(): Promise<void> {
+  const db = await getDB();
+  await db.clear('phrasal_verbs_back');
+}
+
+// PERSISTENCE FOR PHRASAL VERBS THROUGH
+export async function getPhrasalVerbThroughRepetitions(id: number): Promise<number> {
+  const db = await getDB();
+  const entry = await db.get('phrasal_verbs_through', id);
+  return entry ? entry.count : 0;
+}
+
+export async function incrementPhrasalVerbThroughRepetition(id: number): Promise<void> {
+  const db = await getDB();
+  const current = await getPhrasalVerbThroughRepetitions(id);
+  await db.put('phrasal_verbs_through', { id, count: current + 1 });
+}
+
+export async function clearAllPhrasalVerbThroughPersistence(): Promise<void> {
+  const db = await getDB();
+  await db.clear('phrasal_verbs_through');
+}
+
 // BACKUP & RESTORE
 export async function exportDatabase(): Promise<string> {
   const db = await getDB();
@@ -269,7 +435,7 @@ export async function exportDatabase(): Promise<string> {
     stores: {}
   };
   
-  const storeNames = ['practices', 'word_flags', 'thousand_words_1', 'thousand_words_2', 'regular_verbs', 'idioms_expressions', 'irregular_verbs', 'c1_words', 'slangs'];
+  const storeNames = ['practices', 'word_flags', 'thousand_words_1', 'thousand_words_2', 'regular_verbs', 'idioms_expressions', 'irregular_verbs', 'c1_words', 'slangs', 'phrasal_verbs', 'phrasal_verbs_up_out', 'phrasal_verbs_off'];
   for (const name of storeNames) {
     if (db.objectStoreNames.contains(name)) {
       backup.stores[name] = await db.getAll(name);

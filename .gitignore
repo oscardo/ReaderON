@@ -6,3 +6,4 @@ coverage/
 *.log
 .env*
 !.env.example
+~WRL0005.tmp

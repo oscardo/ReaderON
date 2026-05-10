@@ -1530,3 +1530,230 @@ fix 0.0.61
 I need all words the regular verbs sound in base form, past simple and past participle in TTS.
 -[APK] made or Generated ReaderOn.apk in root directory. 
 
+fix 0.0.62
+the feature, I need create new feature or categories, make the same functionality that the other categories.
+his name is: Phrasal Verbs
+and first is: Get (@get.docx), is all about Get Phrasal Verbs.
+make it more interactive and fun.
+and separate two part, first is GET (combinations, learning & review)
+and second is the game GET: interactive and fun.
+
+fix 0.0.63
+delete all related with feature phrasal verbs, it's not working.
+[APK] Generated ReaderOn.apk in root directory.
+
+fix 0.0.64
+[feature] en la caracteristica de Phrases Verbs - Get, 
+necesito que tomes TODA LA INFORMACIÓN de este archivo llamado 
+@Phrases_get.txt TODA LA INFORMACIÓN. Y LO REPLIQUES DE MANERA práctica, útil
+Y TODA LA INFORMACIÓN.
+DESDE AQUI HASTA AQUI SE DEBE TOMAR PARA LA REPLICACIÓN EN LA APP.
+....
+TODO EL Archivos....
+HASTA AQUI
+make ONLY this informations do not touch or modified anything else.
+[APK] Generated ReaderOn.apk in root directory.
+
+fix 0.0.65
+[fixed] make structure about only Phrasal verbs Get 
+and make about @phrases_get.txt (only phrasal verbs get)
+[fix] las banderas o flags y los reset no funciona, por favor reparalo.
+[fix] tts no funciona en esta version, por favor reparalo.
+[APK] Generated ReaderOn.apk in root directory.
+
+fix 0.0.66
+[fixed] In Phrasal verbs Get section, replace Phrasal_Verbs text with Phrasal Verbs GET.
+[feature] create a new structure for Phrasal verbs 
+and 
+[fixed] make structure about only Phrasal verbs  
+and make about @phrases_get.txt (only phrasal verbs get)
+[fix] las banderas o flags y los reset no funciona, por favor reparalo.
+[fix] tts no funciona en esta version, por favor reparalo.
+[APK] Generated ReaderOn.apk in root directory.
+
+fix 0.0.67
+[feature] create other new structure for Name: Phrasal verbs - UP, OUT 
+this struture contains information about Phrasal verbs UP, OUT.
+Phrasal Verbs all structure: 
+UP = INTENSIÓN, MÁS, TODO!
+OUT = SALIR, SACAR, AFUERA
+OUT = DE MANERA EXTRAORDINARIA
+OUT = SALIR DE TI / CON FUERZA
+OUT = AGOTARSE, LLEGAR A SU LÍMITE, ELIMINADO
+OUT = QUITAR / SACAR
+RESUMEN MAESTRO: EL PODER DE "OUT"
+@phrasal_up.txt
+[fix] las banderas o flags y los reset no funciona, por favor reparalo.
+[fix] tts no funciona en esta version, por favor reparalo.
+[APK] Generated ReaderOn.apk in root directory.
+
+fix 0.0.68
+[fix] ordena que los anteriores Phrasal Verbs, 
+UP, DOWN, OUT y GET se ven muy desordenados además dentro de las caracteristicas 
+aparecen desajustados con respecto al tamaño. por favor reparalo.
+[feature] crear una nueva caracteristica de Phrasal Verbs OFF 
+@phrasal_off.txt
+[fix] las banderas o flags y los reset no funciona, por favor reparalo.
+[fix] tts no funciona en esta version, por favor reparalo.
+[APK] Generated ReaderOn.apk in root directory.
+
+fix 0.0.68
+[fix] re-ordena que los anteriores Phrasal Verbs, 
+en una llamada Phrasal Verbs y de allí se vaya a otra subcategorias llamada 
+Phrasal Verbs Get
+Phrasal Verbs UP & OUT
+Phrasal Verbs OFF
+ademásque todas tengan una parte que diga Guide, otra Study, Game
+además de todo esto quiero que tenga tts y banderas o flags y reset de manera uniforme.
+[fix] ademas NO necesito cada vez que ejecute la opcion en setting de crear backup me lo cree
+YO DECIDO SI CREO un backup o NO. 
+por lo tanto quiero que esa funcion quede como una opcion las de la lista de opciones.
+[fix] las banderas o flags y los reset no funciona, por favor reparalo.
+[fix] tts no funciona en esta version, por favor reparalo.
+[APK] Generated ReaderOn.apk in root directory.
+
+fix 0.0.69
+[fix] create a game interactive and fun in 
+Phrasal Verbs UP & OUT
+Phrasal Verbs OFF
+[feature] create other sub-category in Phrasal verbs call: Phrasal verbs ON
+and the text taken about: phrasal_ON.txt
+[fix] las banderas o flags y los reset no funciona, por favor reparalo.
+[fix] tts no funciona en esta version, por favor reparalo.
+[APK] Generated ReaderOn.apk in root directory.
+
+fix 0.0.70
+[fix]
+orden in desing and form because not seeing them uniform, and form size.
+Phrasal Verbs UP & OUT
+Phrasal Verbs OFF
+Phrasal Verbs ON
+see images
+[feature] create a game interactive and fun in ALL 
+Phrasal Verbs UP & OUT
+Phrasal Verbs OFF
+Phrasal Verbs ON
+[feature] create other sub-category in Phrasal verbs call: Phrasal verbs ON
+and the text taken about: phrasal_ON.txt
+@phrasal_ON.txt
+[fix] las banderas o flags y los reset no funciona, por favor reparalo.
+[fix] tts no funciona en esta version, por favor reparalo.
+[APK] Generated ReaderOn.apk in root directory.
+
+fix 0.0.71
+[feature] EN LA CATEGORIA: Phrasal Verbs
+añadir los siguientes Phrasal Verbs IN, BACK, THROUGH: 
+IN, BACK, Through
+@Phrasal_IN_Back_Through.txt
+
+Y ESTA SERÍA LO QUE LE INTERESA PARA CADA UNO DE LOS TERMINOS: IN, BACK y THROUGH, por favor añade los siguiente: 
+
+IN = MUDARSE / ENTRAR (MOVIMIENTO FÍSICO)
+IN = INCLUSIÓN / LLEGAR A UN GRUPO O ESPACIO
+IN = INICIAR (PROCESOS Y SISTEMAS)
+Resumen Maestro de IN:
+BACK = REGRESAR / RETROCEDER
+BACK = DEVOLVER / RESPONDER
+Resumen Maestro de Back:
+Through = a través de
+THROUGH = SUPERAR OBSTÁCULOS / DIFICULTADES
+THROUGH = A DETALLE / EXAMINAR
+resumen en THROUGH
+
+IN = MUDARSE / ENTRAR (MOVIMIENTO FÍSICO)
+En estos casos, "In" indica que una persona u objeto pasa de un espacio abierto a uno cerrado o privado.
+Phrasal Verb	Pronunciación (IPA)	Traducción al Español	Algo para recordar
+Move in	/muːv ɪn/	Mudarse (llegar)	Empezar a vivir en una nueva casa (imagen 1).
+Come in	/kʌm ɪn/	Entrar	El acto de pasar al interior de una habitación.
+Get in	/ɡet ɪn/	Entrar / Llegar	Entrar en un lugar o vehículo pequeño (como un carro).
+Step in	/step ɪn/	Entrar (de un paso)	Poner un pie dentro de un lugar.
+Break in	/breɪk ɪn/	Ingresar a la fuerza	Entrar ilegalmente (como un ladrón - imagen 3).
+Slip in	/slɪp ɪn/	Meterse / Deslizarse	Entrar con cuidado o de forma discreta.
+Let in	/let ɪn/	Permitir entrar	Dar paso a alguien hacia el interior.
+
+IN = INCLUSIÓN / LLEGAR A UN GRUPO O ESPACIO
+Aquí "In" añade un matiz de formar parte de algo o llegar a un punto de encuentro social o profesional.
+Phrasal Verb	Pronunciación (IPA)	Traducción al Español	Algo para recordar
+Drop in	/drɒp ɪn/	Llegar de sorpresa	Visitar a alguien sin haber avisado antes.
+Check in	/tʃek ɪn/	Registrar llegada	Reportarse en un hotel, aeropuerto o evento.
+Join in	/dʒɔɪn ɪn/	Unirse	Empezar a participar en una actividad grupal.
+Add in	/æd ɪn/	Agregar	Incluir un elemento extra dentro de un conjunto.
+Invite in	/ɪnˈvaɪt ɪn/	Incluir a alguien	Hacer que alguien pase a formar parte del grupo.
+Cut in	/kʌt ɪn/	Interrumpir	"Entrar" en una conversación ajena de repente.
+
+IN = INICIAR (PROCESOS Y SISTEMAS)
+Este matiz es clave para tecnología. "In" actúa como la llave que activa el comienzo de una sesión, un efecto o una estancia.
+Phrasal Verb	Pronunciación (IPA)	Traducción al Español	Algo para recordar
+Log in	/lɒɡ ɪn/	Iniciar sesión	Entrar a tu cuenta con usuario y clave (imagen 4).
+Sign in	/saɪn ɪn/	Iniciar sesión	Registrar tu entrada en un sistema o plataforma.
+Tune in	/tjuːn ɪn/	Sintonizar	Empezar a escuchar o ver una transmisión.
+Kick in	/kɪk ɪn/	Empezar a funcionar	Cuando algo (como un código o medicina) hace efecto.
+Settle in	/ˈsetl ɪn/	Empezar a instalarse	Ponerse cómodo después de llegar a un lugar.
+Fill in	/fɪl ɪn/	Empezar a llenar	Completar los espacios vacíos de un formulario.
+
+Resumen Maestro de IN:
+1.	Espacio: Moverse hacia el interior de un lugar (Move in, Come in).
+2.	Social/Actividad: Participar o ser incluido en algo (Join in, Check in).
+3.	Tecnología: El punto de partida de un acceso o función (Log in, Kick in).
+Nota para sistemas: Recuerda que para el trabajo usas mucho Log in (entrar) y Log off (salir). Es el ciclo perfecto de conexión.
+
+BACK = REGRESAR / RETROCEDER
+En estos casos, "Back" indica que el sujeto se desplaza físicamente hacia donde estaba antes o hacia atrás.
+Phrasal Verb	Pronunciación (IPA)	Traducción al Español	Algo para recordar
+Come back	/kʌm bæk/	Regresar	Volver hacia donde está la persona que habla.
+Go back	/ɡəʊ bæk/	Regresar	Volver a un lugar donde estuviste antes.
+Turn back	/tɜːrn bæk/	Regresar / Dar la vuelta	Cambiar de dirección para volver por donde viniste.
+Run back	/rʌn bæk/	Regresar corriendo	Volver al punto de origen con prisa.
+Step back	/step bæk/	Retroceder	Dar un paso hacia atrás (físico o para analizar algo).
+Get back	/ɡet bæk/	Regresar / Volver	Retornar a casa o a una posición anterior.
+
+BACK = DEVOLVER / RESPONDER
+Aquí "Back" indica que una acción, objeto o comunicación es enviada de vuelta a quien la originó.
+Phrasal Verb	Pronunciación (IPA)	Traducción al Español	Algo para recordar
+Give back	/ɡɪv bæk/	Devolver (dar)	Entregar algo a su dueño original.
+Bring back	/brɪŋ bæk/	Devolver (traer)	Traer algo de vuelta de un lugar.
+Take back	/teɪk bæk/	Devolver (llevar)	Llevar algo de regreso (ej. a una tienda).
+Call back	/kɔːl bæk/	Devolver (llamar)	Llamar de vuelta a alguien que te marcó antes.
+Send back	/send bæk/	Devolver (enviar)	Reenviar algo al remitente (ej. un pedido mal hecho).
+Pay back	/peɪ bæk/	Devolver (pagar)	Pagar una deuda; devolver dinero prestado.
+Write back	/raɪt bæk/	Responder (escribir)	Contestar una carta o mensaje de texto.
+Speak back	/spiːk bæk/	Responder (hablar)	Contestar a alguien, a veces de forma insolente.
+
+Tips para tu perfil profesional:
+•	En sistemas y proyectos: Usarás mucho "Get back to you" (te aviso / vuelvo contigo con una respuesta). Es la frase estándar para decir que investigarás algo y darás una respuesta después.
+•	Pay back vs. Refund: Recuerda que Pay back es personal (entre tú y un amigo o el banco), mientras que un refund suele ser de una empresa hacia ti.
+•	Step back: Muy útil en el MBA para cuando necesitas "tomar distancia" de un problema complejo para verlo con más claridad antes de decidir.
+
+Through
+Through = a través de
+THROUGH = A TRAVÉS DE (MOVIMIENTO FÍSICO)
+Indica que algo o alguien cruza un espacio tridimensional (un túnel, una puerta, un bosque).
+Phrasal Verb	Pronunciación (IPA)	Traducción al Español	Algo para recordar
+Go through	/ɡəʊ θruː/	Pasar por / Atravesar	Ir de un lado al otro de un lugar cerrado.
+Step through	/step θruː/	Pasar por (una puerta)	Cruzar un umbral dando un paso.
+Drive through	/draɪv θruː/	Conducir a través de	Cruzar un lugar en vehículo (como el servicio rápido).
+________________________________________
+THROUGH = SUPERAR OBSTÁCULOS / DIFICULTADES
+En este sentido figurado, la dificultad es como un "túnel" oscuro del que logras salir al otro lado.
+Phrasal Verb	Pronunciación (IPA)	Traducción al Español	Algo para recordar
+Get through	/ɡet θruː/	Superar / Terminar	Lograr terminar una tarea difícil o un mal momento.
+Pull through	/pʊl θruː/	Salir adelante / Recuperarse	Sobrevivir a una enfermedad o situación crítica.
+Come through	/kʌm θruː/	Superar / Cumplir	Aparecer con la solución justo cuando se necesita.
+________________________________________
+THROUGH = A DETALLE / EXAMINAR
+Aquí "Through" significa ir desde el principio hasta el fin de una información, sin saltarse nada.
+Phrasal Verb	Pronunciación (IPA)	Traducción al Español	Algo para recordar
+Look through	/lʊk θruː/	Examinar / Revisar	Mirar algo rápido pero cubriendo todo el contenido.
+Talk through	/tɔːk θruː/	Explicar a detalle	Discutir un proceso paso a paso para entenderlo bien.
+Go through	/ɡəʊ θruː/	Revisar minuciosamente	Analizar documentos o listas con mucho cuidado.
+________________________________________
+Aplicación para tu carrera de Ingeniería y MBA:
+•	Talk through: Es vital en reuniones técnicas. "Let's talk through the deployment process to avoid errors." (Vamos a explicar el proceso de despliegue paso a paso).
+•	Go through: Para auditorías o revisión de código. "I need to go through the logs to find the bug." (Necesito revisar los logs minuciosamente).
+•	Get through: Para esos cierres de proyecto intensos. "We finally got through the migration successfully." (Finalmente logramos superar la migración con éxito).
+[fix] las banderas o flags y los reset no funciona, por favor reparalo.
+[fix] tts no funciona en esta version, por favor reparalo.
+[fix] debe hacer un juego que sea mas interactivo y fun.
+[APK] Generated ReaderOn.apk in root directory.
+
+

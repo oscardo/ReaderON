@@ -46,6 +46,14 @@ import { PracticeSection } from './components/PracticeSection';
 import IdiomsExpressionsSection from './components/IdiomsExpressionsSection';
 import IrregularVerbsSection from './components/IrregularVerbsSection';
 import SlangSection from './components/SlangSection';
+import PhrasalVerbsMenu from './components/PhrasalVerbsMenu';
+import PhrasalVerbSection from './components/PhrasalVerbsSection';
+import PhrasalVerbsUpOutSection from './components/PhrasalVerbsUpOutSection';
+import PhrasalVerbsOffSection from './components/PhrasalVerbsOffSection';
+import PhrasalVerbsOnSection from './components/PhrasalVerbsOnSection';
+import PhrasalVerbsInSection from './components/PhrasalVerbsInSection';
+import PhrasalVerbsBackSection from './components/PhrasalVerbsBackSection';
+import PhrasalVerbsThroughSection from './components/PhrasalVerbsThroughSection';
 import { SLANGS } from './constants/slangs';
 import { EBookReader } from './components/EBookReader';
 import confetti from 'canvas-confetti';
@@ -151,6 +159,14 @@ export default function App() {
         else if (mode === 'C1_ESSENCIAL') setMode('HOME');
         else if (mode === 'C1_WORDS') setMode('HOME');
         else if (mode === 'SLANG') setMode('HOME');
+        else if (mode === 'PHRASAL_VERBS_MENU') setMode('HOME');
+        else if (mode === 'PHRASAL_VERBS') setMode('PHRASAL_VERBS_MENU');
+        else if (mode === 'PHRASAL_VERBS_UP_OUT') setMode('PHRASAL_VERBS_MENU');
+        else if (mode === 'PHRASAL_VERBS_OFF') setMode('PHRASAL_VERBS_MENU');
+        else if (mode === 'PHRASAL_VERBS_ON') setMode('PHRASAL_VERBS_MENU');
+        else if (mode === 'PHRASAL_VERBS_IN') setMode('PHRASAL_VERBS_MENU');
+        else if (mode === 'PHRASAL_VERBS_BACK') setMode('PHRASAL_VERBS_MENU');
+        else if (mode === 'PHRASAL_VERBS_THROUGH') setMode('PHRASAL_VERBS_MENU');
         else setMode('HOME');
       } else {
         // If at home, ask to exit
@@ -167,19 +183,11 @@ export default function App() {
     };
   }, [mode, showSettings, showCropper, showRenameModal, showVocabForm, showExitConfirm]);
 
-  // Load History & Auto Backup
+  // Load History
   useEffect(() => {
     const init = async () => {
       const data = await getAllPractices();
       setHistory(data);
-      
-      // Auto-backup on launch
-      try {
-        console.log("Starting automatic background backup...");
-        await exportDatabaseNative();
-      } catch (e) {
-        console.warn("Background auto-backup failed", e);
-      }
     };
     init();
   }, []);
@@ -269,28 +277,29 @@ export default function App() {
 
   const speakWord = async (text: string, lang: string = 'en-US', isFullText: boolean = false) => {
     try {
+      // Small delay to ensure previous speech is fully cancelled
       await TextToSpeech.stop();
-      await TextToSpeech.speak({
+      
+      const options = {
         text,
         lang,
         rate: globalSettings.speechRate,
         pitch: 1.0,
         volume: 1.0,
-        category: 'ambient'
-      });
-      
-      if (isFullText) {
-        // TextToSpeech plugin doesn't have onboundary on all platforms easily
-        // but we can simulate or just leave as is for now.
-      }
+        category: 'playback' // Better than ambient for Android
+      };
+
+      await TextToSpeech.speak(options);
     } catch (e) {
-      console.error("TTS Error:", e);
+      console.error("TTS Plugin Error, trying Web API:", e);
       // Fallback to web API
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = lang;
-      utterance.rate = globalSettings.speechRate;
-      window.speechSynthesis.speak(utterance);
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = lang;
+        utterance.rate = globalSettings.speechRate;
+        window.speechSynthesis.speak(utterance);
+      }
     }
   };
 
@@ -497,11 +506,51 @@ export default function App() {
                   speakText={speakWord} 
                 />
             )}
-            {mode === 'SLANG' && (
-                <SlangSection 
-                  onBack={() => setMode('HOME')} 
+            {mode === 'SLANG' && <SlangSection onBack={() => setMode('HOME')} speakText={speakWord} />}
+            {mode === 'PHRASAL_VERBS_MENU' && (
+                <PhrasalVerbsMenu onBack={() => setMode('HOME')} setMode={setMode} />
+            )}
+            {mode === 'PHRASAL_VERBS' && (
+                <PhrasalVerbSection 
+                  onBack={() => setMode('PHRASAL_VERBS_MENU')} 
                   speakText={speakWord} 
                 />
+            )}
+            {mode === 'PHRASAL_VERBS_UP_OUT' && (
+                <PhrasalVerbsUpOutSection 
+                  onBack={() => setMode('PHRASAL_VERBS_MENU')} 
+                  speakText={speakWord} 
+                />
+            )}
+            {mode === 'PHRASAL_VERBS_OFF' && (
+                <PhrasalVerbsOffSection 
+                  onBack={() => setMode('PHRASAL_VERBS_MENU')} 
+                  speakText={speakWord} 
+                />
+            )}
+            {mode === 'PHRASAL_VERBS_ON' && (
+                <PhrasalVerbsOnSection 
+                  onBack={() => setMode('PHRASAL_VERBS_MENU')} 
+                  speakText={speakWord} 
+                />
+            )}
+            {mode === 'PHRASAL_VERBS_IN' && (
+              <PhrasalVerbsInSection 
+                onBack={() => setMode('PHRASAL_VERBS_MENU')} 
+                speakText={speakWord} 
+              />
+            )}
+            {mode === 'PHRASAL_VERBS_BACK' && (
+              <PhrasalVerbsBackSection 
+                onBack={() => setMode('PHRASAL_VERBS_MENU')} 
+                speakText={speakWord} 
+              />
+            )}
+            {mode === 'PHRASAL_VERBS_THROUGH' && (
+              <PhrasalVerbsThroughSection 
+                onBack={() => setMode('PHRASAL_VERBS_MENU')} 
+                speakText={speakWord} 
+              />
             )}
             {mode === 'EBOOKS' && <EBookReader onBack={() => setMode('HOME')} />}
           </AnimatePresence>
