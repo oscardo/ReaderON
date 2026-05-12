@@ -54,6 +54,10 @@ import PhrasalVerbsOnSection from './components/PhrasalVerbsOnSection';
 import PhrasalVerbsInSection from './components/PhrasalVerbsInSection';
 import PhrasalVerbsBackSection from './components/PhrasalVerbsBackSection';
 import PhrasalVerbsThroughSection from './components/PhrasalVerbsThroughSection';
+import PhrasalVerbsOverDownSection from './components/PhrasalVerbsOverDownSection';
+import DoMakeSection from './components/DoMakeSection';
+import AtInOnSection from './components/AtInOnSection';
+import AboutForSection from './components/AboutForSection';
 import { SLANGS } from './constants/slangs';
 import { EBookReader } from './components/EBookReader';
 import confetti from 'canvas-confetti';
@@ -548,6 +552,30 @@ export default function App() {
             )}
             {mode === 'PHRASAL_VERBS_THROUGH' && (
               <PhrasalVerbsThroughSection 
+                onBack={() => setMode('PHRASAL_VERBS_MENU')} 
+                speakText={speakWord} 
+              />
+            )}
+            {mode === 'PHRASAL_VERBS_OVER_DOWN' && (
+              <PhrasalVerbsOverDownSection 
+                onBack={() => setMode('PHRASAL_VERBS_MENU')} 
+                speakText={speakWord} 
+              />
+            )}
+            {mode === 'PHRASAL_VERBS_DO_MAKE' && (
+              <DoMakeSection 
+                onBack={() => setMode('PHRASAL_VERBS_MENU')} 
+                speakText={speakWord} 
+              />
+            )}
+            {mode === 'PHRASAL_VERBS_AT_IN_ON' && (
+              <AtInOnSection 
+                onBack={() => setMode('PHRASAL_VERBS_MENU')} 
+                speakText={speakWord} 
+              />
+            )}
+            {mode === 'PHRASAL_VERBS_ABOUT_FOR' && (
+              <AboutForSection 
                 onBack={() => setMode('PHRASAL_VERBS_MENU')} 
                 speakText={speakWord} 
               />

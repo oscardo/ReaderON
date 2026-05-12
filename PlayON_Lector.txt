@@ -1589,7 +1589,6 @@ RESUMEN MAESTRO: EL PODER DE "OUT"
 
 fix 0.0.68
 [fix] ordena que los anteriores Phrasal Verbs, 
-UP, DOWN, OUT y GET se ven muy desordenados además dentro de las caracteristicas 
 aparecen desajustados con respecto al tamaño. por favor reparalo.
 [feature] crear una nueva caracteristica de Phrasal Verbs OFF 
 @phrasal_off.txt
@@ -1600,9 +1599,6 @@ aparecen desajustados con respecto al tamaño. por favor reparalo.
 fix 0.0.68
 [fix] re-ordena que los anteriores Phrasal Verbs, 
 en una llamada Phrasal Verbs y de allí se vaya a otra subcategorias llamada 
-Phrasal Verbs Get
-Phrasal Verbs UP & OUT
-Phrasal Verbs OFF
 ademásque todas tengan una parte que diga Guide, otra Study, Game
 además de todo esto quiero que tenga tts y banderas o flags y reset de manera uniforme.
 [fix] ademas NO necesito cada vez que ejecute la opcion en setting de crear backup me lo cree
@@ -1640,14 +1636,30 @@ and the text taken about: phrasal_ON.txt
 [fix] tts no funciona en esta version, por favor reparalo.
 [APK] Generated ReaderOn.apk in root directory.
 
-fix 0.0.71
+fix 0.0.76
 [feature] EN LA CATEGORIA: Phrasal Verbs
-añadir los siguientes Phrasal Verbs IN, BACK, THROUGH: 
+añadir los siguientes sub-categorias Phrasal Verbs IN, BACK, THROUGH: 
 IN, BACK, Through
 @Phrasal_IN_Back_Through.txt
+[fix] las banderas o flags y los reset no funciona, por favor reparalo.
+[fix] tts no funciona en esta version, por favor reparalo.
+[fix] debe hacer un juego que sea mas interactivo y fun.
+[APK] Generated ReaderOn.apk in root directory.
 
+fix 0.0.77
+re-fix re-construct, re-build android app
+[APK] Generated ReaderOn.apk in root directory.
+
+fix 0.0.79
+[fix] APP not installed as package appears to be invalid.
+[fix] re-fix re-construct, re-build android app
+[APK] Generated ReaderOn.apk in root directory.
+fix 0.0.74
+[feature] EN LA CATEGORIA: Phrasal Verbs
+añadir los siguientes sub-categorias Phrasal Verbs IN, BACK, THROUGH: 
+IN, BACK, Through
+@Phrasal_IN_Back_Through.txt
 Y ESTA SERÍA LO QUE LE INTERESA PARA CADA UNO DE LOS TERMINOS: IN, BACK y THROUGH, por favor añade los siguiente: 
-
 IN = MUDARSE / ENTRAR (MOVIMIENTO FÍSICO)
 IN = INCLUSIÓN / LLEGAR A UN GRUPO O ESPACIO
 IN = INICIAR (PROCESOS Y SISTEMAS)
@@ -1659,7 +1671,6 @@ Through = a través de
 THROUGH = SUPERAR OBSTÁCULOS / DIFICULTADES
 THROUGH = A DETALLE / EXAMINAR
 resumen en THROUGH
-
 IN = MUDARSE / ENTRAR (MOVIMIENTO FÍSICO)
 En estos casos, "In" indica que una persona u objeto pasa de un espacio abierto a uno cerrado o privado.
 Phrasal Verb	Pronunciación (IPA)	Traducción al Español	Algo para recordar
@@ -1670,7 +1681,6 @@ Step in	/step ɪn/	Entrar (de un paso)	Poner un pie dentro de un lugar.
 Break in	/breɪk ɪn/	Ingresar a la fuerza	Entrar ilegalmente (como un ladrón - imagen 3).
 Slip in	/slɪp ɪn/	Meterse / Deslizarse	Entrar con cuidado o de forma discreta.
 Let in	/let ɪn/	Permitir entrar	Dar paso a alguien hacia el interior.
-
 IN = INCLUSIÓN / LLEGAR A UN GRUPO O ESPACIO
 Aquí "In" añade un matiz de formar parte de algo o llegar a un punto de encuentro social o profesional.
 Phrasal Verb	Pronunciación (IPA)	Traducción al Español	Algo para recordar
@@ -1680,7 +1690,6 @@ Join in	/dʒɔɪn ɪn/	Unirse	Empezar a participar en una actividad grupal.
 Add in	/æd ɪn/	Agregar	Incluir un elemento extra dentro de un conjunto.
 Invite in	/ɪnˈvaɪt ɪn/	Incluir a alguien	Hacer que alguien pase a formar parte del grupo.
 Cut in	/kʌt ɪn/	Interrumpir	"Entrar" en una conversación ajena de repente.
-
 IN = INICIAR (PROCESOS Y SISTEMAS)
 Este matiz es clave para tecnología. "In" actúa como la llave que activa el comienzo de una sesión, un efecto o una estancia.
 Phrasal Verb	Pronunciación (IPA)	Traducción al Español	Algo para recordar
@@ -1690,13 +1699,11 @@ Tune in	/tjuːn ɪn/	Sintonizar	Empezar a escuchar o ver una transmisión.
 Kick in	/kɪk ɪn/	Empezar a funcionar	Cuando algo (como un código o medicina) hace efecto.
 Settle in	/ˈsetl ɪn/	Empezar a instalarse	Ponerse cómodo después de llegar a un lugar.
 Fill in	/fɪl ɪn/	Empezar a llenar	Completar los espacios vacíos de un formulario.
-
 Resumen Maestro de IN:
 1.	Espacio: Moverse hacia el interior de un lugar (Move in, Come in).
 2.	Social/Actividad: Participar o ser incluido en algo (Join in, Check in).
 3.	Tecnología: El punto de partida de un acceso o función (Log in, Kick in).
 Nota para sistemas: Recuerda que para el trabajo usas mucho Log in (entrar) y Log off (salir). Es el ciclo perfecto de conexión.
-
 BACK = REGRESAR / RETROCEDER
 En estos casos, "Back" indica que el sujeto se desplaza físicamente hacia donde estaba antes o hacia atrás.
 Phrasal Verb	Pronunciación (IPA)	Traducción al Español	Algo para recordar
@@ -1706,7 +1713,6 @@ Turn back	/tɜːrn bæk/	Regresar / Dar la vuelta	Cambiar de dirección para vol
 Run back	/rʌn bæk/	Regresar corriendo	Volver al punto de origen con prisa.
 Step back	/step bæk/	Retroceder	Dar un paso hacia atrás (físico o para analizar algo).
 Get back	/ɡet bæk/	Regresar / Volver	Retornar a casa o a una posición anterior.
-
 BACK = DEVOLVER / RESPONDER
 Aquí "Back" indica que una acción, objeto o comunicación es enviada de vuelta a quien la originó.
 Phrasal Verb	Pronunciación (IPA)	Traducción al Español	Algo para recordar
@@ -1718,12 +1724,10 @@ Send back	/send bæk/	Devolver (enviar)	Reenviar algo al remitente (ej. un pedid
 Pay back	/peɪ bæk/	Devolver (pagar)	Pagar una deuda; devolver dinero prestado.
 Write back	/raɪt bæk/	Responder (escribir)	Contestar una carta o mensaje de texto.
 Speak back	/spiːk bæk/	Responder (hablar)	Contestar a alguien, a veces de forma insolente.
-
 Tips para tu perfil profesional:
 •	En sistemas y proyectos: Usarás mucho "Get back to you" (te aviso / vuelvo contigo con una respuesta). Es la frase estándar para decir que investigarás algo y darás una respuesta después.
 •	Pay back vs. Refund: Recuerda que Pay back es personal (entre tú y un amigo o el banco), mientras que un refund suele ser de una empresa hacia ti.
 •	Step back: Muy útil en el MBA para cuando necesitas "tomar distancia" de un problema complejo para verlo con más claridad antes de decidir.
-
 Through
 Through = a través de
 THROUGH = A TRAVÉS DE (MOVIMIENTO FÍSICO)
@@ -1756,4 +1760,133 @@ Aplicación para tu carrera de Ingeniería y MBA:
 [fix] debe hacer un juego que sea mas interactivo y fun.
 [APK] Generated ReaderOn.apk in root directory.
 
+fix 0.0.81
+[fix]recreate or fix Phrasal verbs because It's not working properly, 
+user says that "The explanation is correct, but the application's functionality 
+is not working. I can't see the list of phrasal verbs for each particle 
+(in, back, through), the "Match the Phrasal Verb" 
+activity is not working (it doesn't show correct/incorrect 
+answers or restart), and the "Drag & Drop" activity also doesn't 
+show correct/incorrect answers or restart."
+all phrases verbs category and sub-category should be seeing in screen.
+all phrases verbs should be interactive.
+[fix] Phrasal verbs section could be better, should have a fun game too.
+[fix] las banderas o flags y los reset no funciona, por favor reparalo.
+[fix] tts no funciona en esta version, por favor reparalo.
+[fix] debe hacer un juego que sea mas interactivo y fun.
+[APK] Generated ReaderOn.apk in root directory.
+
+fix 0.0.83
+[fix] all phrases verbs category and sub-category should be seeing in screen.
+all phrases verbs should be interactive.
+[fix] Phrasal verbs section could be better, should have a fun game too.
+[fix] las banderas o flags y los reset no funciona, por favor reparalo.
+[fix] tts no funciona en esta version, por favor reparalo.
+[fix] debe hacer un juego que sea mas interactivo y fun.
+[APK] Generated ReaderOn.apk in root directory.
+
+fix 0.0.85
+[fix] NO PUEDO VER NI NAVEGAR EN LA OPCIÓN DE PHRASAL VERBS.
+ENTONCES NECESITO REPARAR TODOS LOS PHRASAL VERBS NUEVAMENTE.
+ESTOY SEGURO QUE HAY UN ERROR EN EL ARCHIVO APARECE BLANCO.
+ENTONCES RECREA ESTA SECCIÓN DE PHRASAL VERBS DESDE CERO.
+Y LAS SUB-CATEGORÍAS, EL JUEGO Y TODO LO DEMÁS.
+[FIX]REPARAR PhrasalVerbsBackSection.tsx,
+PhrasalVerbsOffSection.tsx,
+PhrasalVerbsOnSection.tsx, 
+PhrasalVerbsSection.tsx
+[fix] las banderas o flags y los reset no funciona, por favor reparalo.
+[fix] tts no funciona en esta version, por favor reparalo.
+[fix] debe hacer un juego que sea mas interactivo y fun.
+[APK] Generated ReaderOn.apk in root directory.
+
+fix 0.0.87
+[fix] Recreate all Phrasal Verbs section from scratch. It's currently not working properly.
+[fix] The application's functionality is broken. I can't see the list of phrasal verbs for each particle (in, back, through).
+[fix] The "Match the Phrasal Verb" activity is not working (it doesn't show correct/incorrect answers or restart).
+[fix] The "Drag & Drop" activity also doesn't show correct/incorrect answers or restart.
+[fix] All phrases verbs category and sub-category should be visible on screen.
+[fix] All phrases verbs should be interactive.
+[fix] Phrasal verbs section could be better, should have a fun game too.
+[fix] Las banderas o flags y los reset no funcionan, por favor reparalo.
+[fix] tts no funciona en esta version, por favor reparalo.
+[fix] Debe hacer un juego que sea mas interactivo y fun.
+[APK] create and Generated ReaderOn.apk in root directory.
+
+feature 0.0.88
+[feature] necesito que hagas otra sub-categoria en la categoria de Phrasal Verbs. 
+Esta sub-categoria que debe tener este nombre
+Phrasal Verbs Over & Down 
+debe tener las siguientes palabras: 
+@Phrsal_OverDown.txt
+[fix] Las banderas o flags y los reset no funcionan, por favor reparalo.
+[fix] tts no funciona en esta version, por favor reparalo.
+[fix] Debe hacer un juego que sea mas interactivo y fun.
+[APK] create and Generated ReaderOn.apk in root directory.
+
+feature 0.0.89
+[feature] ahora necesito que crees en Phrasal Verbs la sub-categoria llamada
+DO Make
+esta sub-categoria debe tener las siguientes palabras:
+@do_make.txt
+fix] Las banderas o flags y los reset no funcionan, por favor reparalo.
+[fix] tts no funciona en esta version, por favor reparalo.
+[fix] Debe hacer un juego que sea mas interactivo y fun.
+[APK] create and Generated ReaderOn.apk in root directory.
+
+feature 0.0.90
+[feature] ahora necesito que crees en Phrasal Verbs la sub-categoria llamada
+IN AT ON
+esta sub-categoria debe tener las siguientes palabras:
+@ATINON.txt
+[fix] Las banderas o flags y los reset no funcionan, por favor reparalo.
+[fix] tts no funciona en esta version, por favor reparalo.
+[fix] Debe hacer un juego que sea mas interactivo y fun.
+[APK] create and Generated ReaderOn.apk in root directory.
+
+feature 0.0.91
+[fix] necesito que se vea la categoria de phrasal verbs y las subcategorias por qué 
+no las puedo ver en la pantalla, me aparece en blanco y no me permite interactuar
+entrar a ninguna parte, ni tocar ningun boton.
+[APK] create and Generated ReaderOn.apk in root directory.
+
+about_for.txt
+
+feature 0.0.92
+[feature] ahora necesito que crees en Phrasal Verbs la sub-categoria llamada
+About For
+esta sub-categoria debe tener las siguientes palabras:
+@about_for.txt
+
+ABOUT y FOR nos hablan de hacia dónde dirigimos nuestra mente y nuestras intenciones.
+________________________________________
+💭 ABOUT (El Tema Central)
+Definición central: Significa "alrededor de una idea o temática".
+Se utiliza cuando tu mente, tus palabras o tus emociones están orbitando o girando en torno a un tema específico. No es una acción física, sino mental o comunicativa.
+Cuando usas estos verbos con "About", estás indicando cuál es el tema del que se trata esa acción:
+•	Worry about = Preocuparse por (¿En torno a qué gira tu preocupación?)
+•	Think about = Pensar en (¿Cuál es el tema de tus pensamientos?)
+•	Complain about = Quejarse por (¿Sobre qué tema te estás quejando?)
+•	Learn about = Aprender sobre (¿Cuál es el tema de estudio?)
+•	Forget about = Olvidar sobre / Olvidarse de
+•	Dream about = Soñar con (¿De qué trataba el sueño?)
+________________________________________
+➡️ FOR (El Objetivo o el Futuro)
+Definición central: Representa el "Futuro: algo que esperamos o deseamos".
+Imagina "For" como una flecha que apunta hacia adelante. Se utiliza para indicar el propósito, el objetivo, o el resultado que estás buscando obtener con tu acción. Estás haciendo algo hoy para conseguir algo mañana.
+Cuando usas estos verbos con "For", estás señalando qué es lo que quieres conseguir o alcanzar:
+•	Ask for = Pedir (Hablas con el objetivo de obtener algo).
+•	Wait for = Esperar (Te quedas en un lugar con la esperanza de que algo o alguien llegue).
+•	Look for = Buscar (Revisas un lugar con el objetivo de encontrar algo).
+•	Apply for = Solicitar (Envías tus documentos con la esperanza de obtener el puesto/cupo).
+•	Care for = Cuidar (Atiendes a alguien con el deseo de que esté bien).
+•	Prepare for = Prepararse (Estudias o entrenas hoy para un evento en el futuro).
+En resumen:
+Usas ABOUT cuando quieres decir "Este es el tema de mi pensamiento".
+Usas FOR cuando quieres decir "Este es el objetivo/deseo que quiero alcanzar".
+
+[fix] Las banderas o flags y los reset no funcionan, por favor reparalo.
+[fix] tts no funciona en esta version, por favor reparalo.
+[fix] Debe hacer un juego que sea mas interactivo y fun.
+[APK] create and Generated ReaderOn.apk in root directory.
 
