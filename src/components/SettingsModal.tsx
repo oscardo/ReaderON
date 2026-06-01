@@ -122,7 +122,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 </div>
                 <div className="flex flex-col">
                   <h3 className="text-xl font-black text-slate-900 tracking-tight">App Settings</h3>
-                  <div className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">Version 0.0.50 (v0.0.2)</div>
+                  <div className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">Version 0.0.3</div>
                 </div>
               </div>
               <button
@@ -141,19 +141,35 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                   <Volume2 size={18} className="text-indigo-500" />
                   <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.25em]">TTS Speaking Rate</label>
                 </div>
-                <div className="flex items-center gap-6">
-                  <input 
-                    type="range" 
-                    min="0.5" 
-                    max="2.0" 
-                    step="0.1"
-                    value={globalSettings.speechRate}
-                    onChange={(e) => updateSettings({ speechRate: parseFloat(e.target.value) })}
-                    className="flex-1 h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-indigo-600"
-                  />
-                  <span className="text-indigo-600 font-black bg-indigo-50 px-4 py-2 rounded-2xl min-w-[60px] text-center">
-                    {globalSettings.speechRate.toFixed(1)}x
-                  </span>
+                {/* English Rate */}
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest">English</label>
+                  <div className="flex items-center gap-6">
+                    <input 
+                      type="range" min="0.5" max="2.0" step="0.1"
+                      value={globalSettings.speechRateEn}
+                      onChange={(e) => updateSettings({ speechRateEn: parseFloat(e.target.value) })}
+                      className="flex-1 h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-indigo-600"
+                    />
+                    <span className="text-indigo-600 font-black bg-indigo-50 px-4 py-2 rounded-2xl min-w-[60px] text-center">
+                      {globalSettings.speechRateEn.toFixed(1)}x
+                    </span>
+                  </div>
+                </div>
+                {/* Spanish Rate */}
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Spanish</label>
+                  <div className="flex items-center gap-6">
+                    <input 
+                      type="range" min="0.5" max="2.0" step="0.1"
+                      value={globalSettings.speechRateEs}
+                      onChange={(e) => updateSettings({ speechRateEs: parseFloat(e.target.value) })}
+                      className="flex-1 h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-indigo-600"
+                    />
+                    <span className="text-indigo-600 font-black bg-indigo-50 px-4 py-2 rounded-2xl min-w-[60px] text-center">
+                      {globalSettings.speechRateEs.toFixed(1)}x
+                    </span>
+                  </div>
                 </div>
                 <div className="flex justify-between text-[8px] text-slate-400 font-black uppercase tracking-widest px-1">
                   <span>Turtle</span>
@@ -281,7 +297,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                   </div>
                 </div>
                  <p className="text-[10px] text-slate-400 font-medium leading-relaxed italic px-2">
-                  * Backups are stored safely in your device's <strong>Documents</strong> folder. 
+                  * Backups are stored safely in your device's <strong>Backup\ReaderOn\ReaderOnBackup</strong> folder. 
                   Deleting them here will permanently remove them from storage.
                 </p>
               </div>
@@ -429,9 +445,9 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 
                 <div className="flex flex-col items-center gap-2 py-4">
                   <p className="text-center text-[10px] text-slate-300 font-black uppercase tracking-[0.4em]">Reader<span className="text-indigo-400">ON</span> • Premium Edition</p>
-                  <p className="text-[8px] text-slate-400 font-bold uppercase tracking-widest bg-slate-50 px-3 py-1 rounded-full border border-slate-100">Version 0.0.50: UX Redesign & Irregulars</p>
+                  <p className="text-[8px] text-slate-400 font-bold uppercase tracking-widest bg-slate-50 px-3 py-1 rounded-full border border-slate-100">Version 0.0.3</p>
                   <div className="flex gap-4 opacity-30 mt-2">
-                    <div className="text-[7px] font-black uppercase tracking-[0.2em]">Build 20260506-F</div>
+                    <div className="text-[7px] font-black uppercase tracking-[0.2em]">Build fix 0.0.98 - 20260520--0.0.98</div>
                     <div className="text-[7px] font-black uppercase tracking-[0.2em]">© 2026 ReaderON AI</div>
                   </div>
                 </div>

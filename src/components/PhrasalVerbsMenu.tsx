@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ChevronLeft, ChevronRight, ArrowRight, Activity, Zap, PlayCircle, Sparkles, Target } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, Activity, Zap, PlayCircle, Sparkles, Target, BookOpen } from 'lucide-react';
 import { AppMode } from '../types';
 
 interface PhrasalVerbsMenuProps {
@@ -262,6 +262,27 @@ const PhrasalVerbsMenu: React.FC<PhrasalVerbsMenuProps> = ({ onBack, setMode }) 
               </p>
               <div className="inline-flex items-center gap-2 text-indigo-500 font-black text-xs uppercase tracking-widest group-hover:translate-x-1 transition-transform">
                 Start Learning <ArrowRight size={16} strokeWidth={3} />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Phrasal Verbs GENERALLY (BE, GET, HAVE, DO) */}
+          <motion.div 
+            whileHover={{ y: -4 }}
+            onClick={() => setMode('PHRASAL_VERBS_GENERALLY')}
+            className="bento-card p-5 relative overflow-hidden group cursor-pointer border-slate-900/10 border-b-4 border-b-slate-900 shadow-xl shadow-slate-200/50 bg-white"
+          >
+            <div className="absolute top-0 right-0 p-3">
+               <BookOpen size={18} className="text-slate-400 opacity-20 group-hover:opacity-100 group-hover:scale-110 transition-all" />
+            </div>
+            <div className="relative z-10 flex flex-col items-start gap-2">
+              <div className="bg-slate-900 text-white px-2 py-0.5 rounded-full text-[7px] font-black uppercase tracking-widest">Core Verbs</div>
+              <h2 className="text-lg font-black text-slate-900 leading-tight uppercase">BE GET HAVE DO</h2>
+              <p className="text-slate-400 text-[9px] font-medium leading-tight mb-1">
+                Tiempos fundamentales.
+              </p>
+              <div className="inline-flex items-center gap-2 text-slate-900 font-black text-xs uppercase tracking-widest group-hover:translate-x-1 transition-transform">
+                Master Verbs <ArrowRight size={16} strokeWidth={3} />
               </div>
             </div>
           </motion.div>

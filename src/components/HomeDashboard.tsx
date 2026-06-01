@@ -323,6 +323,26 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
               </div>
             </div>
           </motion.div>
+
+          {/* LinguaSkills Entry Card */}
+          <motion.div 
+            whileHover={{ y: -6, scale: 1.01 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => setMode('LINGUASKILLS')}
+            className="bento-card p-6 sm:p-8 relative overflow-hidden group cursor-pointer border-cyan-100/50 border-b-4 border-b-cyan-500 bg-gradient-to-br from-white to-cyan-50/30 shadow-xl shadow-cyan-100/20"
+          >
+            <div className="absolute top-0 right-0 p-4">
+               <Target size={20} className="text-cyan-400 opacity-20 group-hover:opacity-100 group-hover:scale-110 transition-all" />
+            </div>
+            <div className="relative z-10 flex flex-col items-start gap-4">
+              <div className="bg-cyan-600 text-white px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest shadow-md shadow-cyan-100">Testing</div>
+              <h2 className="text-2xl font-black text-slate-900 leading-tight">LINGUA<br/>SKILLS</h2>
+              <p className="text-slate-400 max-w-[200px] text-[11px] font-medium leading-relaxed mb-2">Listening tips & exam strategies.</p>
+              <div className="inline-flex items-center gap-2 text-cyan-600 font-black text-[10px] uppercase tracking-widest group-hover:translate-x-1 transition-transform">
+                Open Guide <ArrowRight size={14} strokeWidth={3} />
+              </div>
+            </div>
+          </motion.div>
         </div>
 
         <div className="flex items-center gap-4 px-6 pt-4 pb-2">

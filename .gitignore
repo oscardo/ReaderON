@@ -7,3 +7,5 @@ coverage/
 .env*
 !.env.example
 ~WRL0005.tmp
+*.apk
+*.api

@@ -58,8 +58,10 @@ import PhrasalVerbsOverDownSection from './components/PhrasalVerbsOverDownSectio
 import DoMakeSection from './components/DoMakeSection';
 import AtInOnSection from './components/AtInOnSection';
 import AboutForSection from './components/AboutForSection';
+import GenerallySection from './components/GenerallySection';
 import { SLANGS } from './constants/slangs';
 import { EBookReader } from './components/EBookReader';
+import { LinguaSkillsSection } from './components/LinguaSkillsSection';
 import confetti from 'canvas-confetti';
 
 // --- Utils ---
@@ -171,6 +173,11 @@ export default function App() {
         else if (mode === 'PHRASAL_VERBS_IN') setMode('PHRASAL_VERBS_MENU');
         else if (mode === 'PHRASAL_VERBS_BACK') setMode('PHRASAL_VERBS_MENU');
         else if (mode === 'PHRASAL_VERBS_THROUGH') setMode('PHRASAL_VERBS_MENU');
+        else if (mode === 'PHRASAL_VERBS_OVER_DOWN') setMode('PHRASAL_VERBS_MENU');
+        else if (mode === 'PHRASAL_VERBS_DO_MAKE') setMode('PHRASAL_VERBS_MENU');
+        else if (mode === 'PHRASAL_VERBS_AT_IN_ON') setMode('PHRASAL_VERBS_MENU');
+        else if (mode === 'PHRASAL_VERBS_ABOUT_FOR') setMode('PHRASAL_VERBS_MENU');
+        else if (mode === 'PHRASAL_VERBS_GENERALLY') setMode('PHRASAL_VERBS_MENU');
         else setMode('HOME');
       } else {
         // If at home, ask to exit
@@ -279,30 +286,77 @@ export default function App() {
     }
   };
 
-  const speakWord = async (text: string, lang: string = 'en-US', isFullText: boolean = false) => {
+  const stopSpeaking = async () => {
+    try {
+      await TextToSpeech.stop();
+    } catch (e) {
+      console.warn("Error stopping native TTS:", e);
+    }
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+  };
+
+  const speakWord = async (text: string, lang: string = 'en-US', isFullText: boolean = false): Promise<void> => {
     try {
       // Small delay to ensure previous speech is fully cancelled
       await TextToSpeech.stop();
       
-      const options = {
+      const rate = lang.toLowerCase().startsWith('es') 
+        ? globalSettings.speechRateEs
+        : globalSettings.speechRateEn;
+
+      const options: any = {
         text,
         lang,
-        rate: globalSettings.speechRate,
+        rate,
         pitch: 1.0,
-        volume: 1.0,
-        category: 'playback' // Better than ambient for Android
+        volume: 1.0
       };
+
+      // Try to find a high quality native voice if language is Spanish
+      if (lang.toLowerCase().startsWith('es')) {
+        try {
+          const result = await TextToSpeech.getSupportedVoices();
+          const voices = result.voices || [];
+          // Search for a Spanish voice
+          const esVoiceIdx = voices.findIndex((v: any) => v.lang.toLowerCase().startsWith('es'));
+          if (esVoiceIdx !== -1) {
+            options.voice = esVoiceIdx;
+          }
+        } catch (voiceErr) {
+          console.warn("Could not get native voices:", voiceErr);
+        }
+      }
 
       await TextToSpeech.speak(options);
     } catch (e) {
       console.error("TTS Plugin Error, trying Web API:", e);
       // Fallback to web API
       if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = lang;
-        utterance.rate = globalSettings.speechRate;
-        window.speechSynthesis.speak(utterance);
+        return new Promise<void>((resolve) => {
+          window.speechSynthesis.cancel();
+          const utterance = new SpeechSynthesisUtterance(text);
+          utterance.lang = lang;
+          
+          const rate = lang.toLowerCase().startsWith('es') 
+            ? globalSettings.speechRateEs
+            : globalSettings.speechRateEn;
+          utterance.rate = rate;
+
+          // Select a Spanish voice in browser if available
+          if (lang.toLowerCase().startsWith('es')) {
+            const webVoices = window.speechSynthesis.getVoices();
+            const webEsVoice = webVoices.find(v => v.lang.toLowerCase().startsWith('es'));
+            if (webEsVoice) {
+              utterance.voice = webEsVoice;
+            }
+          }
+
+          utterance.onend = () => resolve();
+          utterance.onerror = () => resolve();
+          window.speechSynthesis.speak(utterance);
+        });
       }
     }
   };
@@ -511,6 +565,16 @@ export default function App() {
                 />
             )}
             {mode === 'SLANG' && <SlangSection onBack={() => setMode('HOME')} speakText={speakWord} />}
+            {mode === 'LINGUASKILLS' && (
+              <LinguaSkillsSection 
+                onBack={() => {
+                  stopSpeaking();
+                  setMode('HOME');
+                }} 
+                speakText={speakWord} 
+                stopSpeaking={stopSpeaking}
+              />
+            )}
             {mode === 'PHRASAL_VERBS_MENU' && (
                 <PhrasalVerbsMenu onBack={() => setMode('HOME')} setMode={setMode} />
             )}
@@ -576,6 +640,12 @@ export default function App() {
             )}
             {mode === 'PHRASAL_VERBS_ABOUT_FOR' && (
               <AboutForSection 
+                onBack={() => setMode('PHRASAL_VERBS_MENU')} 
+                speakText={speakWord} 
+              />
+            )}
+            {mode === 'PHRASAL_VERBS_GENERALLY' && (
+              <GenerallySection 
                 onBack={() => setMode('PHRASAL_VERBS_MENU')} 
                 speakText={speakWord} 
               />

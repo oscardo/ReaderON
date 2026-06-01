@@ -4,7 +4,7 @@ import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 
 const DB_NAME = 'ReaderON_DB';
 const STORE_NAME = 'practices';
-const VERSION = 16;
+const VERSION = 17;
 
 let dbPromise: Promise<IDBPDatabase> | null = null;
 
@@ -75,6 +75,9 @@ function getDB() {
         }
         if (!db.objectStoreNames.contains('phrasal_verbs_about_for')) {
           db.createObjectStore('phrasal_verbs_about_for', { keyPath: 'id' });
+        }
+        if (!db.objectStoreNames.contains('phrasal_verbs_generally')) {
+          db.createObjectStore('phrasal_verbs_generally', { keyPath: 'id' });
         }
       },
     });
@@ -510,6 +513,24 @@ export async function clearAllAboutForPersistence(): Promise<void> {
   await db.clear('phrasal_verbs_about_for');
 }
 
+// PERSISTENCE FOR GENERALLY (BE, GET, HAVE, DO)
+export async function getGenerallyRepetitions(id: number): Promise<number> {
+  const db = await getDB();
+  const entry = await db.get('phrasal_verbs_generally', id);
+  return entry ? entry.count : 0;
+}
+
+export async function incrementGenerallyRepetition(id: number): Promise<void> {
+  const db = await getDB();
+  const current = await getGenerallyRepetitions(id);
+  await db.put('phrasal_verbs_generally', { id, count: current + 1 });
+}
+
+export async function clearAllGenerallyPersistence(): Promise<void> {
+  const db = await getDB();
+  await db.clear('phrasal_verbs_generally');
+}
+
 // BACKUP & RESTORE
 export async function exportDatabase(): Promise<string> {
   const db = await getDB();
@@ -519,7 +540,7 @@ export async function exportDatabase(): Promise<string> {
     stores: {}
   };
   
-  const storeNames = ['practices', 'word_flags', 'thousand_words_1', 'thousand_words_2', 'regular_verbs', 'idioms_expressions', 'irregular_verbs', 'c1_words', 'slangs', 'phrasal_verbs', 'phrasal_verbs_up_out', 'phrasal_verbs_off', 'phrasal_verbs_on', 'phrasal_verbs_in', 'phrasal_verbs_back', 'phrasal_verbs_through', 'phrasal_verbs_over_down', 'phrasal_verbs_do_make', 'phrasal_verbs_at_in_on', 'phrasal_verbs_about_for'];
+  const storeNames = ['practices', 'word_flags', 'thousand_words_1', 'thousand_words_2', 'regular_verbs', 'idioms_expressions', 'irregular_verbs', 'c1_words', 'slangs', 'phrasal_verbs', 'phrasal_verbs_up_out', 'phrasal_verbs_off', 'phrasal_verbs_on', 'phrasal_verbs_in', 'phrasal_verbs_back', 'phrasal_verbs_through', 'phrasal_verbs_over_down', 'phrasal_verbs_do_make', 'phrasal_verbs_at_in_on', 'phrasal_verbs_about_for', 'phrasal_verbs_generally'];
   for (const name of storeNames) {
     if (db.objectStoreNames.contains(name)) {
       backup.stores[name] = await db.getAll(name);
@@ -556,7 +577,8 @@ export async function exportDatabaseNative(): Promise<string> {
   const hours = String(now.getHours()).padStart(2, '0');
   const minutes = String(now.getMinutes()).padStart(2, '0');
   
-  const fileName = `${day}${month}${year}${hours}${minutes}.bkp`;
+  const backupDir = 'Backup/ReaderOn/ReaderOnBackup';
+  const fileName = `${backupDir}/${day}${month}${year}${hours}${minutes}.bkp`;
   
   try {
     const result = await Filesystem.writeFile({
@@ -577,7 +599,7 @@ export async function exportDatabaseNative(): Promise<string> {
 export async function getBackupList(): Promise<any[]> {
   try {
     const result = await Filesystem.readdir({
-      path: '',
+      path: 'Backup/ReaderOn/ReaderOnBackup',
       directory: Directory.Documents
     });
     return result.files
@@ -590,7 +612,7 @@ export async function getBackupList(): Promise<any[]> {
 
 export async function deleteBackup(fileName: string): Promise<void> {
   await Filesystem.deleteFile({
-    path: fileName,
+    path: `Backup/ReaderOn/ReaderOnBackup/${fileName}`,
     directory: Directory.Documents
   });
 }
@@ -598,7 +620,7 @@ export async function deleteBackup(fileName: string): Promise<void> {
 export async function getBackupDirectory(): Promise<string> {
   // On most devices, this returns the absolute path to Documents
   const result = await Filesystem.getUri({
-    path: '',
+    path: 'Backup/ReaderOn/ReaderOnBackup',
     directory: Directory.Documents
   });
   return result.uri;
@@ -607,7 +629,7 @@ export async function getBackupDirectory(): Promise<string> {
 export async function restoreFromBackup(fileName: string): Promise<void> {
   try {
     const result = await Filesystem.readFile({
-      path: fileName,
+      path: `Backup/ReaderOn/ReaderOnBackup/${fileName}`,
       directory: Directory.Documents,
       encoding: Encoding.UTF8
     });

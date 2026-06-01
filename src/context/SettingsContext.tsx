@@ -6,7 +6,8 @@ type ProficiencyLevel = 'B1' | 'B2' | 'C1';
 
 interface Settings {
   fontSize: FontSize;
-  speechRate: number;
+  speechRateEn: number;
+  speechRateEs: number;
   density: Density;
   reducedMotion: boolean;
   proficiencyLevel: ProficiencyLevel;
@@ -26,7 +27,8 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     const parsed = saved ? JSON.parse(saved) : {};
     return {
       fontSize: parsed.fontSize || 'medium',
-      speechRate: parsed.speechRate || 1.0,
+      speechRateEn: parsed.speechRateEn || parsed.speechRate || 1.0,
+      speechRateEs: parsed.speechRateEs || parsed.speechRate || 0.85,
       density: parsed.density || 'comfortable',
       reducedMotion: parsed.reducedMotion || false,
       proficiencyLevel: parsed.proficiencyLevel || 'B2',

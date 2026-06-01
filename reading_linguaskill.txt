@@ -1,0 +1,128 @@
+* Descripción general: La prueba de comprensión lectora de Linguaskill
+La prueba de comprensión lectora de Linguaskill es una prueba adaptativa. Esto significa que cuanto mayor sea tu puntuación en las tareas que vayas completando, más probable será que las siguientes tareas a las que te enfrentes aumenten en dificultad y en el nivel del MCER. Lo contrario también es cierto; es decir, cuanto menor sea tu puntuación, más probable será que las siguientes tareas disminuyan, o al menos no aumenten, su dificultad.
+Debido a que se trata de una prueba adaptativa, no hay un tiempo exacto sobre cuánto durará. Continuarás realizando tareas hasta que el sistema pueda determinar con precisión tu nivel del MCER. Por lo general, debería durar entre 40 y 55 minutos, pero no te preocupes si tardas más o menos tiempo que este. Además, cada candidato realiza una prueba diferente y, como resultado, los tiempos de duración pueden variar.
+Existen nueve tipos de tareas diferentes en la prueba de comprensión lectora, que van desde ejercicios de una sola pregunta o una sola oración, hasta tareas con múltiples preguntas y textos más largos. En términos generales, cuanto más compleja sea la tarea, mayor será el nivel del MCER que se está evaluando. Las tareas están diseñadas para poner a prueba una variedad de habilidades de lectura, y algunas de ellas evaluarán tu nivel de «Uso del inglés» (Use of English), es decir, tus conocimientos gramaticales y/o de vocabulario (léxico).
+
+*Comprensión lectora: Opción múltiple de una sola pregunta
+¿Qué debo hacer?
+En esta tarea, se te presenta un texto breve y debes responder a una única pregunta o completar una oración eligiendo una de las tres opciones. El texto podría ser, por ejemplo, un letrero o un aviso (ya sea público o privado), la etiqueta o las instrucciones de un producto de consumo, un mensaje comunicativo corto, como un correo electrónico o un mensaje de texto, o bien el extracto de un texto informativo de la vida real, como un anuncio o un folleto.
+¿Qué evalúa?
+Por lo general, el objetivo de esta tarea es comprender la idea principal que transmite el texto breve. Podrás practicar esta habilidad de comprensión lectora en el próximo módulo de este curso.
+
+* Comprensión lectora: Completar espacios en blanco de opción múltiple (una sola pregunta)
+¿Qué debo hacer?
+En esta tarea, se te presenta una oración y debes elegir la opción correcta entre cuatro alternativas para completarla.
+
+¿Qué evalúa?
+La tarea evalúa los conocimientos gramaticales y de vocabulario (léxico). Por lo general, las opciones pertenecerán a la misma categoría gramatical (por ejemplo, sustantivo, verbo, adjetivo, adverbio) y a menudo tendrán significados similares, pero solo una opción encajará correctamente en la oración. Toca «Mostrar» (Show) para leer sobre los tipos de gramática y vocabulario que se te podrían evaluar.
+
+Ahora pasa a la siguiente pantalla para realizar una tarea de ejemplo de la prueba Linguaskill. En este ejemplo, al hacer clic en el espacio en blanco, las cuatro opciones se mostrarán verticalmente. En el examen real, las opciones aparecerán de forma horizontal en la parte inferior de la pantalla.
+
+* Comprensión lectora: Completar espacios en blanco de opción múltiple (cinco preguntas)
+¿Qué debo hacer?
+En esta tarea, se te presenta un texto con cinco espacios en blanco y, para cada uno de ellos, debes elegir la opción correcta para completarlo. Esta tarea es similar a la de «Comprensión lectora: Completar espacios en blanco de opción múltiple (una sola pregunta)», pero en un formato de texto más largo.
+
+¿Qué evalúa?
+Al igual que en la tarea de completar espacios en blanco de una sola pregunta, esta sección evalúa tus conocimientos gramaticales y de vocabulario (léxico). Por lo general, las opciones pertenecerán a la misma categoría gramatical (por ejemplo, sustantivo, verbo, adjetivo, adverbio) y a menudo tendrán significados similares, pero solo una opción encajará correctamente en la oración. Toca «Mostrar» (Show) para leer sobre los tipos de gramática y vocabulario que se te podrían evaluar.
+
+* Comprensión lectora: Completar espacios en blanco de opción múltiple (cinco preguntas)
+¿Qué debo hacer?
+En esta tarea, se te presenta un texto con cinco espacios en blanco y, para cada uno de ellos, debes elegir la opción correcta para completarlo. Esta tarea es similar a la de «Comprensión lectora: Completar espacios en blanco de opción múltiple (una sola pregunta)», pero en un formato de texto más largo.
+
+¿Qué evalúa?
+Al igual que en la tarea de completar espacios en blanco de una sola pregunta, esta sección evalúa tus conocimientos gramaticales y de vocabulario (léxico). Por lo general, las opciones pertenecerán a la misma categoría gramatical (por ejemplo, sustantivo, verbo, adjetivo, adverbio) y a menudo tendrán significados similares, pero solo una opción encajará correctamente en la oración. Toca «Mostrar» (Show) para leer sobre los tipos de gramática y vocabulario que se te podrían evaluar.
+
+* Comprensión lectora: Completar espacios en blanco de forma abierta (cinco preguntas)
+¿Qué debo hacer?
+El texto tiene cinco espacios en blanco y, para cada uno de ellos, debes escribir UNA sola palabra que lo complete. A diferencia de la tarea de «Comprensión lectora: Completar espacios en blanco de opción múltiple (cinco preguntas)», aquí no se te darán opciones para elegir.
+
+¿Qué evalúa?
+Aquí se evalúan tus conocimientos gramaticales. Cada una de las palabras que faltan en el texto está relacionada con estructuras gramaticales comunes en inglés. Toca «Mostrar» (Show) para leer sobre los tipos de gramática que se te podrían evaluar.
+
+* Comprensión lectora: Opción múltiple de cinco preguntas
+¿Qué debo hacer?
+Esta tarea es similar a la de «Comprensión lectora: Opción múltiple de una sola pregunta», pero la longitud del texto es mayor y en esta ocasión tienes cinco preguntas de opción múltiple, con tres o cuatro opciones de respuesta para cada una.
+
+¿Qué evalúa?
+Esta tarea es similar a la de «Comprensión lectora: Opción múltiple de una sola pregunta», pero el texto es más largo y complejo. Toca «Mostrar» (Show) para leer sobre los tipos de lenguaje que se te podrían evaluar.
+
+*Comprensión lectora: Opción múltiple de dos preguntas
+¿Qué debo hacer?
+Esta tarea es similar a la de «Comprensión lectora: Opción múltiple de cinco preguntas», pero la longitud del texto es menor y solo hay dos preguntas, con cuatro opciones de respuesta para cada una.
+
+¿Qué evalúa?
+Esta tarea está dirigida únicamente a los niveles más altos del MCER. Al igual que en la tarea de «Comprensión lectora: Opción múltiple de cinco preguntas», tu comprensión lectora se evalúa en una variedad de áreas posibles. Toca «Mostrar» (Show) para leer sobre los tipos de lenguaje que se te podrían evaluar.
+
+* Comprensión lectora: Completar el texto con párrafos faltantes
+¿Qué debo hacer?
+En esta tarea, leerás un texto largo del cual se han extraído cinco párrafos. Luego, debes completar cada espacio en blanco eligiendo el párrafo adecuado entre un conjunto de seis opciones. Uno de los párrafos es un distractor y no se utiliza.
+
+¿Qué evalúa?
+La tarea de completar el texto con párrafos faltantes está dirigida únicamente a los niveles más altos del MCER. Evalúa tu conocimiento sobre la estructura del texto; en otras palabras, tu capacidad para comprender cómo se entrelazan las ideas de forma lógica para facilitar la lectura.
+
+Hay dos aspectos principales en esto:
+
+Coherencia: Identificar el desarrollo de los temas en un texto extenso. Un texto coherente organizará sus párrafos siguiendo una secuencia lógica de ideas, por lo que un párrafo faltante a menudo tendrá una conexión temática con los párrafos que van antes y después de él.
+
+Cohesión: Comprender cómo se utilizan ciertos tipos de lenguaje para conectar ideas dentro de un texto. Por ejemplo, identificar a qué se refieren los pronombres y las palabras de referencia (he, they, it, this, etc.) en el texto, o entender cómo se emplean las palabras y frases de enlace (in addition, however, on the other hand, etc.) para conectar ideas o puntos clave.
+
+* Comprensión lectora: Completar el texto con oraciones faltantes
+¿Qué debo hacer?
+Esta tarea es similar a la de «Comprensión lectora: Completar el texto con párrafos faltantes», pero en esta ocasión leerás un texto largo del cual se han extraído cinco oraciones, en lugar de cinco párrafos. Debes elegir las oraciones correctas para completar el texto a partir de un conjunto de ocho opciones, tres de las cuales son distractores y no se utilizan.
+
+¿Qué evalúa?
+La tarea de completar el texto con oraciones faltantes está dirigida únicamente a los niveles más altos del MCER. Al igual que en la tarea de completar con párrafos faltantes, evalúa tu conocimiento sobre la estructura del texto, pero esta vez enfocándose principalmente a nivel de párrafo. Sin embargo, el enfoque es esencialmente el mismo:
+
+Coherencia: Identificar qué oración conecta los temas de las oraciones que van antes y después de ella.
+
+Cohesión: Comprender cómo se utilizan ciertos tipos de lenguaje para conectar ideas dentro de un texto. Por ejemplo, identificar a qué se refieren los pronombres y las palabras de referencia (he, they, it, this, etc.) en el texto, o entender cómo se emplean las palabras y frases de enlace (in addition, however, on the other hand, etc.) para conectar ideas o puntos clave.
+
+* Lectura: Emparejamiento de múltiples textos
+
+¿Qué debo hacer?
+Para esta tarea, leerá cuatro textos individuales sobre el mismo tema y responderá cuatro preguntas de opción múltiple. Para responder a cada pregunta, debe emparejarla con uno de los textos. Puede elegir cada texto más de una vez.
+
+¿Qué evalúa?
+El emparejamiento de múltiples textos de lectura está dirigido únicamente a los niveles más altos del MCER (Marco Común Europeo de Referencia). Esta tarea evalúa su capacidad para leer múltiples fuentes con el fin de encontrar ideas, opiniones o actitudes en los textos que expresen acuerdo o desacuerdo con otras ideas, opiniones o actitudes. Deberá comprender los puntos de vista de cada escritor y compararlos o contrastarlos con los demás puntos de vista.
+
+* Habilidades de lectura: Descripción general
+En un módulo anterior, conociste las diversas tareas que aparecen en la prueba de lectura (Reading) de Linguaskill. Para completar estas tareas, necesitarás utilizar una serie de habilidades de lectura para responder a los diferentes tipos de preguntas. El propósito de este módulo es ayudarte a comprender las habilidades de lectura que necesitarás emplear para responder cada tipo de pregunta.
+El módulo cubrirá las habilidades que te ayudarán a identificar e interpretar lo siguiente:
+
+Idea principal y detalles
+Opinión y acuerdo
+Actitud
+Propósito y función
+Inferencia e implicación
+Significado a partir del contexto
+Comparación, contraste y ejemplos
+Referencia (comprender a qué se refieren los pronombres)
+Uso del inglés 1 (Gramática)
+Uso del inglés 2 (Gramática y vocabulario)
+Uso del inglés 3 (Comprensión de la estructura del texto)
+En cada sección de habilidades:
+aprenderás en qué consiste la habilidad o el tipo de pregunta.
+realizarás ejercicios de práctica para ayudarte a entender qué se está evaluando y qué debes hacer.
+podrás ver y practicar estas habilidades / tipos de preguntas en tareas reales de la prueba Linguaskill.
+
+Las tareas de lectura de Linguaskill que verás en esta sección contienen ejemplos de Linguaskill y Linguaskill Business. Las habilidades y los tipos de preguntas son los mismos para ambas versiones de la prueba.
+
+
+** Preguntas de idea principal y detalles en la Lectura (Reading) de Linguaskill
+La mayoría de los párrafos, e incluso algunos textos cortos, se componen de los siguientes dos elementos:
+el mensaje clave que comunica un texto o párrafo (idea principal)
+información que respalda esta idea principal, como explicaciones, ejemplos o argumentos (detalles)
+La idea principal es un resumen del punto clave en un párrafo o texto corto, o el punto principal que el escritor quiere comunicar sobre el tema. A menudo, un escritor dejará clara la idea principal utilizando una oración específica llamada "oración temática" (topic sentence). Esta oración temática generalmente se encuentra al principio de un párrafo o texto. Si no hay una única oración temática, es posible que debas leer una mayor parte del párrafo o texto y pensar en términos más generales sobre lo que intenta decir.
+
+Los detalles de un párrafo o texto te brindan más información sobre la idea principal. Estos pueden incluir razones, argumentos o evidencia que la respaldan. Una pregunta de detalle se enfocará en un aspecto específico del tema. Para responder a este tipo de pregunta, deberás identificar qué detalle se te está pidiendo y luego buscar la información en el texto o párrafo para responderla.
+
+Las preguntas de idea principal y detalles son comunes en las tareas de lectura de Linguaskill. En esta lección, aprenderás cómo identificarlas y responderlas.
+
+**Preguntas de opinión y acuerdo en la Lectura (Reading) de Linguaskill
+
+En algunas tareas de lectura de Linguaskill, debes hacer más que simplemente identificar hechos e información en los textos que lees. Una pregunta puede requerir que identifiques una opinión, distingas entre hechos y opiniones, o decidas si una opinión concuerda con otra. El enfoque puede estar en la opinión del autor o en una opinión citada por él.
+
+En los niveles más bajos, las opiniones que debes identificar se expresarán de manera directa. En los niveles más altos, las opiniones pueden estar implícitas, por ejemplo, mediante el uso de vocabulario positivo o negativo. En cualquier caso, deberías poder resaltar información en el texto o en las opciones que confirme la respuesta correcta o descarte los distractores. La información relevante puede estar en una sola parte del texto o distribuida a lo largo de varias oraciones o párrafos.
+
+Las preguntas centradas en la opinión o el acuerdo pueden ser de opción múltiple, en las que la opinión o el acuerdo que debes identificar puede estar enunciado en la formulación de la pregunta, en las opciones o en el texto. La comprensión de acuerdos también se evalúa en tareas en las que debes emparejar afirmaciones con un texto de un grupo de cuatro textos relacionados.
+

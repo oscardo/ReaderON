@@ -1890,3 +1890,143 @@ Usas FOR cuando quieres decir "Este es el objetivo/deseo que quiero alcanzar".
 [fix] Debe hacer un juego que sea mas interactivo y fun.
 [APK] create and Generated ReaderOn.apk in root directory.
 
+
+
+fix 0.0.93
+[feature]  create new sub-categorie in Phrasal Verbs called 
+TO BE TO GET TO HAVE TO DO 
+with guide and fun games.
+this sub-category should have the following words:
+@generally.txt
+
+contents: 
+1. To Be (Ser o Estar)
+2. To Get (Conseguir, Llegar, Volverse)
+3. To Have (Tener / Haber)
+4. To Do (Hacer)
+Puntos clave para recordar:
+_____________
+1. To Be (Ser o Estar)
+Es el verbo más irregular, pero el más importante. Se usa para describir estados, identidades o ubicaciones.
+Tiempo	Forma	Ejemplo	Traducción
+Presente	am / is / are	I am in Bogotá.	Yo estoy en Bogotá.
+Pasado	was / were	He was a developer.	Él era desarrollador.
+Futuro	will be	We will be ready.	Nosotros estaremos listos.
+________________________________________
+2. To Get (Conseguir, Llegar, Volverse)
+Como ya vimos con los Phrasal Verbs, este es el verbo "comodín". Cambia según con quién ande.
+Tiempo	Forma	Ejemplo	Traducción
+Presente	get / gets	I get the logs.	Yo obtengo los logs.
+Pasado	got	She got on the bus.	Ella se subió al bus.
+Futuro	will get	You will get a C1.	Obtendrás un C1.
+Tip: En pasado, got es muy común para decir que entendiste algo (I got it!).
+________________________________________
+3. To Have (Tener / Haber)
+Fundamental para posesión y para construir tiempos compuestos (como el Present Perfect que seguro verás en el Linguaskill).
+Tiempo	Forma	Ejemplo	Traducción
+Presente	have / has	I have a meeting.	Tengo una reunión.
+Pasado	had	We had a problem.	Tuvimos un problema.
+Futuro	will have	It will have impact.	Tendrá impacto.
+________________________________________
+4. To Do (Hacer)
+Se usa para acciones concretas y es el rey de las preguntas y negaciones.
+Tiempo	Forma	Ejemplo	Traducción
+Presente	do / does	I do my job.	Hago mi trabajo.
+Pasado	did	They did the test.	Ellos hicieron el test.
+Futuro	will do	I will do the demo.	Haré la demostración.
+_______________________________________
+Puntos clave para recordar:
+1.	El Futuro es "Easy Mode": Para todos estos verbos, el futuro simplemente usa WILL + el verbo en infinitivo. No cambia por persona (I, You, He, She...).
+2.	La "S" en Presente: Recuerda que en presente, para He, She, It, los verbos cambian un poco: He is, She gets, It has, He does.
+3.	Auxiliares en negación:
+o	Presente: I don't have. / She doesn't get.
+o	Pasado: I didn't do. / We didn't have.
+[fix] Las banderas o flags y los reset no funcionan, por favor reparalo.
+[fix] tts no funciona en esta version, por favor reparalo.
+[fix] Debe hacer un juego que sea mas interactivo y fun.
+[APK] create and Generated ReaderOn.apk in root directory.
+
+fix 0.0.94
+[fix] read all and retake orden (not changed content only read ordering)
+[fix] tts no funciona en esta version, por favor reparalo.
+[APK] create and Generated ReaderOn.apk in root directory.
+
+fix 0.0.95
+[fix] read all and retake orden (not changed content only read ordering)
+[feature] LinguaSkills - Listening: read and speak in this sub-category in spanish.
+[fix] tts no funciona en esta version, por favor reparalo.
+[APK] create and Generated ReaderOn.apk in root directory.
+
+fix 0.0.96
+[fix] read all and retake orden (not changed content only read ordering)
+[feature] create new category called: LinguaSkills not in study center. 
+CALLED: LinguaSkills  (is OK)
+and add sub-category called: Listening (Is OK)
+@Listener_linguaskill.txt
+[feature] LinguaSkills - Listening (is not OK, because only title and do you know read all text please)
+[feature] best spanish speaking because speak how robot and not a person 
+[fix] tts no funciona en esta version, por favor reparalo.
+[APK] create and Generated ReaderOn.apk in root directory.
+
+fix 0.0.97
+[fix] only in form the Setting, only settings
+[fix] version is 0.0.3 (not changed in Settings)
+[fix] in tts speaking rate create in spanish and english control for each. 
+[fix] in data management create folder called ReaderOn 
+and inside this folder create:  ReaderOnBackup in Generate New Backup (.bkp).
+[fix] manage saved backup, already create and principal directory 
+ReaderOn\ReaderOnBackup.
+[fix] in Backups are stoed safely in your divece's documents forder.
+change for other directory, create new folder called Backup
+and inside this folder create:  ReaderOn\ReaderOnBackup 
+in Generate New Backup (.bkp).
+[fix] readerONM version 0.0.3 
+[fix] build fix 0.0.97 - date-f
+[APK] create and Generated ReaderOn.apk in root directory.
+
+fix 0.0.98
+[fix] only in form the Setting, only settings
+[fix] version is 0.0.3 (not changed in Settings)
+[fix] in data management create folder called ReaderOn 
+and inside this folder create:  ReaderOnBackup (.bkp).
+[fix] manage saved backup, already create and principal directory 
+ReaderOn\ReaderOnBackup.
+[fix] in Backups are stoed safely in your divece's documents forder.
+change for other directory, create new folder called Backup
+and inside this folder create:  ReaderOn\ReaderOnBackup 
+[fix] readerONM version 0.0.3 
+[fix] build fix {fix numbre} - {date}-{fix numbre}
+[fix] build fix 0.0.98 - 20260520--0.0.98
+[APK] create and Generated ReaderOn.apk in root directory.
+
+feature 0.0.99
+[feature] create new category called: Reader ON 
+in this category, I've to add a text format and justify
+and enter in a lecture where I should read, and you listen and record my voice 
+in background.
+and I finished read and test.
+the test is simple, your evaluate my voice and give me a score.
+0 - 50 bad
+51 - 75 regular 
+76 - 90 good 
+91 - 100 excellent 
+and all text you give me a feedback in spanish and english.
+for example: 
+"Systems Engineer with a strong background in software development, 
+project management, and team leadership. 
+Passionate about technology and continuous learning, 
+I bring proven experience delivering high-quality solutions on time 
+and within budget"
+and retake lecture and transformation in three colors
+red - Bad pronunciation 
+yellow - regular pronunciation 
+green - Good pronunciation 
+for example evaluiate: 75% Regular {date dd/mm/yyyy} {comment: 500 lenght maximun}
+and and save the evaluations in a history.
+[URL] add url: https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=
+[URL] add url: https://newsapi.org/v2/everything?domains=wsj.com&apiKey=
+[ApiKey] 1111212554444
+[fix] tts no funciona en esta version, por favor reparalo.
+[APK] create and Generated ReaderOn.apk in root directory.
+
+
